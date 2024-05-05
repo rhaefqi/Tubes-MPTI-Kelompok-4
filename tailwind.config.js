@@ -16,6 +16,10 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                open: ['"Open Sans"', 'sans-serif']
+            },
+            colors: {
+                primary: '#006316',
             },
         },
     },
