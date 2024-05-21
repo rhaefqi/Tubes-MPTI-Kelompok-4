@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/home', [ViewController::class, 'showHome']);
+Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
+    ->name('perpus');
+Route::get('/detail-buku', [ViewController::class, 'showDetailBuku'])
+    ->name('detail.buku');
+Route::get('/profile', [ViewController::class, 'showProfile'])
+    ->name('profile');
+Route::get('/edit-profile', [ViewController::class, 'showEditProfile'])
+    ->name('edit.profile');
+Route::get('/ubah-sandi', [ViewController::class, 'showKelolaSandi'])
+    ->name('ubah.sandi');
 
 require __DIR__.'/auth.php';
