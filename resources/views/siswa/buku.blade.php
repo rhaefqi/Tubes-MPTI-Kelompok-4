@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Buku | Perpustakaan Amaliyah')
+
 @section('content')
 <div class="flex flex-col w-full md:max-w-screen-lg mx-auto gap-10 my-10">
     @include('layouts.search')

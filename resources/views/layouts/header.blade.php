@@ -14,7 +14,7 @@
                 <p class="text-lg font-bold text-[#245237] hover:text-[#F7D914]">Andy Septiawan Saragih</p>
 
                 <div class="relative flex justify-center">
-                    <div class="bg-gray-500 rounded-full p-8"></div>
+                    <img src="{{ asset('img/pp.jpeg') }}" class="w-16 h-16 rounded-full">
                     <span class="absolute -bottom-2 bg-[#245237] rounded-xl px-3 text-white text-xs font-medium">Siswa</span>
                 </div>
             </a>
@@ -22,7 +22,7 @@
 
         <button type="button" onclick="toggleNavbar()" class="lg:hidden">
             <div class="relative flex justify-center">
-                <div class="bg-gray-500 rounded-full p-5"></div>
+                <img src="{{ asset('img/pp.jpeg') }}" class="w-12 h-12 rounded-full">
                 <span class="absolute -bottom-2 bg-[#245237] rounded-xl px-3 text-white text-xs font-medium">Siswa</span>
             </div>
         </button>

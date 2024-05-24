@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Profile | Perpustakaan Amaliyah')
+
 @section('content')
 <div class="flex flex-col md:flex-row-reverse w-full md:max-w-screen-lg mx-auto gap-1 my-10">
     <div class="flex flex-col w-full md:w-1/4 px-3 gap-5">
