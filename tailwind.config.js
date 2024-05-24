@@ -17,7 +17,11 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                
+                open: ['"Open Sans"', 'sans-serif']
+            },
+            colors: {
+                primary: '#245237',
+                secondary: '#00923E',
             },
         },
     },
