@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Peminjaman Siswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-open flex">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="transition-all duration-500 sm:flex bg-[#245237] w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
+    </aside>
+
+    <div class="grid-cols-3 w-full flex-grow transition-all duration-500 ease-in-out p-4 flex flex-col">
+        <!-- bagian main -->
+        <div class="bg-white w-full flex border-b-[3px] border-[#245237] transition-all duration-500 ease-in-out">
+            <div class="container flex justify-center items-center max-w-full">
+             
+                <img src="logo.png" alt="" class="w-20">
+                <div class="font-open text-primary font-semibold text-lg">
+                    Perpustakaan <br>
+                    Yayasan Amaliyah
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-1 flex items-start justify-center p-6">
+            <div class="container mx-auto py-8">
+                <h1 class="text-green-900 text-5xl font-extrabold font-['open sans']">Manajemen Peminjaman Siswa</h1>
+                <!--Form-->
+                <center>
+                <div class="w-full max-w-3xl mt-8">   
+                    <form class="bg-white shadow-md  px-8 pt-6 pb-8 mb-4 border border-green-900 border-2">
+                      <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="username">
+                        NISN
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="NISN">
+                      </div>
+                      <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="username">
+                        Nama
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Nama">
+                      </div>
+                      <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="username">
+                        Seri Buku
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Seri Buku">
+                      </div>
+                      <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 text-left" for="username">
+                        Waktu
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Waktu">
+                      </div>
+                      <div class="flex items-center justify-center">
+                        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-2" type="button">
+                          Tambah
+                        </button>
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-2" type="button">
+                            Bersihkan
+                          </button>
+                      </div>
+                    </form>
+                    </p>
+                  </div>
+                </center>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
