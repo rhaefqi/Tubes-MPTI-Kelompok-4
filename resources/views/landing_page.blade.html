@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/css/app.css">
+    <link rel="stylesheet" href="/resources/css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body class="bg-[#F2F2F2] open-sans">
+    <!-- HEADER START -->
+    <header class="w-full flex justify-center bg-[#F2F2F2] ">
+        <!-- NAVBAR START -->
+        <div class="w-full lg:max-w-screen-lg  lg:mx-0 h-20  bg-[#F2F2F2] flex items-center   px-5 lg:px-0 justify-between">
+            <!-- LOGO -->
+            <p class="text-sm">INI LOGO</p>
+
+            <div class="lg:flex gap-24 hidden">
+                <ul class="flex gap-5 place-items-center">
+                <li><a href="#home" class="text-lg font-bold text-[#006316]">Home</a></li>
+                    <li><a href="#layanan" class="text-lg font-bold text-[#006316]">Layanan</a></li>
+                    <li><a href="#tentang"  class="text-lg font-bold text-[#006316]">Tentang Kami</a></li>
+                    <li><a href="#kontak" class="text-lg font-bold text-[#006316]">Kontak</a></li>
+                </ul>
+                    
+                <div class="flex gap-2">
+                    <button type="button" class="bg-[#006316] px-5 py-3 rounded-md font-bold text-white">Masuk</button>
+                    <button type="button" class="bg-[#F2f2f2] border-2 border-[#006316] px-5 py-3 rounded-md font-bold text-[#006316]">Daftar</button>
+                </div>
+            </div> 
+
+            <button type="button" onclick="hamburgerMerdeka()" class="lg:hidden">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2.5"  stroke-linecap="round"  stroke-linejoin="round"  class="text-[#006316] icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+            </button>
+            <!-- NAVBAR END -->
+        </div>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- CONTENT -->
+    <!-- CONTENT END -->
+
+    <!-- FOOTER -->
+    <footer class="bg-[#006316] p-10 justify center w-full bottom-0 fixed">
+        <div class="flex w-full h-full md:max-w-screen-lg mx-auto px-5 gap-40">
+            <div class="lg:flex lg:gap-28 lg:w-1/2 hidden">
+                <div class="flex flex-col gap-3">
+                    <p>INI LOGO</p>
+                    <div class="flex flex-col text-white font-bold gap-0">
+                        <p>Perpustakaan</p>
+                        <p>Yayasan Amaliyah</p>
+                    </div>
+                </div>
+                <div class="lg:flex lg:flex-col gap-3">
+                    <p class="text-white font-bold text-lg">Menu</p>
+                    <div class="flex flex-col font-semibold text-white gap-1">
+                        <a href="">Home</a>
+                        <a href="">Layanan</a>
+                        <a href="">Tentang Kami</a>
+                        <a href="">Kontak</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex lg:w-1/2 w-full lg:gap-24 gap-10 justify-between">
+                <div class="flex flex-col items-start">
+                    <p class="text-white font-bold text-lg">Hubungi Kami</p>
+                    <div class="flex lg:flex-wrap flex-col gap-1">
+                        <p>Email</p>
+                        <p>No. Telepon</p>
+                        <p>Dll</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <p>INI MAPS</p>
+                    <div class="flex flex-col text-white font-bold gap-0">
+                        <p>Kampung Lalang, Sunggal</p>
+                        <p>Kabupaten Deli Serdang 20126</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex w-full mt-10 h-full md:max-w-screen-lg mx-auto px-5 items-center justify-center">
+            <p class="text-white">©2024 Kelompok 4, All right reserved</p>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- MENU HAMBURGER MOBILE -->
+    <div class="flex justify-end p-5 lg:hidden fixed top-0 left-0 h-screen w-full z-10 bg-[rgb(0,0,0,0.6)]" id="menuDrop">
+        <div class="h-[300px] bg-white absolute w-1/2 rounded-lg ">
+          <div class="h-20 flex items-center justify-end px-6">
+            <button onclick="hamburgerMerdeka()">
+              <i class="text-2xl text-gray-700 fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="px-4 flex flex-col gap-3 text-[#006316]">
+            <p class="text-sm text-gray-300 font-bold">Menu</p>
+            <a href class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold">Home</p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold">Layanan</p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold">Tentang Kami</p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold">Kontak</p>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const hamburgerMerdeka = () => {
+          const nav = document.getElementById("menuDrop");
+          if (nav.classList.contains("hidden")) {
+            nav.classList.remove("hidden");
+            document.body.style.overflow = 'hidden';
+          } else {
+            nav.classList.add("hidden");
+            document.body.style.overflow = 'auto';
+          }
+        }
+      </script>
+</body>
+</html>
