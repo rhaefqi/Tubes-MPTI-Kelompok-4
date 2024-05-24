@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/resources/css/output.css">
     <script src="https://kit.fontawesome.com/bc3cf86588.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @vite('resources/css/app.css')
     <title>Document</title>
 </head>
 <body class="bg-[#F2F2F2] open-sans ">
@@ -15,7 +16,7 @@
         <!-- NAVBAR START -->
         <div class="w-full lg:max-w-screen-lg  lg:mx-0 h-20  bg-[#F2F2F2] flex items-center   px-5 lg:px-0 justify-between">
             <!-- LOGO -->
-            <p class="text-sm"><img class="w-18 h-16" src="../public/img/Logo.png" alt="" srcset=""></p>
+            <p class="text-sm"><img class="w-18 h-16" src="{{ asset("assets/img/Logo.png") }}" alt="" srcset=""></p>
 
             <div class="lg:flex gap-24 hidden">
                 <ul class="flex gap-5 place-items-center">
@@ -26,8 +27,8 @@
                 </ul>
                     
                 <div class="flex gap-2">
-                    <button type="button" class="bg-[#245237] px-5 py-3 rounded-md font-bold text-white ">Login</button>
-                    <button type="button" class="border-2 border-[#006316] px-5 py-3 rounded-md font-bold text-[#006316]">Register</button>
+                    <a href="/login" class="bg-[#245237] px-5 py-3 rounded-md font-bold text-white ">Login</a>
+                    <a href="/register" class="border-2 border-[#006316] px-5 py-3 rounded-md font-bold text-[#006316]">Register</a>
                 </div>
             </div> 
 
@@ -52,7 +53,7 @@
                 <button type="button" class="bg-[#245237] px-5 py-3 rounded-md font-bold text-white">Telusuri</button>
             </div>
             <div class="p-6">
-                <img class="shadow-md rounded-lg w-full h-72 object-cover" src="../public/img/gambar1.jpg" alt="">
+                <img class="shadow-md rounded-lg w-full h-72 object-cover" src="{{ asset("assets/img/gambar1.jpg") }}" alt="">
             </div>
         </div>
     </div>
@@ -69,7 +70,7 @@
         <!-- Frame 1 -->
         <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
             <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="../public/img/gambar1.jpg" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
             </div>
             <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
                 Buku x
@@ -184,21 +185,21 @@
             <!-- Column 1 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
                 <div class="box-border h-56 w-48 rounded-lg overflow-hidden">
-                    <img src="../public/img/Kembali (2).png" alt="image" class="w-full h-full object-cover">
+                    <img src="{{ asset("assets/img/Kembali (2") }}).png" alt="image" class="w-full h-full object-cover">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Pengembalian Buku </p>
             </div>
             <!-- Column 2 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
                 <div class="box-border  h-56 w-48   rounded-lg overflow-hidden">
-                    <img src="../public/img/Pinjam.png" alt="image" class="w-full h-full object-cover">
+                    <img src="{{ asset("assets/img/Pinjam.png") }}" alt="image" class="w-full h-full object-cover">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Peminjaman Buku </p>
             </div>
             <!-- Column 3 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
                 <div class="box-border  h-56 w-48  rounded-lg overflow-hidden">
-                    <img src="../public/img/Ruang.png" alt="image" class="w-full h-full object-cover">
+                    <img src="{{ asset("assets/img/Ruang.png") }}" alt="image" class="w-full h-full object-cover">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Ruang Baca  </p>
             </div>
@@ -215,7 +216,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
              <!-- Kolom Kanan (Gambar) -->
              <div class="p-4">
-                <img class="shadow-md rounded-lg w-full h-72 object-cover" src="../public/img/Gambar2.jpg" alt="Perpustakaan Sekolah">
+                <img class="shadow-md rounded-lg w-full h-72 object-cover" src="{{ asset("assets/img/Gambar2.jpg") }}" alt="Perpustakaan Sekolah">
             </div>
             <!-- Kolom Kiri (Tulisan) -->
             <div class="flex flex-col text-justify p-4">
@@ -235,7 +236,7 @@
             <div class="lg:flex lg:gap-28 lg:w-1/2 hidden">
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col text-white font-bold gap-0 items-center">
-                    <p><img class="h-40 w-44" src="../public/img/Logo.png" alt="" srcset=""></p>
+                    <p><img class="h-40 w-44" src="{{ asset("assets/img/Logo.png") }}" alt="" srcset=""></p>
                         <p>Perpustakaan</p>
                         <p>Yayasan Amaliyah</p>
                     </div>
