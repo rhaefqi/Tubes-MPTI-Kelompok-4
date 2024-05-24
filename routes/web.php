@@ -25,6 +25,14 @@ Route::get('/index', function () {
 
 Route::get('/admin-home', [AdminController::class, 'index'])
         ->name('admin.home');
+Route::get('/kelola-user', [AdminController::class, 'showUser'])
+        ->name('user.kelola');
+Route::get('/kelola-guru', [AdminController::class, 'showGuru'])
+        ->name('guru.kelola');
+Route::get('/kelola-siswa', [AdminController::class, 'showSiswa'])
+        ->name('siswa.kelola');
+Route::get('/kelola-petugas', [AdminController::class, 'showPetugas'])
+        ->name('petugas.kelola');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

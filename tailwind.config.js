@@ -19,7 +19,8 @@ export default {
                 open: ['"Open Sans"', 'sans-serif']
             },
             colors: {
-                primary: '#006316',
+                primary: '#245237',
+                secondary: '#00923E',
             },
         },
     },

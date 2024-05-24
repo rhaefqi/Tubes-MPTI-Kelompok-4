@@ -13,6 +13,22 @@ class AdminController extends Controller
     {
         return view('admin.admin-home');   
     }
+    public function showUser()
+    {
+        return view('admin.kelola-user');   
+    }
+    public function showGuru()
+    {
+        return view('admin.kelola-guru');   
+    }
+    public function showSiswa()
+    {
+        return view('admin.kelola-siswa');   
+    }
+    public function showPetugas()
+    {
+        return view('admin.kelola-petugas');   
+    }
 
     /**
      * Show the form for creating a new resource.
