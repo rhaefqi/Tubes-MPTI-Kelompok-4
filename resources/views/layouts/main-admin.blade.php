@@ -84,7 +84,18 @@
 
         <div class="w-full flex-grow transition-all duration-500 ease-in-out">
             <!-- navbar -->
-            <div class="bg-white w-full flex border-b-[3px] border-primary transition-all duration-500 ease-in-out">
+            <div class="bg-white w-full flex border-b-[3px] border-primary transition-all duration-500 ease-in-out relative">
+                <div class="fixed w-9 h-14 bg-primary rounded-e-lg self-center flex items-center justify-center text-white">
+                    <button id="tombol-sidebar">
+                        {{-- <i class="fa-solid fa-grip-lines"></i> --}}
+                        <span id="garis-1"
+                            class="block w-[22px] h-[3px] bg-white rounded my-1 transition duration-[400ms] ease-in-out origin-top-left rotate-45"></span>
+                        <span id="garis-2"
+                            class="block w-[22px] h-[3px] bg-white rounded my-1 transition duration-[400ms] ease-in-out scale-0"></span>
+                        <span id="garis-3"
+                            class="block w-[22px] h-[3px] bg-white rounded my-1 transition duration-[400ms] ease-in-out origin-bottom-left -rotate-45"></span>
+                    </button>
+                </div>
                 <div class="container flex justify-center items-center max-w-full">
                     {{-- <div class="h-10 w-28 bg-slate-300 rounded-md my-4"></div> --}}
                     <img src="{{ asset('assets/img/logo.png') }}" alt="" class="w-20">
