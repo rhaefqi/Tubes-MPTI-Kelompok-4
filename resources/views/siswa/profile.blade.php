@@ -4,14 +4,16 @@
 
 @section('content')
 <div class="flex flex-col md:flex-row-reverse w-full md:max-w-screen-lg mx-auto gap-1 my-10">
-    <div class="flex flex-col w-full md:w-1/4 px-3 gap-5">
+    <div class="flex flex-col w-full md:w-1/4 gap-5">
         <div class="flex flex-col items-center">
-            <img src="{{ asset('img/pp.jpeg') }}" class="w-20 h-20 rounded-full" alt="">
+            <img src="{{ asset('assets/img/'.auth()->user()->photo_profile) }}" class="w-20 h-20 rounded-full" alt="">
 
             <div class="flex flex-col text-center">
-                <p class="font-semibold">Andy Septiawan Saragih</p>
+                <p class="font-semibold">{{auth()->user()->username}}</p>
                 <div class="flex justify-center">
-                    <p class="bg-[#245237] text-sm font-semibold text-white rounded-lg px-2">Siswa</p>
+                    <p class="bg-[#245237] text-sm font-semibold text-white rounded-lg px-2">
+                        {{ auth()->user()->status == 'guru' ? 'Guru' : 'Siswa' }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -21,12 +23,14 @@
                 <p class="bg-[#245237] font-semibold text-white rounded-lg px-2 text-[13px]">Data Diri</p>
             </div>
 
-            <div class="flex px-2 gap-2 font-normal text-[12px]">
+            <div class="flex px-2 gap-2 font-normal text-[12px] md:text-[14px]">
                 <div class="flex flex-col gap-1 w-16">
-                    <p>NISN</p>
+                    <p>{{ auth()->user()->status == 'guru' ? 'NIP' : 'NISN' }}</p>
                     <p>Nama</p>
                     <p>Tingkat</p>
-                    <p>Kelas</p>
+                    @if (auth()->user()->status != 'guru')
+                        <p>Kelas</p>
+                    @endif
                     <p>Gender</p>
                     <p>No. Hp</p>
                     <p>Email</p>
@@ -36,20 +40,30 @@
                     <p>:</p>
                     <p>:</p>
                     <p>:</p>
-                    <p>:</p>
+                    @if (auth()->user()->status != 'guru')
+                        <p>:</p>
+                    @endif
                     <p>:</p>
                     <p>:</p>
                     <p>:</p>
                 </div>
 
+                @php
+                    $user = auth()->user();
+                    $profile = $user->status == 'siswa' ? $user->siswa : $user->guru;
+                    $jenis_kelamin = $profile->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan';
+                @endphp
+
                 <div class="flex flex-col gap-1 text-start">
-                    <p>NISN</p>
-                    <p>Nama</p>
-                    <p>Tingkat</p>
-                    <p>Kelas</p>
-                    <p>Gender</p>
-                    <p>No. Hp</p>
-                    <p>Email</p>
+                    <p>{{ $user->status == 'siswa' ? $profile->nisn : $profile->nip }}</p>
+                    <p>{{ $profile->nama }}</p>
+                    <p>{{ $profile->tingkat }}</p>
+                    @if ($user->status == 'siswa')
+                        <p>{{ $profile->kelas }}</p>
+                    @endif
+                    <p>{{ $jenis_kelamin }}</p>
+                    <p>{{ $user->no_hp }}</p>
+                    <p>{{ $user->email }}</p>
                 </div>
             </div>
         </div>
@@ -70,7 +84,7 @@
         <div class="flex flex-col gap-2">
             <!-- Desktop -->
             <div class="flex flex-col gap-4 ">
-                <div class="flex gap-4 justify-between">
+                <div class="flex items-center gap-4 justify-between">
                     <div class="flex">
                         <p class="bg-[#245237] font-semibold text-white rounded-lg px-2 md:text-xl text-[13px]">Riwayat Peminjaman</p>
                     </div>
@@ -85,89 +99,42 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-3 justify-center md:justify-start md:px-5">
-                    <div class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-48 h-[18.5rem] items-center py-2 gap-1">
-                        <img src="{{ asset('img/novel.jpg') }}" alt="" class="w-32 h-44 rounded-md">
-        
-                        <div class="flex flex-col items-start w-full px-2">
-                            <div class="flex flex-col">
-                                <p class="font-semibold text-[13px]">Laskar Pelangi</p>
-                                <p class="font-light text-[12px]">Andrea Hirata</p>
-                            </div>
-                            
-                            <div class="flex md:hidden w-full border border-1 border-opacity-50 border-black my-1"></div>
 
-                            <div class="flex flex-col text-[10px] gap-1">
-                                <div class="bg-[#F0C001] font-semibold rounded-md px-2">
-                                    <span class="mdi mdi-calendar-text"></span>
-                                    Dipinjam : 23 Maret 2024
+                    @foreach ($riwayats as $riwayat)    
+                        <a href="{{ route('detail.buku', $riwayat->buku_id ) }}" class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-48 h-[18.5rem] items-center py-2 gap-1">
+                            <img src="{{ asset('assets/img/'.$riwayat->buku->sampul_buku) }}" alt="" class="w-32 h-44 rounded-md">
+            
+                            <div class="flex flex-col items-start w-full px-2">
+                                <div class="flex flex-col">
+                                    <p class="font-semibold text-[13px]">{{ $riwayat->buku->judul }}</p>
+                                    <p class="font-light text-[12px]">{{ $riwayat->buku->penulis }}</p>
                                 </div>
-                                <div class="bg-[#00A218] font-semibold rounded-md px-2 text-white">
-                                    <span class="mdi mdi-bell"></span>
-                                    Jatuh Tempo : 28 Maret 2024
-                                </div>
-                                <div class="bg-[#F7D914] font-semibold rounded-md px-2">
-                                    <span class="mdi mdi-checkbox-marked"></span>
-                                    Kembali : 27 Maret 2024
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                
+                                <div class="flex md:hidden w-full border border-1 border-opacity-50 border-black my-1"></div>
 
-                    <div class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-48 h-[18.5rem] items-center py-2 gap-1">
-                        <img src="{{ asset('img/novel.jpg') }}" alt="" class="w-32 h-44 rounded-md">
-        
-                        <div class="flex flex-col items-start w-full px-2">
-                            <div class="flex flex-col">
-                                <p class="font-semibold text-[13px]">Laskar Pelangi</p>
-                                <p class="font-light text-[12px]">Andrea Hirata</p>
-                            </div>
-                            
-                            <div class="flex md:hidden w-full border border-1 border-opacity-50 border-black my-1"></div>
+                                @php
+                                    $tanggalPinjam = \Carbon\Carbon::parse($riwayat->tanggal_pinjam);
+                                    $tanggalKembali = \Carbon\Carbon::parse($riwayat->tanggal_kembali);
+                                    $tanggalJatuhTempo = $tanggalPinjam->copy()->addDays(5);
+                                @endphp
 
-                            <div class="flex flex-col text-[10px] gap-1">
-                                <div class="bg-[#F0C001] font-semibold rounded-md px-2">
-                                    <span class="mdi mdi-calendar-text"></span>
-                                    Dipinjam : 23 Maret 2024
-                                </div>
-                                <div class="bg-[#00A218] font-semibold rounded-md px-2 text-white">
-                                    <span class="mdi mdi-bell"></span>
-                                    Jatuh Tempo : 28 Maret 2024
-                                </div>
-                                <div class="bg-[#F7D914] font-semibold rounded-md px-2">
-                                    <span class="mdi mdi-checkbox-marked"></span>
-                                    Kembali : 27 Maret 2024
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-48 h-[18.5rem] items-center py-2 gap-1">
-                        <img src="{{ asset('img/novel.jpg') }}" alt="" class="w-32 h-44 rounded-md">
-        
-                        <div class="flex flex-col items-start w-full px-2">
-                            <div class="flex flex-col">
-                                <p class="font-semibold text-[13px]">Laskar Pelangi</p>
-                                <p class="font-light text-[12px]">Andrea Hirata</p>
-                            </div>
-                            
-                            <div class="flex md:hidden w-full border border-1 border-opacity-50 border-black my-1"></div>
-
-                            <div class="flex flex-col text-[10px] gap-1">
-                                <div class="bg-[#F0C001] font-semibold rounded-md px-2">
-                                    <span class="mdi mdi-calendar-text"></span>
-                                    Dipinjam : 23 Maret 2024
-                                </div>
-                                <div class="bg-[#00A218] font-semibold rounded-md px-2 text-white">
-                                    <span class="mdi mdi-bell"></span>
-                                    Jatuh Tempo : 28 Maret 2024
-                                </div>
-                                <div class="bg-[#F7D914] font-semibold rounded-md px-2">
-                                    <span class="mdi mdi-checkbox-marked"></span>
-                                    Kembali : 27 Maret 2024
+                                <div class="flex flex-col text-[10px] gap-1">
+                                    <div class="bg-[#F0C001] font-semibold rounded-md px-2">
+                                        <span class="mdi mdi-calendar-text"></span>
+                                        Dipinjam : {{ $tanggalPinjam->translatedFormat('d F Y') }}
+                                    </div>
+                                    <div class="bg-[#00A218] font-semibold rounded-md px-2 text-white">
+                                        <span class="mdi mdi-bell"></span>
+                                        Jatuh Tempo : {{ $tanggalJatuhTempo->translatedFormat('d F Y') }}
+                                    </div>
+                                    <div class="bg-[#F7D914] font-semibold rounded-md px-2">
+                                        <span class="mdi mdi-checkbox-marked"></span>
+                                        Kembali : {{ $tanggalKembali->translatedFormat('d F Y') }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>

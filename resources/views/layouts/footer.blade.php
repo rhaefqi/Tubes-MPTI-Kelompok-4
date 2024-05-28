@@ -2,7 +2,7 @@
         <div class="flex w-full h-full md:max-w-screen-lg mx-auto px-5 lg:gap-40 md:gap-30 gap-6">
             <div class="md:flex lg:gap-28 md:gap-16 md:w-1/2">
                 <div class="md:flex flex-col gap-3">
-                    <img src=".{{ asset('img/logo.png') }}" class="lg:w-[150px] w-[50px] lg:h-[150px] h-[50px]" alt="Yayasan Amaliyah">    
+                    <img src="{{ asset('assets/img/logo.png') }}" class="lg:w-[150px] w-[50px] lg:h-[150px] h-[50px]" alt="Yayasan Amaliyah">    
                     <div class="flex flex-col text-white lg:text-lg text-smd font-bold gap-0">
                         <p>Perpustakaan</p>
                         <p>Yayasan Amaliyah</p>

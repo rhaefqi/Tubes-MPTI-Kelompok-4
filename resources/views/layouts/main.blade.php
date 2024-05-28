@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>@yield('title', 'Perpustakaan Amaliyah')</title>
+    <title>@yield('title', 'Perpustakaan Yayasan Amaliyah')</title>
+    <link rel="shortcut icon" href="{{asset('assets/img/logo.png')}}" type="image/x-icon">
 </head>
 <body class="bg-[#F2F2F2] open-sans">
     <!-- HEADER START -->
@@ -62,6 +63,27 @@
             document.body.style.overflow = 'auto';
           }
         }
+
+        function togglePasswordVisibility(toggleId, inputId) {
+          const toggleElement = document.getElementById(toggleId);
+          const inputElement = document.getElementById(inputId);
+          
+          toggleElement.addEventListener('click', function () {
+              if (inputElement.type === 'password') {
+                  inputElement.type = 'text';
+                  toggleElement.classList.remove('mdi-eye');
+                  toggleElement.classList.add('mdi-eye-off');
+              } else {
+                  inputElement.type = 'password';
+                  toggleElement.classList.remove('mdi-eye-off');
+                  toggleElement.classList.add('mdi-eye');
+              }
+          });
+      }
+
+      togglePasswordVisibility('toggle-old-password', 'old-password');
+      togglePasswordVisibility('toggle-new-password', 'new-password');
+      togglePasswordVisibility('toggle-confirm-password', 'confirm-password');
       </script>
 </body>
 </html>

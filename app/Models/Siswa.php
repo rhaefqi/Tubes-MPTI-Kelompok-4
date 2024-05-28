@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Siswa extends Model
 {
     use HasFactory;
+
+    // protected $table = 'siswas';
+
+    protected $fillable = ['nisn', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
