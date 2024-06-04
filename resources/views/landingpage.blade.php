@@ -79,7 +79,7 @@
         <!-- Frame 2 -->
         <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
             <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="your-image-url-2.jpg" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
             </div>
             <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
                 Buku x
@@ -88,7 +88,7 @@
         <!-- Frame 3 -->
         <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
             <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="your-image-url-3.jpg" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset("assets/img/gambar1.jpg") }} " alt="image" class="w-full h-full object-cover">
             </div>
             <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
                 Buku x
@@ -97,7 +97,7 @@
         <!-- Frame 4 -->
         <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
             <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="your-image-url-4.jpg" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
             </div>
             <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
                 Buku x
@@ -106,7 +106,7 @@
         <!-- Frame 5 -->
         <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
             <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="your-image-url-5.jpg" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
             </div>
             <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
                 Buku x
@@ -133,7 +133,7 @@
         <!-- Pengunjung 2 -->
         <div class="relative p-4 w-40">
             <div class="box-border h-40 w-40 border-2 border-[#245237] rounded-full overflow-hidden">
-                <img src="your-image-url-2.jpg" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
             </div>
             <div class="absolute bottom-0 right-0 w-20 bg-[#245237] text-white text-center p-1 rounded-lg">
                 Bambang
@@ -176,7 +176,7 @@
 
 
     <!-- Layanan -->
-    <div class="container mx-auto">
+    <div class="container mx-auto" id="layanan">
         <h1 class="text-[#245237] font-bold text-3xl text-center mt-5 mb-8">Layanan</h1>
     </div>
 
@@ -185,7 +185,7 @@
             <!-- Column 1 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
                 <div class="box-border h-56 w-48 rounded-lg overflow-hidden">
-                    <img src="{{ asset("assets/img/Kembali (2") }}).png" alt="image" class="w-full h-full object-cover">
+                    <img src="{{ asset("assets/img/Kembali2.png") }}" alt="image" class="w-full h-full object-cover">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Pengembalian Buku </p>
             </div>
@@ -212,7 +212,7 @@
     </div>
     <!-- Tentang -->
 
-    <div class="container mx-auto p-4">
+    <div class="container mx-auto p-4" id="tentang">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
              <!-- Kolom Kanan (Gambar) -->
              <div class="p-4">

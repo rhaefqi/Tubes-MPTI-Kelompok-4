@@ -5,7 +5,8 @@
     x-on:open-input.window = "show = true"
     x-on:close-input.window = "show = false"
     x-on:keydown.escape.window = "show = false"
-
+    {{-- x-on:closeModal.window ="show = false" --}}
+    wire:poll
 style="display:none"
 class="fixed z-50 inset-0">
     <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
@@ -24,3 +25,11 @@ class="fixed z-50 inset-0">
         </div>
     </div>
 </div>
+
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        window.livewire.on('closeModal', () => {
+            window.dispatchEvent(new CustomEvent('close-input'));
+        });
+    });
+</script> --}}

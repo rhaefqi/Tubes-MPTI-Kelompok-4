@@ -1,5 +1,7 @@
 @extends('layouts.main-admin')
 
+@section('title', 'Kelola User | Perpustakaan Amaliyah')
+
 @section('container')
 <main class="mb-10">
     <div class="flex justify-between mt-8">

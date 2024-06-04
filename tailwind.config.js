@@ -12,7 +12,7 @@ export default {
         './resources/**/*.vue',
         './Front-end/*.html',
     ],
-
+    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {

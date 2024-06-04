@@ -1,5 +1,7 @@
 @extends('layouts.main-admin')
 
+@section('title', 'Kelola Petugas | Perpustakaan Amaliyah')
+
 @section('container')
 <main class="mb-10">
     <div class="flex justify-between mt-8">
@@ -10,16 +12,19 @@
         <div class="mx-20 mt-10">
             <x-input-modal title="Tambah Data Petugas">
                 <x-slot:body>
-                    <livewire:create-petugas/>
+                    <livewire:create-petugas />
                 </x-slot>
             </x-input-modal>
+            {{-- <livewire:edit-petugas /> --}}
 
             <button x-data x-on:click="$dispatch('open-input')" class="bg-primary text-white font-semibold text-center rounded-md px-9 py-2">
                 Tambah
             </button>
         </div>
     </div>
-    <div class="flex justify-center mt-10">
+    <livewire:alert-success />
+    <livewire:tabel-petugas />
+    {{-- <div class="flex justify-center mt-10">
         <div class="mx-10 w-full border-secondary border-[3px] rounded-lg overflow-hidden">
             <table class="w-full">
                 <thead>
@@ -49,7 +54,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> --}}
 </main>
 
 @endsection

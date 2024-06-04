@@ -6,7 +6,8 @@
         <ul class="">
             <li class="relative mb-14">
                 <img src="{{ asset('assets/img/logo.png') }}" alt=""
-                    class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
+                    class="w-16 absolute pt-6 scale-0
+                     transition duration-300 ease-in-out" id="logo-side">
                 <a id="head" href="#home"
                     class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex">Staff <br>
                     Administrasi</a>
@@ -21,7 +22,7 @@
                         </a>
                     </div>
                 </li>
-                <li class="mb-1 flex menu">
+                <li class="mb-2 flex menu">
                     <div
                         class="hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary relative transition duration-200 ease-in-out">
                         <a href="{{ route('user.kelola') }}" class="font-semibold p-1">
@@ -30,7 +31,7 @@
                         </a>
                     </div>
                 </li>
-                <li class="mb-1 flex menu">
+                <li class="mb-2 flex menu">
                     <div
                         class="hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary relative transition duration-200 ease-in-out">
                         <a href="{{ route('petugas.kelola') }}" class="font-semibold p-1">
@@ -39,7 +40,7 @@
                         </a>
                     </div>
                 </li>
-                <li class="mb-1 flex menu">
+                <li class="mb-2 flex menu">
                     <div
                         class="hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary relative transition duration-200 ease-in-out">
                         <a href="{{ route('guru.kelola') }}" class="font-semibold p-1">
@@ -48,7 +49,7 @@
                         </a>
                     </div>
                 </li>
-                <li class="mb-1 flex menu">
+                <li class="mb-2 flex menu">
                     <div
                         class="hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary relative transition duration-200 ease-in-out">
                         <a href="{{ route('siswa.kelola') }}" class="font-semibold p-1">

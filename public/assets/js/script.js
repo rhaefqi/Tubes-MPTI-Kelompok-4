@@ -6,7 +6,6 @@ const logoSide = document.getElementById('logo-side');
 const text = document.getElementsByClassName('menu-text');
 const logo = document.getElementsByClassName('menu');
 
-// console.log(text)
 
 tombol.addEventListener("click", () => {
     // buka tutup

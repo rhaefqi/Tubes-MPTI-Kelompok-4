@@ -9,9 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/4ae60dfd7a.js" crossorigin="anonymous"></script>
-    <title>Document</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    {{-- @livewireStyles --}}
+    <title>@yield('title', 'Perpustakaan Amaliyah')</title>
+    @livewireStyles
 </head>
 <body class="font-open flex">
     {{-- <div class="sm:grid grid-cols-7 gap-0"> --}}
@@ -113,7 +112,7 @@
         </div>
     {{-- </div> --}}
 
+    @livewireScripts
 <script src="{{ asset('assets/js/script.js') }}"></script>
-{{-- @livewireScripts --}}
 </body>
 </html>
