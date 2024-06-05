@@ -18,6 +18,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+    // protected $connection = 'mysql';
+    
     protected $guarded = ['id'];
     protected $fillable = [
         'name',
@@ -48,5 +50,24 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function petugas(){
         return $this->hasOne(Petugas::class);
+    }
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class);
+    }
+
+    public function guru()
+    {
+        return $this->hasOne(Guru::class);
+    }
+
+    public function pinjam_siswa()
+    {
+        return $this->hasMany(PeminjamanSiswa::class);
+    }
+
+    public function pinjam_guru()
+    {
+        return $this->hasMany(PeminjamanGuru::class);
     }
 }

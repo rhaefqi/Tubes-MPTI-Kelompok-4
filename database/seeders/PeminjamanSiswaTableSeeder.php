@@ -17,21 +17,26 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'nisn' => '0042123456',
             'buku_id' => 3,
             'jumlah_dipinjam' => 1,
-            'status' => 'dipinjam'
+            'status' => 'dipinjam',
+            'tanggal_pinjam' => '2024-05-27'
         ]);
 
         PeminjamanSiswa::create([
             'nisn' => '0042123456',
             'buku_id' => 2,
             'jumlah_dipinjam' => 1,
-            'status' => 'dikembalikan'
+            'status' => 'dikembalikan',
+            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_kembali' => '2024-05-06'
         ]);
 
         PeminjamanSiswa::create([
             'nisn' => '0042123456',
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
-            'status' => 'lewat tenggat'
+            'status' => 'lewat tenggat',
+            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_kembali' => '2024-05-12'
         ]);
     }
 }
