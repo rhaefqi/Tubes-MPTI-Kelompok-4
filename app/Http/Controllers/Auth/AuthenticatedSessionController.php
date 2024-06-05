@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->intended('');
                 break;
             case "staff":
-                return redirect()->intended('');
+                return redirect()->intended('/admin-home');
                 break;
             default:
                 return redirect()->intended(RouteServiceProvider::HOME);
