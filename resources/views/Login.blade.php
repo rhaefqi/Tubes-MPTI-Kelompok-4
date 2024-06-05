@@ -10,7 +10,6 @@
     @vite('resources/css/app.css')
     <title>Login | Perpustakaan Yayasan Amaliyah</title>
     <link rel="shortcut icon" href="{{asset('assets/img/logo.png')}}" type="image/x-icon">
-
 </head>
 <body class="bg-[#F2F2F2] open-sans ">
 

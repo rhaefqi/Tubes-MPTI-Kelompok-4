@@ -1,6 +1,6 @@
 <footer class="bg-[#245237] p-10 justify-center w-full">
-        <div class="flex w-full h-full md:max-w-screen-lg mx-auto px-5 lg:gap-40 md:gap-30 gap-6">
-            <div class="md:flex lg:gap-28 md:gap-16 md:w-1/2">
+        <div class="flex w-full h-full md:max-w-screen-lg mx-auto px-5 lg:gap-28 md:gap-30 gap-6">
+            <div class="md:flex lg:gap-24 md:gap-16 md:w-2/5">
                 <div class="md:flex flex-col gap-3">
                     <img src="{{ asset('assets/img/logo.png') }}" class="lg:w-[150px] w-[50px] lg:h-[150px] h-[50px]" alt="Yayasan Amaliyah">    
                     <div class="flex flex-col text-white lg:text-lg text-smd font-bold gap-0">
@@ -16,8 +16,8 @@
                     </div>
                 </div>
             </div>
-            <div class="md:flex md:w-1/2 w-full md:gap-16 justify-end md:justify-start">
-                <div class="flex flex-col items-end items text-end">
+            <div class="md:flex md:w-3/5 w-full md:gap-20 justify-between">
+                <div class="flex flex-col gap-3 items-start text-start">
                     <p class="text-white font-bold lg:text-lg text-sm">Hubungi Kami</p>
                     <div class="flex lg:flex-wrap flex-col gap-1 lg:text-lg text-sm">
                         <p>Email</p>
