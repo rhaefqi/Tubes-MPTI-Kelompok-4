@@ -46,13 +46,13 @@
                         <button class="rounded-full bg-[#245237] text-white text-[10px] lg:text-[15px] font-semibold lg:py-2 py-0 lg:px-8 px-5">Dipinjam</button>
                         <a href="../siswa/home.html" class="rounded-full bg-[#F2F2F2] text-[#245237] border-[#245237] border-1 border lg:text-[15px] text-[10px] font-semibold lg:py-2 py-0 lg:px-8 px-5 hover:bg-[#245237] hover:text-white after:bg-[#245237] after:text-white">Dikembalikan</a>
                     </div>
-                    <div class="flex justify-center items-center">
+                    <div class="flex">
                         <form class="">
-                            <select id="urutkan" class="border-1 border-[#245237] border rounded-full font-normal lg:text-[12px] text-[8px] text-[#245237] w-[100px] h-9 ">
-                                <option selected value="AZ">A-Z</option>
+                            <select id="urutkan" class="border-1 border-[#245237] border rounded-full px-3 font-normal lg:text-[12px] text-[8px] text-[#245237] w-[100px]">
+                                <option value="AZ">A-Z</option>
                                 <option value="ZA">Z-A</option>
                                 <option value="Dekat">Tenggat terdekat</option>
-                                <option value="Jauh">Tenggat terlama</option>
+                                <option value="Jauh">Tenggat terjauh</option>
                             </select>
                         </form>
                     </div>
