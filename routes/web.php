@@ -53,16 +53,16 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified', 'role:siswa,guru'])->group(function () {
         Route::get('/home', [ViewController::class, 'showHome']);
+        Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
+            ->name('perpus');
+        Route::get('/detail-buku/{id}', [ViewController::class, 'detailBuku'])
+            ->name('detail.buku');
+        Route::get('/profile', [ViewController::class, 'showProfile'])
+            ->name('profile');
+        Route::get('/edit-profile', [ViewController::class, 'showEditProfile'])
+            ->name('edit.profile');
+        Route::get('/ubah-sandi', [ViewController::class, 'showKelolaSandi'])
+            ->name('ubah.sandi');
 });
-Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
-    ->name('perpus');
-Route::get('/detail-buku', [ViewController::class, 'showDetailBuku'])
-    ->name('detail.buku');
-Route::get('/profile', [ViewController::class, 'showProfile'])
-    ->name('profile');
-Route::get('/edit-profile', [ViewController::class, 'showEditProfile'])
-    ->name('edit.profile');
-Route::get('/ubah-sandi', [ViewController::class, 'showKelolaSandi'])
-    ->name('ubah.sandi');
 
 require __DIR__.'/auth.php';

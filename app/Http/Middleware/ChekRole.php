@@ -17,7 +17,7 @@ class ChekRole
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         if(in_array($request->user()->status, $roles)){
-            DB::setDefaultConnection($request->user()->status);
+            // DB::setDefaultConnection($request->user()->status);
             return $next($request);
         }
         abort(403);
