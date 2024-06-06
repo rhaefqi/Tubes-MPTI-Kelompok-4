@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 
@@ -39,6 +40,23 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
                 ->name('siswa.kelola');
         Route::get('/kelola-petugas', [AdminController::class, 'showPetugas'])
                 ->name('petugas.kelola');
+});
+
+Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
+    Route::get('/pegawai-home', [PegawaiController::class, 'index'])
+            ->name('pegawai.home');
+    Route::get('/absensi', [PegawaiController::class, 'absensi'])
+            ->name('absensi');
+    Route::get('/peminjaman', [PegawaiController::class, 'peminjaman'])
+            ->name('peminjaman');
+    Route::get('/kelola-buku', [PegawaiController::class, 'showBuku'])
+            ->name('buku.kelola');
+    Route::get('/kelola-subjek', [PegawaiController::class, 'showsubjek'])
+            ->name('subjek.kelola');
+    Route::get('/kelola-kelas', [PegawaiController::class, 'showKelas'])
+            ->name('kelas.kelola');
+    Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
+            ->name('riwayat.kelola');
 });
 
 Route::get('/dashboard', function () {
