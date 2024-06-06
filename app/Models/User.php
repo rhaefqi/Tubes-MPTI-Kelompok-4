@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+// use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,10 +18,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    // protected $connection = 'mysql';
+    
+    protected $guarded = ['id'];
     protected $fillable = [
         'name',
         'email',
         'password',
+        'username',
+        'no_hp',
     ];
 
     /**
@@ -41,4 +47,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function petugas(){
+        return $this->hasOne(Petugas::class);
+    }
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class);
+    }
+
+    public function guru()
+    {
+        return $this->hasOne(Guru::class);
+    }
+
+    public function pinjam_siswa()
+    {
+        return $this->hasMany(PeminjamanSiswa::class);
+    }
+
+    public function pinjam_guru()
+    {
+        return $this->hasMany(PeminjamanGuru::class);
+    }
 }

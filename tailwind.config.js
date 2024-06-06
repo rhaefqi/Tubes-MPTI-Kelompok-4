@@ -12,12 +12,17 @@ export default {
         './resources/**/*.vue',
         './Front-end/*.html',
     ],
-
+    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                
+                open: ['"Open Sans"', 'sans-serif']
+            },
+            colors: {
+                primary: '#245237',
+                light: '#E3E7DA',
+                secondary: '#6E8052',
             },
         },
     },

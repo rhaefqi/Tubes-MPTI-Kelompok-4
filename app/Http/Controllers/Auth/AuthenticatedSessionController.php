@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('login');
     }
 
     /**
@@ -29,7 +29,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $role = auth()->user()->status;
+        switch($role){
+            case "pegawai":
+                return redirect()->intended('');
+                break;
+            case "staff":
+                return redirect()->intended('/admin-home');
+                break;
+            default:
+                return redirect()->intended(RouteServiceProvider::HOME);
+                break;
+        }
     }
 
     /**

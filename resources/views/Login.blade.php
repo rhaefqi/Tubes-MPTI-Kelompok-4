@@ -7,28 +7,31 @@
     <link rel="stylesheet" href="/resources/css/output.css">
     <script src="https://kit.fontawesome.com/bc3cf86588.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    @vite('resources/css/app.css')
+    <title>Login | Perpustakaan Yayasan Amaliyah</title>
+    <link rel="shortcut icon" href="{{asset('assets/img/logo.png')}}" type="image/x-icon">
 </head>
 <body class="bg-[#F2F2F2] open-sans ">
 
     <div class="flex h-screen p-10 rounded-lg">
         <!-- Kolom Kiri: Form Login -->
         <div class="w-1/2 flex items-center justify-center bg-white p-4 rounded-lg">
-            <form class="w-full max-w-sm bg-white p-8 rounded-lg ">
+            <form class="w-full max-w-sm bg-white p-8 rounded-lg " action="{{ route('login') }}" method="POST">
+                @csrf
                 <h2 class="text-3xl font-bold mb-3 text-[#245237] text-center">Selamat Datang</h2>
                 <h5 class="text-sm">Silahkan isi menggunakan username atau email untuk masuk ke aplikasi.</h5>
                 <div class="mb-4 mt-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                        Username atau Email  <span style="color: red;">*</span>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email  <span style="color: red;">*</span>
                     </label>
-                    <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Masukkan Username atau Email">
+                    <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" id="email" type="email" placeholder="Masukkan Email">
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2 " for="password">
                         Password <span style="color: red;">*</span>
                     </label>
                     <div class="relative">
-                        <input class="shadow-lg appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Masukkan Password Anda">
+                        <input class="shadow-lg appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline" name="password" id="password" type="password" placeholder="Masukkan Password Anda">
                         <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                             <i class="far fa-eye cursor-pointer" id="togglePassword"></i>
                         </span>
@@ -37,9 +40,9 @@
                 </div>
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-4">
-                        <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237]" href="http://">Daftar ?</a></p>
+                        <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237]" href="{{ route("register") }}">Daftar ?</a></p>
                     </div>
-                    <button class="bg-[#245237] w-40 hover:bg-black text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline" type="button">
+                    <button type="submit" class="bg-[#245237] w-40 hover:bg-black text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline">
                         Masuk
                     </button>
                 </div>
@@ -48,7 +51,7 @@
 
         <!-- Kolom Kanan: Gambar -->
         <div class="w-1/2 h-full bg-cover bg-center rounded-lg">
-            <img src="../public/img/login.jpg" alt="Deskripsi gambar" class="w-full h-full object-cover rounded-lg">
+            <img src="{{ asset("assets/img/login.jpg") }}" alt="Deskripsi gambar" class="w-full h-full object-cover rounded-lg">
         </div>
     </div>
     <script>
