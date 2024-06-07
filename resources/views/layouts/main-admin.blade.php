@@ -16,7 +16,8 @@
     {{-- <div class="sm:grid grid-cols-7 gap-0"> --}}
         <!-- Sidebar -->
         <div class="hidden scale-0 text-[0px]"></div>
-        @include('layouts.sidebar')
+        {{-- @include('layouts.sidebar') --}}
+        <livewire:sidebar>
         {{-- @yield('sidebar') --}}
         {{-- <aside id="sidebar" class=" transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
 
