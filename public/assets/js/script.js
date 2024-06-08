@@ -26,9 +26,13 @@ tombol.addEventListener("click", () => {
             const temp = text[i];
             temp.classList.add('hidden')
         }
-        divArrow.classList.add("hidden");
-        if (!subMenu.classList.contains('hidden')) {
-            subMenu.classList.add('hidden');
+        if (divArrow) {
+            divArrow.classList.add("hidden");
+        }
+        if (subMenu) {
+            if (!subMenu.classList.contains('hidden')) {
+                subMenu.classList.add('hidden');
+            }
         }
         // subBuku.disabled = true;
         setTimeout(() => {
@@ -40,11 +44,13 @@ tombol.addEventListener("click", () => {
                 const temp = text[i];
                 temp.classList.remove('hidden')
             }
-            divArrow.classList.remove("hidden");
-            if (arrow.classList.contains('rotate-90')) {
-                subMenu.classList.remove('hidden');
+            if (divArrow) {
+                divArrow.classList.remove("hidden");
+                if (arrow.classList.contains('rotate-90')) {
+                    subMenu.classList.remove('hidden');
+                }
             }
-        }, 250);
+        }, 320);
         logoSide.classList.add('scale-0')
         // subBuku.disabled = false;
     }
@@ -63,13 +69,16 @@ tombol.addEventListener("click", () => {
     garis2.classList.toggle("scale-0")
 })
 
-subBuku.addEventListener("click", () =>{
-    if (!sidebar.classList.contains('w-20')) {
-        arrow.classList.toggle("rotate-90");
-        subMenu.classList.toggle("hidden");
-    }
-
-})
+if (subBuku) {
+    // console.log("ahhh")
+    subBuku.addEventListener("click", () =>{
+        if (!sidebar.classList.contains('w-20')) {
+            arrow.classList.toggle("rotate-90");
+            subMenu.classList.toggle("hidden");
+        }
+    
+    })
+}
 
 
 
