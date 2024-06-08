@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
         $role = auth()->user()->status;
         switch($role){
             case "pegawai":
-                return redirect()->intended('');
+                return redirect()->intended('/pegawai-home');
                 break;
             case "staff":
                 return redirect()->intended('/admin-home');
