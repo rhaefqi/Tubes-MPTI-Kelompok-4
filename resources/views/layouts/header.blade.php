@@ -4,22 +4,26 @@
         <!-- LOGO -->
         <img src="{{ asset('assets/img/logo.png') }}" class="lg:w-20 lg:h-20 w-14 h-14" alt="Yayasan Amaliyah">
 
-        <div class="lg:flex gap-48 hidden">
+        <div class="lg:flex gap-72 hidden">
             <ul class="flex gap-5 place-items-center">
                 <li><a href="/home" class="text-lg font-bold text-[#245237] hover:text-[#F7D914]">Beranda</a></li>
                 <li><a href="{{ route('perpus') }}" class="text-lg font-bold text-[#245237] hover:text-[#F7D914]">Buku</a></li>
             </ul>
-                
-            <a href="{{ route('profile') }}" class="flex gap-3 items-center">
-                <p class="text-lg font-bold text-[#245237] hover:text-[#F7D914]">{{ auth()->user()->username }}</p>
-
-                <div class="relative flex justify-center">
-                    <img src="{{ asset('assets/img/' . auth()->user()->photo_profile) }}" class="w-16 h-16 rounded-full">
-                    <span class="absolute -bottom-2 bg-[#245237] rounded-xl px-3 text-white text-xs font-medium">
-                        {{ auth()->user()->status == 'guru' ? 'Guru' : 'Siswa' }}
-                    </span>
-                </div>
-            </a>
+            
+            <details class="dropdown">
+                <summary class="m-1 btn w-full h-full">
+                    <div class="relative flex justify-center">
+                        <img src="{{ asset('assets/img/' . auth()->user()->photo_profile) }}" class="w-16 h-16 rounded-full">
+                        <span class="absolute -bottom-2 bg-[#245237] rounded-xl px-3 text-white text-xs font-medium">
+                            {{ auth()->user()->status == 'guru' ? 'Guru' : 'Siswa' }}
+                        </span>
+                    </div>
+                </summary>
+                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                  <li><a href="{{ route('profile') }}"  class="text-md font-bold text-[#245237] hover:text-[#F7D914]">Profile Saya</a></li>
+                  <li><a href="{{ route('logout') }}"  class="text-md font-bold text-[#245237] hover:text-[#F7D914]">Logout</a></li>
+                </ul>
+            </details>
         </div>
 
         <button type="button" onclick="toggleNavbar()" class="lg:hidden">

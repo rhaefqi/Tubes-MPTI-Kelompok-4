@@ -8,15 +8,16 @@
 
     @include('layouts.search')
     
-    <div class="flex flex-col lg:flex-row px-11 gap-2 md:gap-4 w-full">
-        <div class="flex w-full justify-center">
-            <img src="{{ asset('assets/img/'.$buku->sampul_buku) }}" alt="" class="w-36 h-56 lg:w-44 lg:h-64 rounded-md">
+    <div class="flex flex-col lg:flex-row px-11 gap-2 md:gap-4">
+        <div class="flex w-full justify-center items-start">
+            <img src="{{ asset('assets/img/'.$buku->sampul_buku) }}" alt="" class="w-36 lg:w-64 rounded-md">
         </div>
         <div class="flex flex-col gap-4 text-start">
             <div class="flex flex-col gap-0">
                 <div class="flex gap-2 items-center">
                     <p class="text-[20px] lg:text-[30px] font-bold">{{ $buku->judul }}</p>
                     <p class="bg-[#245237] rounded-full px-2 text-white text-sm">{{ $buku->view }} views</p>
+                    
                 </div>
                 <div class="flex gap-2">
                     <span class="mdi mdi-pencil-circle text-lg"></span>
