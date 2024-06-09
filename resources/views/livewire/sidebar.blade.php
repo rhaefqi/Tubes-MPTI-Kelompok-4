@@ -98,9 +98,9 @@
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
                     <a id="head" href="#home"
-                        class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Pegawai
+                        class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Staff
                         <br>
-                        Perpustakaan</a>
+                        Administrasi</a>
                 </div>
                 <div class="" id="list">
                     <a href="{{ route('admin.home') }}" class="mb-6 font-semibold flex hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">

@@ -12,7 +12,7 @@
         <div class="mx-20 mt-10">
             <x-input-modal title="Tambah Data User">
                 <x-slot:body>
-                    <livewire:CreateGuru/>
+                    <livewire:CreateUser/>
                 </x-slot>
             </x-input-modal>
             <button x-data x-on:click="$dispatch('open-input')" class="bg-primary text-white font-semibold text-center rounded-md px-9 py-2">
@@ -20,7 +20,8 @@
             </button>
         </div>
     </div>
-    <livewire:tabelUser>
+    <livewire:alert-success />
+    <livewire:tabelUser />
 </main>
 
 @endsection

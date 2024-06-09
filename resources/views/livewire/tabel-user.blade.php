@@ -13,22 +13,31 @@
                     </tr>
                 </thead>
                 <tbody class="">
-                    @for ($i = 1; $i <= 20; $i++)
-                        <tr class="text-center font-semibold {{ $i % 2 == 0 ? 'bg-[#F5f5f5]' : 'bg-gray-200' }}">
-                            <td class="border-r-[3px] border-secondary py-[3px]">Fortyche</td>
-                            <td class="border-r-[3px] border-secondary">fortyche@gmail.com</td>
-                            <td class="border-r-[3px] border-secondary">083167409073</td>
-                            <td class="border-r-[3px] border-secondary">Siswa</td>
+                    @php $i = 1; @endphp
+                    @foreach ($this->users as $user)
+                        <tr wire:key="{{ $user->id }}" class="text-center font-semibold {{ $i % 2 == 0 ? 'bg-[#F5f5f5]' : 'bg-gray-200' }}">
+                            <td class="border-r-[3px] border-secondary py-[3px]">{{ $user->username }}</td>
+                            <td class="border-r-[3px] border-secondary">{{ $user->email }}</td>
+                            <td class="border-r-[3px] border-secondary">{{ $user->no_hp }}</td>
+                            <td class="border-r-[3px] border-secondary">{{ $user->status }}</td>
                             <td class="">
-                                <i class="fa-solid fa-pen-to-square scale-125 text-green-500 mr-3"></i>
-                                <a href="">
+                                <button wire:click="editUser({{ $user->id }})" type="submit">
+                                    <i class="fa-solid fa-pen-to-square scale-125 text-green-500 mr-3"></i>
+                                </button>
+                                <button wire:click="konfirDelete({{ $user->id }})" type="submit">
                                     <i class="fa-solid fa-trash-can scale-125 text-red-500"></i>
-                                </a>
+                                </button>
                             </td>
                         </tr>
-                    @endfor
+                        @php $i++; @endphp
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    <div class="mx-10 mt-2">
+        {{ $this->users->links() }}
+    </div>
+    <x-konfirmasi-hapus jenis="User">
+    </x-konfirmasi-hapus>
 </div>

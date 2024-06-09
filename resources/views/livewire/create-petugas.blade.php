@@ -12,7 +12,7 @@
                 @enderror
             </div>
             <div class="w-full mb-5 px-10 flex flex-col space-y-1">
-                <label for="jenis_kelamin_petugas" class="text-base text-primary font-bold">Jenis Kelamin</label>
+                <div class="text-base text-primary font-bold">Jenis Kelamin</div>
                 <div class="flex space-x-4">
                     <div class="flex items-center space-x-1">
                         <input wire:model.live="jenis_kelamin_petugas" type="radio" id="laki_laki" name="jenis_kelamin_petugas" value="L"
@@ -43,7 +43,10 @@
                     Batal
                 </button>
             </div>
+            
+            
         </form>
     </div>
+
 
 </div>

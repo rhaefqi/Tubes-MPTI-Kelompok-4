@@ -44,7 +44,6 @@
     </div>
     <div class="mx-10 mt-2">
         {{ $this->petugass->links() }}
-
     </div>
     @include('livewire.edit-petugas')
     {{-- modal hapus --}}

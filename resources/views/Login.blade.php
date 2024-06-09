@@ -61,7 +61,7 @@
         </div>
     </div>
     <script>
- const togglePassword = document.querySelector('#togglePassword');
+        const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
 
         togglePassword.addEventListener('click', function (e) {
