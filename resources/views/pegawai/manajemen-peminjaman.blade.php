@@ -1,15 +1,14 @@
 @extends('layouts.main-pegawai')
 
 @section('container')
-<h1 class="text-primary font-open font-bold text-4xl mt-5 ml-8 text-center">
-    <span>Data Buku</span>
+<h1 class="text-primary font-open font-bold text-3xl mt-5 ml-8 text-center">
+    <span>Data Peminjaman</span>
 </h1>
 
-
- <div class="container mx-auto p-4">
+<div class="container mx-auto p-4">
     <div class="bg-white shadow-md rounded-lg p-4">
       {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
-      <button class="mb-4 bg-blue-400 text-white py-2 px-4 rounded"><i class="fa-solid fa-plus"></i> Tambah Buku</button>
+      <button class="mb-4 bg-blue-400 text-white py-2 px-4 rounded"><i class="fa-solid fa-plus"></i> Tambah Data</button>
       <div class="overflow-x-auto">
         <table class="min-w-full bg-white border">
           <thead>
@@ -54,6 +53,4 @@
       </div>
     </div>
   </div> 
-
-  
 @endsection

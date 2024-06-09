@@ -31,5 +31,17 @@ class PegawaiController extends Controller
         return view('pegawai.kelola-riwayat');   
     }
 
+    public function showPeminjaman (){  
+        return view('pegawai.manajemen-peminjaman');   
+    }
+
+    public function showTambahbuku (){  
+        return view('pegawai.kelola-buku(tambah)');   
+    }
+
+    public function showTambahdata (){  
+        return view('pegawai.manajemen-peminjaman(tambah)');   
+    }
+
     
 }

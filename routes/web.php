@@ -57,6 +57,13 @@ Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
             ->name('kelas.kelola');
     Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
             ->name('riwayat.kelola');
+    Route::get('/manajemen-peminjaman', [PegawaiController::class, 'showPeminjaman'])
+            ->name('peminjaman.manajemen');
+ Route::get('/kelola-buku(tambah)', [PegawaiController::class, 'showTambahbuku'])
+            ->name('buku.tambah');
+Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTambahdata'])
+            ->name('buku.tambahdata');
+
 });
 
 Route::get('/dashboard', function () {
