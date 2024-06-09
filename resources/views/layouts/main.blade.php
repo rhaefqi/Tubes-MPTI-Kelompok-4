@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>@yield('title', 'Perpustakaan Yayasan Amaliyah')</title>
     <link rel="shortcut icon" href="{{asset('assets/img/logo.png')}}" type="image/x-icon">
+    @livewireStyles
 </head>
 <body class="bg-[#F2F2F2] open-sans">
     <!-- HEADER START -->
@@ -85,5 +86,7 @@
       togglePasswordVisibility('toggle-new-password', 'new-password');
       togglePasswordVisibility('toggle-confirm-password', 'confirm-password');
       </script>
+
+      @livewireScripts
 </body>
 </html>

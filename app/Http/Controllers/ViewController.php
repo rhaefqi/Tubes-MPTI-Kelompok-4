@@ -34,10 +34,10 @@ class ViewController extends Controller
 
     public function showBuku(){
 
-        $bukus = Buku::select('id','judul', 'penulis', 'sampul_buku', 'jumlah_tersedia')
-                        ->get();
+        // $bukus = Buku::select('id','judul', 'penulis', 'sampul_buku', 'jumlah_tersedia')
+        //                 ->get();
 
-        return view('siswa.buku', compact('bukus'));
+        return view('siswa.buku');
     }
 
     public function detailBuku(Request $request, $id){
