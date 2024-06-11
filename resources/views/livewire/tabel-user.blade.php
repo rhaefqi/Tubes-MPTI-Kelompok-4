@@ -38,6 +38,7 @@
     <div class="mx-10 mt-2">
         {{ $this->users->links() }}
     </div>
+    @include('livewire.edit-user')
     <x-konfirmasi-hapus jenis="User">
     </x-konfirmasi-hapus>
 </div>

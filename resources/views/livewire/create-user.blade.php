@@ -103,14 +103,14 @@
                                 <input wire:model.live="jenis_kelamin_petugas" type="radio" id="laki_laki"
                                     name="jenis_kelamin_petugas" value="L"
                                     class=" text-dark rounded-full transition duration-300 "
-                                    required />
+                                    {{ $this->disabled == 1 ? 'required' : '' }} />
                                 <label for="laki_laki" class="text-base text-primary font-bold">Laki Laki</label>
                             </div>
                             <div class="flex items-center space-x-1">
                                 <input wire:model.live="jenis_kelamin_petugas" type="radio" id="perempuan"
                                     name="jenis_kelamin_petugas" value="P"
                                     class=" text-dark rounded-full transition duration-300"
-                                    required />
+                                    {{ $this->disabled == 1 ? 'required' : '' }} />
                                 <label for="perempuan" class="text-base text-primary font-bold">Perempuan</label>
                             </div>
                         </div>

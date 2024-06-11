@@ -88,7 +88,7 @@ class CreateUser extends Component
             ]);
         }
 
-        $this->proses = true;
+        // $this->proses = true;
 
         DB::beginTransaction();
         try {
@@ -101,7 +101,7 @@ class CreateUser extends Component
             $userOk = User::create($user);
             // dd($userOk);
             $userId = $userOk->id;
-
+            // dd("aahh");
 
             // dd($userId);
             if ($this->disabled == 1) {
@@ -112,9 +112,9 @@ class CreateUser extends Component
                 Petugas::create($petugas);
             }else if($this->disabled == 2) {
                 if ($this->status == 'siswa') {
-                    Siswa::find($this->nis_nip)->update(['user_id' => $userId]);
+                    Siswa::where('nisn', $this->nis_nip)->update(['user_id' => $userId]);
                 }else{
-                    Guru::find($this->nis_nip)->update(['user_id' => $userId]);
+                    Guru::where('nip', $this->nis_nip)->update(['user_id' => $userId]);
                 }
             } 
 
@@ -132,6 +132,7 @@ class CreateUser extends Component
             $this->dispatch('close-input');
             $this->dispatch('user-created');
         } catch (\Exception $e) {
+            dd($e);
             DB::rollback();
         }
 
