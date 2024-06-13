@@ -32,6 +32,17 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'Email harus diisi.',
+            'email.string' => 'Email harus berupa string.',
+            'email.lowercase' => 'Email harus menggunakan huruf kecil.',
+            'email.email' => 'Email tidak valid.',
+            'email.max' => 'Email maksimal 255 karakter.',
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *
@@ -45,7 +56,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => trans('Email atau Password salah'),
             ]);
         }
 

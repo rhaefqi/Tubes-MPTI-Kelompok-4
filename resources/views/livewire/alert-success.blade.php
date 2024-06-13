@@ -12,7 +12,7 @@
         if (value) {
             setTimeout(() => {
                 Livewire.dispatch('close-alert')
-            }, 3000);
+            }, 2000);
         }
     })"
     >

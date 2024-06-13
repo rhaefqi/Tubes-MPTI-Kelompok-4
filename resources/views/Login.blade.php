@@ -25,6 +25,9 @@
                         Email  <span style="color: red;">*</span>
                     </label>
                     <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" id="email" type="email" placeholder="Masukkan Email">
+                    @error('email')
+                        <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2 " for="password">
@@ -35,6 +38,9 @@
                         <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                             <i class="far fa-eye cursor-pointer" id="togglePassword"></i>
                         </span>
+                        @error('pasword')
+                            <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
+                        @enderror
                     </div>
                     <p class="text-sm text-black hover:text-[#245237] font-semibold text-right">Lupa Password?</p>
                 </div>
@@ -55,7 +61,7 @@
         </div>
     </div>
     <script>
- const togglePassword = document.querySelector('#togglePassword');
+        const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
 
         togglePassword.addEventListener('click', function (e) {

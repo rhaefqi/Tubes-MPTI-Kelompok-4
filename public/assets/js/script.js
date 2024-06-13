@@ -26,9 +26,13 @@ tombol.addEventListener("click", () => {
             const temp = text[i];
             temp.classList.add('hidden')
         }
-        divArrow.classList.add("hidden");
-        if (!subMenu.classList.contains('hidden')) {
-            subMenu.classList.add('hidden');
+        if (divArrow) {
+            divArrow.classList.add("hidden");
+        }
+        if (subMenu) {
+            if (!subMenu.classList.contains('hidden')) {
+                subMenu.classList.add('hidden');
+            }
         }
         // subBuku.disabled = true;
         setTimeout(() => {
@@ -40,11 +44,13 @@ tombol.addEventListener("click", () => {
                 const temp = text[i];
                 temp.classList.remove('hidden')
             }
-            divArrow.classList.remove("hidden");
-            if (arrow.classList.contains('rotate-90')) {
-                subMenu.classList.remove('hidden');
+            if (divArrow) {
+                divArrow.classList.remove("hidden");
+                if (arrow.classList.contains('rotate-90')) {
+                    subMenu.classList.remove('hidden');
+                }
             }
-        }, 250);
+        }, 320);
         logoSide.classList.add('scale-0')
         // subBuku.disabled = false;
     }
@@ -63,13 +69,50 @@ tombol.addEventListener("click", () => {
     garis2.classList.toggle("scale-0")
 })
 
-subBuku.addEventListener("click", () =>{
-    if (!sidebar.classList.contains('w-20')) {
-        arrow.classList.toggle("rotate-90");
-        subMenu.classList.toggle("hidden");
-    }
+if (subBuku) {
+    // console.log("ahhh")
+    subBuku.addEventListener("click", () =>{
+        if (!sidebar.classList.contains('w-20')) {
+            arrow.classList.toggle("rotate-90");
+            subMenu.classList.toggle("hidden");
+        }
+    
+    })
+}
 
-})
+//toggle password
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+const toggleKonPassword = document.querySelector('#toggleKonPassword');
+const konfirmasi_password = document.querySelector('#konfirmasi_password');
+
+togglePassword.addEventListener('click', function (e) {
+    // Toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // Toggle the eye / eye-slash icon
+    if (type === 'password') {
+        togglePassword.classList.add('fa-eye');
+        togglePassword.classList.remove('fa-eye-slash');
+    } else {
+        togglePassword.classList.add('fa-eye-slash');
+        togglePassword.classList.remove('fa-eye');
+    }
+});
+
+toggleKonPassword.addEventListener('click', function (e) {
+    // Toggle the type attribute
+    const type = konfirmasi_password.getAttribute('type') === 'password' ? 'text' : 'password';
+    konfirmasi_password.setAttribute('type', type);
+    // Toggle the eye / eye-slash icon
+    if (type === 'password') {
+        toggleKonPassword.classList.add('fa-eye');
+        toggleKonPassword.classList.remove('fa-eye-slash');
+    } else {
+        toggleKonPassword.classList.add('fa-eye-slash');
+        toggleKonPassword.classList.remove('fa-eye');
+    }
+});
 
 
 
