@@ -86,33 +86,36 @@ const password = document.querySelector('#password');
 const toggleKonPassword = document.querySelector('#toggleKonPassword');
 const konfirmasi_password = document.querySelector('#konfirmasi_password');
 
-togglePassword.addEventListener('click', function (e) {
-    // Toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // Toggle the eye / eye-slash icon
-    if (type === 'password') {
-        togglePassword.classList.add('fa-eye');
-        togglePassword.classList.remove('fa-eye-slash');
-    } else {
-        togglePassword.classList.add('fa-eye-slash');
-        togglePassword.classList.remove('fa-eye');
-    }
-});
+if (togglePassword) {
+    
+    togglePassword.addEventListener('click', function (e) {
+        // Toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // Toggle the eye / eye-slash icon
+        if (type === 'password') {
+            togglePassword.classList.add('fa-eye');
+            togglePassword.classList.remove('fa-eye-slash');
+        } else {
+            togglePassword.classList.add('fa-eye-slash');
+            togglePassword.classList.remove('fa-eye');
+        }
+    });
 
-toggleKonPassword.addEventListener('click', function (e) {
-    // Toggle the type attribute
-    const type = konfirmasi_password.getAttribute('type') === 'password' ? 'text' : 'password';
-    konfirmasi_password.setAttribute('type', type);
-    // Toggle the eye / eye-slash icon
-    if (type === 'password') {
-        toggleKonPassword.classList.add('fa-eye');
-        toggleKonPassword.classList.remove('fa-eye-slash');
-    } else {
-        toggleKonPassword.classList.add('fa-eye-slash');
-        toggleKonPassword.classList.remove('fa-eye');
-    }
-});
+    toggleKonPassword.addEventListener('click', function (e) {
+        // Toggle the type attribute
+        const type = konfirmasi_password.getAttribute('type') === 'password' ? 'text' : 'password';
+        konfirmasi_password.setAttribute('type', type);
+        // Toggle the eye / eye-slash icon
+        if (type === 'password') {
+            toggleKonPassword.classList.add('fa-eye');
+            toggleKonPassword.classList.remove('fa-eye-slash');
+        } else {
+            toggleKonPassword.classList.add('fa-eye-slash');
+            toggleKonPassword.classList.remove('fa-eye');
+        }
+    });
+}
 
 
 

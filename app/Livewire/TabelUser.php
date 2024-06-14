@@ -58,6 +58,7 @@ class TabelUser extends Component
         $this->username = $user->username;
         $this->email = $user->email;
         $this->no_hp = $user->no_hp;
+        $this->status = $user->status;
         
         $this->edit = true;
         // $this->gagalEdit = true;
@@ -102,7 +103,7 @@ class TabelUser extends Component
                 DB::beginTransaction();
                 User::where('id', $user->id)->update($validated);
                 // User::find($user->id)->email_verified_at = null;
-                dd(User::find($user->id));
+                // dd(User::find($user->id));
                 if ($email != $this->email) {
                     // dd($user->email_verified_at);
                     event(new Registered(User::find($user->id)));
