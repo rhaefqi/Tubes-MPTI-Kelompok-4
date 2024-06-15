@@ -53,6 +53,8 @@ Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
             ->name('buku.kelola');
     Route::get('/kelola-subjek', [PegawaiController::class, 'showsubjek'])
             ->name('subjek.kelola');
+     Route::get('/kategori', [PegawaiController::class, 'showkategori'])
+            ->name('kategori.kelola');
     Route::get('/kelola-kelas', [PegawaiController::class, 'showKelas'])
             ->name('kelas.kelola');
     Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
