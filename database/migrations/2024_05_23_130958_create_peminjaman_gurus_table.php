@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('peminjaman_gurus', function (Blueprint $table) {
+            $table->increments('id');
             $table->char('nip', 18);
             $table->foreign('nip')->references('nip')->on('gurus')->onDelete('restrict')->onUpdate('cascade');
             $table->unsignedInteger('buku_id');

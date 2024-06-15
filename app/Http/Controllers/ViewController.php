@@ -7,6 +7,7 @@ use App\Models\PeminjamanGuru;
 use App\Models\PeminjamanSiswa;
 use App\Models\Siswa;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use PDO;
 
@@ -16,20 +17,13 @@ class ViewController extends Controller
 
         if(auth()->user()->status == 'siswa'){
             $pinjam = PeminjamanSiswa::where('nisn', auth()->user()->siswa->nisn)->count();
-            $daftarPinjams = PeminjamanSiswa::where('nisn', auth()->user()->siswa->nisn)
-                ->whereNull('tanggal_kembali')
-                ->get();
-
         } else {
             $pinjam = PeminjamanGuru::where('nip', auth()->user()->guru->nip)->count();
-            $daftarPinjams = PeminjamanGuru::where('nip', auth()->user()->guru->nip)
-                ->whereNull('tanggal_kembali')
-                ->get();
         }
 
         $barus = Buku::orderBy('created_at')->get(); 
 
-        return view('siswa.home', compact('pinjam', 'daftarPinjams', 'barus'));
+        return view('siswa.home', compact('pinjam', 'barus'));
     }
 
     public function showBuku(){
@@ -41,24 +35,43 @@ class ViewController extends Controller
     }
 
     public function detailBuku(Request $request, $id){
+        $targetPage = '/detail-buku/' . $id;
 
+        $wasRefreshed = Session::get('wasRefreshed', []);
 
-        $pinjamans = PeminjamanSiswa::select('tanggal_pinjam')->where('buku_id', $id)->get();
+        // kalo gaada dijalankan
+        if (!in_array($targetPage, $wasRefreshed)) {
+            $view = Buku::select('view')
+                ->where('id', $id)
+                ->first()
+                ->view;
+            $view += 1;
+            Buku::where('id', $id)->update(['view' => $view]);
+
+            $wasRefreshed[] = $targetPage;
+            Session::put('wasRefreshed', $wasRefreshed);
+        }
+
+        $pinjamans = PeminjamanSiswa::select('tanggal_pinjam', 'tanggal_kembali')->where('buku_id', $id)->get();
         $buku = Buku::where('id', $id)
                         ->first();
 
 
         Carbon::setLocale('id');
         $tanggal = [];
+        $tanggalKembali = [];
         foreach($pinjamans as $pinjam){
             $format = Carbon::createFromFormat('Y-m-d', $pinjam->tanggal_pinjam);
             $format->addDays(5);
             $tanggal[] = $format->translatedFormat('d F Y');
+            if ($buku->status == 'dikembalikan') {
+                $tanggalKembali = Carbon::createFromFormat('Y-m-d', $pinjam->tanggal_kembali);
+            }
         };
         // dd($tanggal);
                         // dd($pinjaman[0]->tanggal_pinjam);
 
-        return view('siswa.detail-buku', compact('buku', 'tanggal'));
+        return view('siswa.detail-buku', compact('buku', 'tanggal', 'tanggalKembali'));
     }
 
     public function showProfile(){

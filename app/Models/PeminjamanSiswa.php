@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PeminjamanSiswa extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['buku_id'];
 
     public function buku()
     {

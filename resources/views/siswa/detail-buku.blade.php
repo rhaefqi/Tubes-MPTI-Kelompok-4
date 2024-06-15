@@ -34,13 +34,13 @@
                                 <td class="px-5">{{ $buku->no_seri }}</td>
                                 <td class="px-5 w-full items-center flex justify-center">
                                     <p class="text-white px-5 rounded-full
-                                    @if (isset($tanggal[$i]))
+                                    @if (isset($tanggal[$i]) && $tanggalKembali == NULL)
                                         bg-red-500
                                     @else
                                         bg-green-500 w-1/2
                                     @endif
                                     ">
-                                    @if (isset($tanggal[$i]))
+                                    @if (isset($tanggal[$i]) && $tanggalKembali == NULL)
                                         Tidak Tersedia Sampai {{ $tanggal[$i] }}
                                     @else
                                         Tersedia
