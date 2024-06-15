@@ -34,6 +34,18 @@ return new class extends Migration
             JOIN gurus g ON g.nip = b.nip
             ORDER BY tanggal
         ');
+
+        // DB::unprepared('
+        //     DROP VIEW IF EXISTS view_guru_siswa;
+        //     CREATE VIEW view_guru_siswa AS 
+        //     SELECT
+        //         a.nisn AS nisn_nip,
+        //         s.nama,
+        //         "siswa" AS status,
+        //     FROM absensi_siswas a 
+        //     JOIN siswas s ON s.nisn = a.nisn
+        //     ORDER BY tanggal
+        // ');
     }
 
     /**
