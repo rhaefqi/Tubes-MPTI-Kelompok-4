@@ -14,6 +14,14 @@ class GuruTableSeeder extends Seeder
     public function run(): void
     {
         Guru::create([
+            'nip' => '111111111111111111',
+            'nama' => 'Temp Guru',
+            'tingkat' => 'MA',
+            'jenis_kelamin' => 'L',
+            'user_id' => '1'
+        ]);
+
+        Guru::create([
             'nip' => '123456789123456789',
             'nama' => 'Rifqi Jabrah Rhae',
             'tingkat' => 'MA',
@@ -33,7 +41,8 @@ class GuruTableSeeder extends Seeder
             'nip' => '123456789123456787',
             'nama' => 'Muhammad Irvi Hafizi',
             'tingkat' => 'MTs',
-            'jenis_kelamin' => 'L'
+            'jenis_kelamin' => 'L',
+            'user_id' => '1'
         ]);
     }
 }

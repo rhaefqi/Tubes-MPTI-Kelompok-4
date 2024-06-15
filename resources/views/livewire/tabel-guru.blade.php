@@ -24,6 +24,7 @@
                                 {{ $guru->jenis_kelamin == 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
                             <td class="border-r-[3px] border-secondary">{{ $guru->tingkat }}</td>
                             <td class="border-r-[3px] border-secondary">
+                                {{-- @dd($guru->user) --}}
                                 @if ($guru->user->id == 1)
                                     Belum punya akun
                                 @else

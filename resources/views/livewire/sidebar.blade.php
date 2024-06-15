@@ -145,12 +145,12 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ route('kelas-siswa.kelola') }}">
                     <div id="menu-hover"
                         class="mb-2 flex menu font-semibold hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
                         <div class="relative transition duration-200 ease-in-out">
                             <i class="fa-solid fa-chalkboard-user w-5"></i>
-                            <span class="menu-text">Riwayat</span>
+                            <span class="menu-text">Kelas</span>
                         </div>
                     </div>
                 </a>
