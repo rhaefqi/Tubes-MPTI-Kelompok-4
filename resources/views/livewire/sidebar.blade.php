@@ -15,29 +15,29 @@
                 </div>
                 <div class="" id="list">
                     <div class="mb-6 flex menu hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
-                        <div class="relative transition duration-200 ease-in-out">
-                            <a href="{{ route('pegawai.home') }}" class="font-semibold flex">
+                        <a href="{{ route('pegawai.home') }}" class="font-semibold flex">
+                            <div class="relative transition duration-200 ease-in-out">
                                 <i class="fa-solid fa-house"></i>
                                 <span class="ml-2 menu-text">Dashboard</span>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
-                    <div class=" relative transition duration-200 ease-in-out">
-                        <a href="{{ route('absensi') }}" class="font-semibold">
+                    <a href="{{ route('absensi') }}" class="font-semibold">
+                        <div class=" relative transition duration-200 ease-in-out">
                             <i class="fa-solid fa-user w-5"></i>
                             <span class="menu-text">Absensi</span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
-                    <div class=" relative transition duration-200 ease-in-out">
-                        <a href="{{ route('peminjaman') }}" class="font-semibold">
+                    <a href="{{ route('peminjaman') }}" class="font-semibold">
+                        <div class=" relative transition duration-200 ease-in-out">
                             <i class="fa-solid fa-user-pen w-5"></i>
                             <span class="menu-text">Peminjaman</span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div id="menu-hover"
                     class="mb-2 flex menu font-semibold hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
@@ -70,12 +70,12 @@
                     </div>
                 </div>
                 <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
-                    <div class=" relative transition duration-200 ease-in-out">
-                        <a href="{{ route('riwayat.kelola') }}" class="font-semibold ">
+                    <a href="{{ route('riwayat.kelola') }}" class="font-semibold ">
+                        <div class=" relative transition duration-200 ease-in-out">
                             <i class="fa-solid fa-user-graduate w-5"></i>
                             <span class="menu-text">Riwayat</span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div
                     class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary
@@ -103,7 +103,8 @@
                         Administrasi</a>
                 </div>
                 <div class="" id="list">
-                    <a href="{{ route('admin.home') }}" class="mb-6 font-semibold flex hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
+                    <a href="{{ route('admin.home') }}"
+                        class="mb-6 font-semibold flex hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
                         <div class=" flex menu ">
                             <div class="relative transition duration-200 ease-in-out">
                                 <i class="fa-solid fa-house"></i>
@@ -154,11 +155,11 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ route('siswa.kelola') }}" class="font-semibold ">
+                <a href="{{ route('logout') }}" class="font-semibold ">
                     <div class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
                         <div class=" relative transition duration-200 ease-in-out">
-                            <i class="fa-solid fa-circle-user w-5 scale-125"></i>
-                            <span class="menu-text">Akun</span>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="menu-text">Logout</span>
                         </div>
                     </div>
                 </a>
