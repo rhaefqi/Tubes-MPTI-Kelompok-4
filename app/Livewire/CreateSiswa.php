@@ -2,13 +2,16 @@
 
 namespace App\Livewire;
 
+use App\Models\Kelas;
 use App\Models\Siswa;
 use Livewire\Component;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\DB;
 
 class CreateSiswa extends Component
 {
-    #[Validate('required|numeric|digits:10')]
+    #[Validate('required|numeric|digits:10|unique:'.Siswa::class)]
     public $nisn;
 
     #[Validate('required|regex:/^[^\*\'\"\-]+$/|max:255')]
@@ -22,8 +25,15 @@ class CreateSiswa extends Component
 
     #[Validate('required')]
     public $kelas;
+    public $kelas_siswa;
 
     public $konfirmasi = false;
+    // public $pilihan;
+
+    public function mount()
+    {
+        // $this->kelas_siswa = Kelas::all();
+    }
 
     protected $rules = [
         'nisn' => ['required', 'numeric', 'digits:10', 'unique:'.Siswa::class],
@@ -44,9 +54,39 @@ class CreateSiswa extends Component
             'tingkat.required' => 'Tingkat harus diisi',
     ];
 
+    // public function updatedTingkat($value)
+    // {
+    //     $this->pilihan = $this->tingkat;
+    //     // $this->validateOnly($value);
+    // }
+
+
     public function createSiswa(){
         $validated = $this->validate();
-        $this->reset('nama');
+
+        DB::beginTransaction();
+        try {
+            $siswa["nisn"] = $this->nisn;
+            $siswa["nama"] = $this->nama;
+            $siswa["jenis_kelamin"] = $this->jenis_kelamin;
+            $siswa["tingkat"] = $this->tingkat;
+            $siswa["kelas"] = $this->kelas;
+            $siswa["user_id"] = 1;
+            // dd($guru);
+
+            Siswa::create($siswa);
+
+            DB::commit();
+            $this->dispatch('close-input');
+            $this->reset();
+            $this->resetValidation();
+            $this->dispatch('success', ['pesan' => 'Data Siswa berhasil ditambahkan']);
+            $this->dispatch('siswa-created');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th);
+            $this->dispatch('gagal', ['pesan' => 'Data siswa gagal ditambahkan']);
+        }
     }
     public function batalCreate(){
         if ($this->nisn != null || 
@@ -77,6 +117,9 @@ class CreateSiswa extends Component
     }
     public function render()
     {
+        $this->kelas_siswa = Kelas::all();
+        // $this->kelas_siswa = 'agah';
+        // dd($kelas);
         return view('livewire.create-siswa');
     }
 }

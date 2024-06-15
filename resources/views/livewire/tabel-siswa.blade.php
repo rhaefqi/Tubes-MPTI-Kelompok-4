@@ -31,10 +31,12 @@
                             @endif
                         </td>
                         <td class="">
-                            <i class="fa-solid fa-pen-to-square scale-125 text-green-500 mr-3"></i>
-                                <a href="">
-                                    <i class="fa-solid fa-trash-can scale-125 text-red-500"></i>
-                                </a>
+                            <button wire:click="editSiswa('{{ $siswa->nisn }}')">  
+                                <i class="fa-solid fa-pen-to-square scale-125 text-green-500 mr-3"></i>
+                            </button>
+                            <button wire:click="konfirDelete('{{ $siswa->nisn }}')" type="submit">
+                                <i class="fa-solid fa-trash-can scale-125 text-red-500"></i>
+                            </button>
                         </td>
                     </tr>
                     @php $i++; @endphp
@@ -43,4 +45,7 @@
         </table>
         </div>
     </div>
+    @include('livewire.edit-siswa')
+    <x-konfirmasi-hapus jenis="Siswa">
+    </x-konfirmasi-hapus>
 </div>

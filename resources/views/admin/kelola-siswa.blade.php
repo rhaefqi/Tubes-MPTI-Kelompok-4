@@ -20,6 +20,7 @@
             </button>
         </div>
     </div>
+    <livewire:alert-success />
     <livewire:tabel-siswa/>
 </main>
 

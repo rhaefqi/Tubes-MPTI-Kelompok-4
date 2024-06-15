@@ -11,7 +11,9 @@ class Siswa extends Model
 
     // protected $table = 'siswas';
 
-    protected $fillable = ['nisn', 'user_id'];
+    protected $primaryKey = 'nisn';
+    protected $keyType = 'string';
+    protected $fillable = ['nisn', 'user_id', 'nama', 'jenis_kelamin', 'tingkat', 'kelas'];
 
     public function user()
     {

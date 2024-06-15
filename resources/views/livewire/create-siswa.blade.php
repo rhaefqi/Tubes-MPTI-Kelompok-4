@@ -2,6 +2,7 @@
     {{-- Care about people's approval and you will be their prisoner. --}}
     <div class="font-open mt-4 flex flex-col">
         <form wire:submit.prevent="createSiswa" class="">
+            {{-- @dump($this->tingkat) --}}
             <div class="w-full mb-5 px-10">
                 <label for="nisn" class="text-base text-primary font-bold">NISN</label>
                 <input wire:model.live="nisn" type="text" id="nisn" name="nisn"
@@ -19,7 +20,7 @@
                 @enderror
             </div>
             <div class="w-full mb-5 px-10 flex flex-col space-y-1">
-                <label for="Jenis_kelamin" class="text-base text-primary font-bold">Jenis Kelamin</label>
+                <label class="text-base text-primary font-bold">Jenis Kelamin</label>
                 <div class="flex space-x-4">
                     <div class="flex items-center space-x-1">
                         <input wire:model.live="jenis_kelamin" type="radio" id="laki_laki" name="jenis_kelamin" value="L"
@@ -50,11 +51,24 @@
             </div>
             <div class="w-full mb-5 px-10 flex flex-col">
                 <label for="kelas" class="text-base text-primary font-bold">Kelas</label>
-                <select wire:model.live="kelas" name="kelas" id="kelas" class=" w-full rounded-md transition duration-300 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" required ">
-                    <option value="">Pilih Kelas</option>
-                    <option value="MA">MA (Madrasah Aliyah)</option>
-                    <option value="MTs">MTs (Madrasah Tsanawiyah)</option>
-                    <option value="SD">SD (Sekolah Dasar)</option>
+                <select {{ ($this->tingkat == '') ? 'disabled' : '' }} wire:model.live="kelas" name="kelas" id="kelas" class=" w-full rounded-md transition duration-300 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" required >
+                    @if ($this->tingkat == '')
+                    <option selected value="">Pilih Tingkatan terlebih dahulu</option>
+                    @else
+                        <option value="">Pilih Kelas</option>
+                    @endif
+                    @foreach ($kelas_siswa as $kelas) 
+                        @if ($this->tingkat == 'MA')
+                            @if ($kelas->tingkat == 'MA')
+                                <option value="{{ $kelas->kelas }}">{{ $kelas->kelas }}</option>
+                            @endif
+                        @elseif ($this->tingkat == 'MTs')
+                            @if ($kelas->tingkat == 'MTs')
+                                <option value="{{ $kelas->kelas }}">{{ $kelas->kelas }}</option>
+                            @endif
+                        @else 
+                        @endif
+                    @endforeach
                 </select>
                 @error('kelas')
                     <span class="text-red-500">{{ $message }}</span>
