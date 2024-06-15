@@ -40,61 +40,7 @@
             </div>
         </div>
         <div class="border border-1 border-black rounded-lg p-5">
-            <div class="flex flex-col lg:gap-10 gap-5">
-                <div class="flex justify-between w-full">
-                    <div class="flex lg:flex-row flex-col gap-2">
-                        <button class="rounded-full bg-[#245237] text-white text-[10px] lg:text-[15px] font-semibold lg:py-2 py-0 lg:px-8 px-5">Dipinjam</button>
-                        <a href="../siswa/home.html" class="rounded-full bg-[#F2F2F2] text-[#245237] border-[#245237] border-1 border lg:text-[15px] text-[10px] font-semibold lg:py-2 py-0 lg:px-8 px-5 hover:bg-[#245237] hover:text-white after:bg-[#245237] after:text-white">Dikembalikan</a>
-                    </div>
-                    <div class="flex">
-                        <form class="">
-                            <select id="urutkan" class="border-1 border-[#245237] border rounded-full px-3 font-normal lg:text-[12px] text-[8px] text-[#245237] w-[100px]">
-                                <option value="AZ">A-Z</option>
-                                <option value="ZA">Z-A</option>
-                                <option value="Dekat">Tenggat terdekat</option>
-                                <option value="Jauh">Tenggat terjauh</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-3">
-                    @foreach ($daftarPinjams as $daftarPinjam)  
-                    
-                    @php
-                        $tanggalPinjam = \Carbon\Carbon::parse($daftarPinjam->tanggal_pinjam);
-                        $tanggalJatuhTempo = $tanggalPinjam->copy()->addDays(5);
-                        $sekarang = \Carbon\Carbon::now();
-                        $sisaHari = $sekarang->diffInDays($tanggalJatuhTempo, false);
-                    @endphp
-                    <div class="flex gap-2"> 
-                        <div class="flex w-2/5 md:w-28">
-                            <img src="{{ asset('assets/img/'. $daftarPinjam->buku->sampul_buku ) }}" class="w-24 h-36 rounded-md">
-                        </div>
-                        <div class="flex flex-col w-3/5 md:2/3">
-                            <div class="flex">
-                                <p class="bg-[#245237] text-white font-bold lg:text-[15px] text-[12px] px-2 rounded-md text-left">{{ $sisaHari}} hari lagi</p>
-                            </div>
-    
-                            <div class="flex flex-col">
-                                <p class="lg:text-[20px] text-[15px] font-medium">{{ $daftarPinjam->buku->judul }}</p>
-                                <p class="lg:text-[15px] text-[12px] font-normal">
-                                    {{ $daftarPinjam->buku->deskripsi }}                                
-                                </p>
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <div class="flex">
-                                    <p class="bg-[#F0C001] lg:text-[15px] text-[12px] px-2 rounded-md text-left">Dipinjam : {{ $tanggalPinjam->translatedFormat('d F Y') }}</p>
-                                </div>
-                                <div class="flex">
-                                    <p class="bg-[#F7D914] lg:text-[15px] text-[12px] px-2 rounded-md text-left">Jatuh Tempo : {{ $tanggalJatuhTempo->translatedFormat('d F Y') }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
+            @livewire('filter-pinjam')     
         </div>
     </div>
     <div class="flex flex-col lg:w-2/5 w-full px-2 lg:px-0 gap-5">
@@ -115,7 +61,7 @@
                         </div>
                     </div>
                     <a href="{{ route('profile') }}" class="flex py-3 px-2">
-                        <img class="rounded-full w-[100px] h-[100px]" src="{{ asset('assets/img/'.auth()->user()->photo_profile) }}">
+                        <img class="rounded-full w-[100px] h-[100px]" src="{{ asset(auth()->user()->photo_profile) }}">
                     </a>
                 </div>
                 <div class="flex flex-col gap-2">
