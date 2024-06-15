@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('absensi_siswas', function (Blueprint $table) {
             $table->char('nisn', 10);
             $table->foreign('nisn')->references('nisn')->on('siswas')->onDelete('restrict')->onUpdate('cascade');
-            $table->timestamps();
+            $table->date('tanggal')->nullable();
+            $table->time('jam')->nullable();
         });
     }
 

@@ -3,7 +3,7 @@
 <div class="{{ $this->konfirmasi == true ? '' : 'hidden' }}">
     <!-- The only way to do great work is to love what you do. - Steve Jobs -->
     <div class="bg-gray-200 opacity-40 fixed inset-0"></div>
-    <div class="bg-white rounded-md m-auto fixed inset-0 max-w-xl max-h-fit border-2 border-red-600">
+    <div class="bg-white rounded-md m-auto fixed inset-0 max-w-2xl max-h-fit border-2 border-red-600">
         <div class=" p-4 w-full max-h-full">
             <div class="relative bg-white rounded-lg dark:bg-gray-700">
 

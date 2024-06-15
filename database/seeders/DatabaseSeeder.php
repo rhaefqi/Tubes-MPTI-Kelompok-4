@@ -31,5 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BukuTableSeeder::class);
         $this->call(SiswaTableSeeder::class);
         $this->call(PeminjamanSiswaTableSeeder::class);
+        $this->call(AbsensiGuruTableSeeder::class);
+        $this->call(AbsensiSiswaTableSeeder::class);
     }
 }

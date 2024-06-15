@@ -1,18 +1,18 @@
 @extends('layouts.main-admin')
 
-@section('title', 'Kelola Guru | Perpustakaan Amaliyah')
+@section('title', 'Kelola kelas | Perpustakaan Amaliyah')
 
 @section('container')
 <main class="mb-10">
     <div class="flex justify-between mt-8">
         <h1 class="text-primary font-open font-bold text-5xl mt-5 ml-8">
             <i class="fa-solid fa-chalkboard-user"></i>
-            <span>Guru</span>
+            <span>kelas</span>
         </h1>
         <div class="mx-20 mt-10">
-            <x-input-modal title="Tambah Data Guru">
+            <x-input-modal title="Tambah Data kelas">
                 <x-slot:body>
-                    <livewire:create-guru/>
+                    <livewire:create-kelas/>
                 </x-slot>
             </x-input-modal>
 
@@ -22,7 +22,7 @@
         </div>
     </div>
     <livewire:alert-success />
-    <livewire:tabel-guru/>
+    <livewire:tabel-kelas/>
 </main>
 
 @endsection

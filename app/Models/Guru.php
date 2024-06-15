@@ -10,11 +10,17 @@ class Guru extends Model
     use HasFactory;
 
     // protected $table = 'gurus';
-
-    protected $fillable = ['nip', 'user_id'];
+    protected $primaryKey = 'nip';
+    protected $keyType = 'string';
+    protected $fillable = ['nip', 'user_id', 'nama', 'tingkat', 'jenis_kelamin'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    
+    public function wali()
+    {
+        return $this->hasOne(Kelas::class);
     }
 }

@@ -40,6 +40,8 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
                 ->name('siswa.kelola');
         Route::get('/kelola-petugas', [AdminController::class, 'showPetugas'])
                 ->name('petugas.kelola');
+        Route::get('/kelola-kelas-siswa', [AdminController::class, 'showKelas'])
+                ->name('kelas-siswa.kelola');
 });
 
 Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {

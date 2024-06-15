@@ -29,6 +29,10 @@ class AdminController extends Controller
     {
         return view('admin.kelola-petugas');   
     }
+    public function showkelas()
+    {
+        return view('admin.kelola-kelas');   
+    }
 
     /**
      * Show the form for creating a new resource.
