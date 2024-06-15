@@ -2,7 +2,7 @@
 
 @section('container')
 <h1 class="text-primary font-open font-bold text-5xl mt-5 ml-8">
-    <span>Kelola Subjek Buku</span>
+    <span>Kelola Kategori Buku</span>
 </h1>
 
 <div class="container mx-auto p-4">
@@ -11,7 +11,7 @@
         <table class="min-w-full bg-white border">
           <thead>
             <tr class="w-full bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-              <th class="py-3 px-6 text-left">Subjek</th>
+              <th class="py-3 px-6 text-left">Kategori</th>
               <th class="py-3 px-6 text-left">Dibuat Pada</th>
               <th class="py-3 px-6 text-left">Diubah Pada</th>
             </tr>
