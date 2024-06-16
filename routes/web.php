@@ -19,11 +19,11 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('landingpage');
+        return view('landingpage');
 });
 
 Route::get('/index', function () {
-    return view('index');
+        return view('index');
 });
 
 Route::get('/test-email', [RegisterController::class, 'sendTestEmail']);
@@ -45,53 +45,52 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
-    Route::get('/pegawai-home', [PegawaiController::class, 'index'])
-            ->name('pegawai.home');
-    Route::get('/absensi', [PegawaiController::class, 'absensi'])
-            ->name('absensi');
-    Route::get('/peminjaman', [PegawaiController::class, 'peminjaman'])
-            ->name('peminjaman');
-    Route::get('/kelola-buku', [PegawaiController::class, 'showBuku'])
-            ->name('buku.kelola');
-    Route::get('/kelola-subjek', [PegawaiController::class, 'showsubjek'])
-            ->name('subjek.kelola');
-     Route::get('/kategori', [PegawaiController::class, 'showkategori'])
-            ->name('kategori.kelola');
-    Route::get('/kelola-kategori', [PegawaiController::class, 'showKategori'])
-            ->name('kategori.kelola');
-    Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
-            ->name('riwayat.kelola');
-    Route::get('/manajemen-peminjaman', [PegawaiController::class, 'showPeminjaman'])
-            ->name('peminjaman.manajemen');
- Route::get('/kelola-buku-tambah', [PegawaiController::class, 'showTambahbuku'])
-            ->name('buku.tambah');
-Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTambahdata'])
-            ->name('buku.tambahdata');
-
+        Route::get('/pegawai-home', [PegawaiController::class, 'index'])
+                ->name('pegawai.home');
+        Route::get('/absensi', [PegawaiController::class, 'absensi'])
+                ->name('absensi');
+        Route::get('/peminjaman', [PegawaiController::class, 'peminjaman'])
+                ->name('peminjaman');
+        Route::get('/kelola-buku', [PegawaiController::class, 'showBuku'])
+                ->name('buku.kelola');
+        Route::get('/kelola-subjek', [PegawaiController::class, 'showsubjek'])
+                ->name('subjek.kelola');
+        Route::get('/kategori', [PegawaiController::class, 'showkategori'])
+                ->name('kategori.kelola');
+        Route::get('/kelola-kategori', [PegawaiController::class, 'showKategori'])
+                ->name('kategori.kelola');
+        Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
+                ->name('riwayat.kelola');
+        Route::get('/manajemen-peminjaman', [PegawaiController::class, 'showPeminjaman'])
+                ->name('peminjaman.manajemen');
+        Route::get('/kelola-buku-tambah', [PegawaiController::class, 'showTambahbuku'])
+                ->name('buku.tambah');
+        Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTambahdata'])
+                ->name('buku.tambahdata');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+        return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware(['auth', 'verified', 'role:siswa,guru,staff,pegawai'])->group(function () {
         Route::get('/home', [ViewController::class, 'showHome']);
         Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
-            ->name('perpus');
+                ->name('perpus');
         Route::get('/detail-buku/{id}', [ViewController::class, 'detailBuku'])
-            ->name('detail.buku');
+                ->name('detail.buku');
         Route::get('/profile', [ViewController::class, 'showProfile'])
-            ->name('profile');
+                ->name('profile');
         Route::get('/edit-profile', [ViewController::class, 'showEditProfile'])
-            ->name('edit.profile');
+                ->name('edit.profile');
         Route::get('/ubah-sandi', [ViewController::class, 'showKelolaSandi'])
-            ->name('ubah.sandi');
+                ->name('ubah.sandi');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -23,6 +24,27 @@ return new class extends Migration
             $table->date('tanggal_kembali')->nullable();
             $table->timestamps();
         });
+
+        DB::unprepared('
+            CREATE TRIGGER log_peminjaman_siswas_insert AFTER INSERT ON `peminjaman_siswas` FOR EACH ROW
+            BEGIN
+                INSERT INTO log_peminjaman VALUES (NEW.nisn, NEW.buku_id, NEW.jumlah_dipinjam, NEW.status, "INSERT", CURRENT_TIMESTAMP());
+            END
+        ');
+        
+        DB::unprepared('
+            CREATE TRIGGER log_peminjaman_siswas_update AFTER UPDATE ON `peminjaman_siswas` FOR EACH ROW
+            BEGIN
+                INSERT INTO log_peminjaman VALUES (NEW.nisn, NEW.buku_id, NEW.jumlah_dipinjam, NEW.status, "UPDATE", CURRENT_TIMESTAMP());
+            END
+        ');
+        
+        DB::unprepared('
+            CREATE TRIGGER log_peminjaman_siswas_delete AFTER DELETE ON `peminjaman_siswas` FOR EACH ROW
+            BEGIN
+                INSERT INTO log_peminjaman VALUES (OLD.nisn, OLD.buku_id, OLD.jumlah_dipinjam, OLD.status, "DELETE", CURRENT_TIMESTAMP());
+            END
+        ');
     }
 
     /**
