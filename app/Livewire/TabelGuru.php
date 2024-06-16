@@ -6,12 +6,14 @@ use App\Models\Guru;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 
 class TabelGuru extends Component
 {
+    use WithPagination;
     public Guru $guru_edit;
     #[Validate(['required','numeric', 'digits:18'])]
     public $nip;

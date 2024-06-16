@@ -63,7 +63,7 @@ Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
             ->name('riwayat.kelola');
     Route::get('/manajemen-peminjaman', [PegawaiController::class, 'showPeminjaman'])
             ->name('peminjaman.manajemen');
- Route::get('/kelola-buku(tambah)', [PegawaiController::class, 'showTambahbuku'])
+ Route::get('/kelola-buku-tambah', [PegawaiController::class, 'showTambahbuku'])
             ->name('buku.tambah');
 Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTambahdata'])
             ->name('buku.tambahdata');
@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified', 'role:siswa,guru,staff'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:siswa,guru,staff,pegawai'])->group(function () {
         Route::get('/home', [ViewController::class, 'showHome']);
         Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
             ->name('perpus');

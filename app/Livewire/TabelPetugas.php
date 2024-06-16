@@ -6,12 +6,14 @@ use App\Models\Petugas;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 
 class TabelPetugas extends Component
 {
+    use WithPagination;
     #[Validate('required|regex:/^[^\*\'\"\-]+$/|max:255')]
     public $namap;
     #[Validate('required')]

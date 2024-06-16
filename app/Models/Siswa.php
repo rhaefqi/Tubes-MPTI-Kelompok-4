@@ -19,4 +19,9 @@ class Siswa extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function absen()
+    {
+        return $this->hasMany(AbsensiSiswa::class, 'nisn', 'nisn');
+    }
 }

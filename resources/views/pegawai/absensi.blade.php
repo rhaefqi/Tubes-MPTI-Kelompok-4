@@ -5,7 +5,7 @@
     <i class="fa-solid fa-chalkboard-user"></i>
     <span>Absensi</span>
 </h1>
-
+<livewire:alert-success />
 <livewire:tabel-absensi />
 
 {{-- <div class="flex flex-col grid-rows-3 justify-between h-full m-7 shadow-2xl bg-[#e2f6ea] border-[#245237] border-2 relative">

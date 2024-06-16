@@ -7,12 +7,14 @@ use App\Models\Kelas;
 use App\Models\Siswa;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 
 class TabelSiswa extends Component
 {
+    use WithPagination;
     #[Validate('required|numeric|digits:10|unique:'.Siswa::class)]
     public $nisn;
 

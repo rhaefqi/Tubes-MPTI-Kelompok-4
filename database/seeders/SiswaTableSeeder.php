@@ -37,6 +37,7 @@ class SiswaTableSeeder extends Seeder
             'tingkat' => 'MA',
             'kelas' => 'X MIPA-1',
             'jenis_kelamin' => 'L',
+            'user_id' => 1
         ]);
     }
 }

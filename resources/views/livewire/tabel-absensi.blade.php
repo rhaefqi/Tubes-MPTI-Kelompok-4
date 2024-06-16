@@ -5,8 +5,14 @@
             {{-- @dump($this->absens) --}}
             {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
             <div class="w-full flex flex-row justify-between">
-                <button class="mb-4 bg-primary text-white py-2 px-4 rounded"><i class="fa-solid fa-plus"></i>
-                    Absensi</button>
+                <button x-data x-on:click="$dispatch('open-input')" class="mb-4 bg-primary text-white py-2 px-4 rounded"><i class="fa-solid fa-plus"></i>
+                    Absensi
+                </button>
+                <x-input-modal title="Absensi">
+                    <x-slot:body>
+                        <livewire:create-absensi/>
+                    </x-slot>
+                </x-input-modal>
                 <div>
                     <span class="text-primary font-open font-semibold text-lg">Filter Tanggal : </span>
                     <input wire:model.lazy="filter_tanggal"
@@ -48,5 +54,8 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="mx-10 mt-2 mb-5">
+        {{ $this->absens->links() }}
     </div>
 </div>
