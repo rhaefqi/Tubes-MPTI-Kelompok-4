@@ -9,4 +9,11 @@ class AbsensiSiswa extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    protected $fillable = ['nisn','tanggal','jam'];
+
+    public function absen()
+    {
+        return $this->belongsTo(Siswa::class, 'nisn', 'nisn');
+    }
 }

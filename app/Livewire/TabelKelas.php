@@ -7,12 +7,14 @@ use App\Models\Kelas;
 use App\Models\Siswa;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 
 class TabelKelas extends Component
 {
+    use WithPagination;
     public $kelas_hapus;
 
     public $gagalEdit = false;

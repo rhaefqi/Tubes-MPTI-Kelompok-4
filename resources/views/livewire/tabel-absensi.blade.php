@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="mx-10 mt-2">
+    <div class="mx-10 mt-2 mb-5">
         {{ $this->absens->links() }}
     </div>
 </div>

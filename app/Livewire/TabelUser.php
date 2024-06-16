@@ -8,6 +8,7 @@ use App\Models\Siswa;
 use App\Models\Petugas;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 use Illuminate\Queue\Listener;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
@@ -16,6 +17,7 @@ use Illuminate\Auth\Events\Registered;
 
 class TabelUser extends Component
 {
+    use WithPagination;
     public User $user_edit;
 
     public $username;

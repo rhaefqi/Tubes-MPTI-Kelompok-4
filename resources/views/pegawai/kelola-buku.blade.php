@@ -9,8 +9,11 @@
     <div class="container mx-auto p-4">
         <div class="bg-white shadow-md rounded-lg p-4">
             {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
-            <button class="mb-4 bg-blue-400 text-white py-2 px-4 rounded"><i class="fa-solid fa-plus"></i> Tambah
-                Buku</button>
+            <div class="mb-4">
+                <a href="{{ route('buku.tambah') }}" class=" bg-primary text-white py-2 px-4 rounded">
+                    <i class="fa-solid fa-plus"></i> Tambah Buku
+                </a>
+            </div>
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-white border">
                     <thead>

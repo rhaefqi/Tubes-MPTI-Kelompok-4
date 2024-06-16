@@ -23,4 +23,9 @@ class Guru extends Model
     {
         return $this->hasOne(Kelas::class);
     }
+
+    public function absen()
+    {
+        return $this->hasMany(AbsensiGuru::class, 'nip', 'nip');
+    }
 }

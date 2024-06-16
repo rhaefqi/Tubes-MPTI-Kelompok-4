@@ -43,7 +43,7 @@
             </div>
             <div class="w-full mb-5 px-10">
                 <label for="nisn_nip" class="text-base text-primary font-bold">NISN / NIP</label>
-                <input wire:model.live="nisn_nip" type="text" id="nisn_nip" name="nisn_nip"
+                <input disabled wire:model.live="nisn_nip" type="text" id="nisn_nip" name="nisn_nip"
                     class="w-full text-dark rounded-md transition duration-300 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary"
                     required />
                 @error('nisn_nip')
@@ -66,4 +66,7 @@
             </div>
         </form>
     </div>
+    @include('livewire.konfirmasi-tutup')
+    @include('livewire.notfound')
+    @include('livewire.sudah-absen')
 </div>
