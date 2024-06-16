@@ -106,4 +106,7 @@
             </div>
         </div>
     </form>
+
+    @include('livewire.berhasil-update')
+    @include('livewire.gagal-edit')
 </div>
