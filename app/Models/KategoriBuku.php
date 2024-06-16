@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class KategoriBuku extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'kategori';
+    protected $keyType = 'string';
+    protected $fillable = ['kategori'];
 }

@@ -57,7 +57,7 @@ Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
             ->name('subjek.kelola');
      Route::get('/kategori', [PegawaiController::class, 'showkategori'])
             ->name('kategori.kelola');
-    Route::get('/kelola-kategori', [PegawaiController::class, 'showKelas'])
+    Route::get('/kelola-kategori', [PegawaiController::class, 'showKategori'])
             ->name('kategori.kelola');
     Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
             ->name('riwayat.kelola');
