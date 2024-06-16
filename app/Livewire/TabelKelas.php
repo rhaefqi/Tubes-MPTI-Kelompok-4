@@ -19,6 +19,7 @@ class TabelKelas extends Component
 
     public $gagalEdit = false;
     public $gagalKelas = false;
+    public $pesanGagal;
     public $edit = false;
 
     public Kelas $kelas_edit;
@@ -150,6 +151,7 @@ class TabelKelas extends Component
         // isset($siswa[0]);
         if (isset($siswa[0])) {
             $this->gagalKelas = true;
+            $this->pesanGagal = 'Kelas memiliki siswa yang terdaftar';
         }else{
             try {
                 DB::beginTransaction();

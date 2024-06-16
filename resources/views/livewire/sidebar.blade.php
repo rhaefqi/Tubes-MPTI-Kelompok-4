@@ -64,8 +64,8 @@
                         </a>
                     </div>
                     <div class="p-1 mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
-                        <a href="{{ route('kelas.kelola') }}">
-                            Kelas Buku
+                        <a href="{{ route('kategori.kelola') }}">
+                            Kategori Buku
                         </a>
                     </div>
                 </div>
