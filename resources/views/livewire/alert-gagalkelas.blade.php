@@ -14,8 +14,8 @@
                             d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
                     <h3 class="mb-5 text-2xl font-semibold text-primary dark:text-gray-400">
-                        Kelas memiliki siswa yang terdaftar <br>
-                        Pengahapusan Kelas tidak dapat dilakukan!
+                        {{ $this->pesanGagal }} <br>
+                        Pengahapusan tidak dapat dilakukan!
                     </h3>
 
                     <button wire:click="tutupKelas" type="button"
