@@ -7,6 +7,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -28,6 +29,23 @@ class EditProfile extends Component
     public $photo;
     
     public $userId;
+    public $gagalEdit = false;
+    public $berhasilUpdate = false;
+    public $pesan;
+
+    #[On('tutup-gagal')]
+    public function tutupGagal(){
+        sleep(1);
+        $this->gagalEdit = false;
+        return Redirect::route('profile');
+    }
+
+    #[On('berhasil-update')]
+    public function berhasilEdit(){
+        sleep(1);
+        $this->berhasilUpdate = false;
+        return Redirect::route('profile');
+    }
 
     protected function rules()
     {
@@ -106,14 +124,20 @@ class EditProfile extends Component
         }
 
         if (!$changes) {
-            return back()->with('failed', 'Tidak ada perubahan');
+            $this->gagalEdit = true;
+            $this->dispatch('tutup-gagal');
+
+        } else {
+            $user->save();
+
+            event(new Registered($user));
+            $this->berhasilUpdate = true;
+            $this->pesan = 'Data pengguna berhasil diubah';
+            $this->dispatch('berhasil-update');
+
+            // dd($this->berhasilUpdate);
+            // return Redirect::route('profile');;
         }
-
-        $user->save();
-
-        event(new Registered($user));
-
-        return Redirect::route('profile')->with('message', 'User updated successfully.');
     }
 
     public function render()
