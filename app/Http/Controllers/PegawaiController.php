@@ -21,6 +21,10 @@ class PegawaiController extends Controller
         return view('pegawai.kelola-buku');
     }
 
+    public function showEditBuku (Request $request, $id){
+        return view('pegawai.edit-buku', compact('id'));
+    }
+
     public function showSubjek (){  
         return view('pegawai.kelola-subjek');
     }
