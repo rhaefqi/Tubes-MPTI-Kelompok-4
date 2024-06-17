@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('log_peminjaman', function (Blueprint $table) {
-            $table->char('nip', 18);
+            $table->char('nisn_nip', 18);
             $table->unsignedInteger('buku_id');
             $table->integer('jumlah_dipinjam');
-            $table->enum('status', ['masa pinjam', 'dikembalikan', 'lewat tenggat']);
+            $table->enum('status', ['dipinjam', 'dikembalikan', 'lewat tenggat']);
             $table->enum('action', ['INSERT','UPDATE', 'DELETE']);
-            $table->timestamps();
+            $table->timestamp('waktu');
         });
     }
 

@@ -19,11 +19,11 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('landingpage');
+        return view('landingpage');
 });
 
 Route::get('/index', function () {
-    return view('index');
+        return view('index');
 });
 
 Route::get('/test-email', [RegisterController::class, 'sendTestEmail']);
@@ -73,27 +73,27 @@ Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTamb
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+        return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::middleware(['auth', 'verified', 'role:siswa,guru,staff,pegawai'])->group(function () {
         Route::get('/home', [ViewController::class, 'showHome']);
         Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
-            ->name('perpus');
+                ->name('perpus');
         Route::get('/detail-buku/{id}', [ViewController::class, 'detailBuku'])
-            ->name('detail.buku');
+                ->name('detail.buku');
         Route::get('/profile', [ViewController::class, 'showProfile'])
-            ->name('profile');
+                ->name('profile');
         Route::get('/edit-profile', [ViewController::class, 'showEditProfile'])
-            ->name('edit.profile');
+                ->name('edit.profile');
         Route::get('/ubah-sandi', [ViewController::class, 'showKelolaSandi'])
-            ->name('ubah.sandi');
+                ->name('ubah.sandi');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

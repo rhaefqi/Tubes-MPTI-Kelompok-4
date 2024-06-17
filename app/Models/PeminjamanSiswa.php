@@ -9,7 +9,7 @@ class PeminjamanSiswa extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['buku_id'];
+    protected $fillable = ['nisn','buku_id','jumlah_dipinjam','status','tanggal_pinjam','tanggal_kembali'];
 
     public function buku()
     {
