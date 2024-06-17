@@ -27,6 +27,7 @@ class ViewController extends Controller
             ->get();
 
         return view('landingpage', compact('bukus', 'results'));
+        
     }
     public function showHome(){
 
