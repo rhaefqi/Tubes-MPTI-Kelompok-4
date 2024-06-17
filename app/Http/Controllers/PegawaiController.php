@@ -28,7 +28,7 @@ class PegawaiController extends Controller
     public function showSubjek (){  
         return view('pegawai.kelola-subjek');
     }
-    public function showKelas (){  
+    public function showKategori (){  
         return view('pegawai.kelola-kelas');   
     }
     public function showRiwayat (){  
