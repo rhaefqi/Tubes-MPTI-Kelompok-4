@@ -13,12 +13,12 @@
 </head>
 <body class="bg-[#F2F2F2] open-sans ">
 
-    <div class="flex h-screen p-10 rounded-lg">
+    <div class="flex h-full md:h-screen md:p-10 p-3 rounded-lg">
         <!-- Kolom Kiri: Form Login -->
-        <div class="w-1/2 flex items-center justify-center bg-white p-4 rounded-lg">
+        <div class="w-full md:w-1/2 flex items-center justify-center bg-white p-4 rounded-lg">
             <form class="w-full max-w-sm bg-white p-8 rounded-lg " action="{{ route('login') }}" method="POST">
                 @csrf
-                <h2 class="text-3xl font-bold mb-3 text-[#245237] text-center">Selamat Datang</h2>
+                <h2 class="text-2xl md:text-3xl font-bold mb-3 text-[#245237] text-center">Selamat Datang</h2>
                 <h5 class="text-sm">Silahkan isi menggunakan username atau email untuk masuk ke aplikasi.</h5>
                 <div class="mb-4 mt-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
@@ -46,9 +46,9 @@
                 </div>
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-4">
-                        <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237]" href="{{ route("register") }}">Daftar ?</a></p>
+                        <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237] font-bold" href="{{ route("register") }}">Daftar</a></p>
                     </div>
-                    <button type="submit" class="bg-[#245237] w-40 hover:bg-black text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline">
+                    <button type="submit" class="bg-[#245237] w-40 text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline border-2 border-[#245237]  hover:text-[#245237] hover:bg-white">
                         Masuk
                     </button>
                 </div>
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Kolom Kanan: Gambar -->
-        <div class="w-1/2 h-full bg-cover bg-center rounded-lg">
+        <div class="hidden md:flex w-1/2 h-full bg-cover bg-center rounded-lg">
             <img src="{{ asset("assets/img/login.jpg") }}" alt="Deskripsi gambar" class="w-full h-full object-cover rounded-lg">
         </div>
     </div>

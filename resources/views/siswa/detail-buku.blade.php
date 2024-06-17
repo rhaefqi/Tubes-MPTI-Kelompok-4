@@ -10,7 +10,7 @@
     
     <div class="flex flex-col lg:flex-row px-11 gap-2 md:gap-4">
         <div class="flex w-full justify-center items-start">
-            <img src="{{ asset('assets/img/'.$buku->sampul_buku) }}" alt="" class="w-36 lg:w-64 rounded-md">
+            <img src="{{ asset($buku->sampul_buku) }}" alt="" class="w-36 lg:w-64 rounded-md">
         </div>
         <div class="flex flex-col gap-4 text-start">
             <div class="flex flex-col gap-0">
@@ -30,9 +30,9 @@
                 <table class="w-full table-auto border border-[#245237]">
                     <tbody class="text-center px-2 text-[12px] md:text-[15px] font-normal">
                         @for($i = 0; $i < $buku->jumlah_tersedia; $i++)
-                            <tr class="text-center px-2 text-[12px] md:text-[15px] font-normal">
+                            <tr class="text-center px-2 text-[8px] md:text-[15px] font-normal">
                                 <td class="px-5">{{ $buku->no_seri }}</td>
-                                <td class="px-5 w-full items-center flex justify-center">
+                                <td class="px-2 w-full items-center flex justify-center">
                                     <p class="text-white px-5 rounded-full
                                     @if (isset($tanggal[$i]) && $tanggalKembali == NULL)
                                         bg-red-500

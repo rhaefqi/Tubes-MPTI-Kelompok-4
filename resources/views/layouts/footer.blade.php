@@ -19,10 +19,10 @@
             <div class="md:flex md:w-3/5 w-full md:gap-20 justify-between">
                 <div class="flex flex-col gap-3 items-start text-start">
                     <p class="text-white font-bold lg:text-lg text-sm">Hubungi Kami</p>
-                    <div class="flex lg:flex-wrap flex-col gap-1 lg:text-lg text-sm">
-                        <p>Email</p>
-                        <p>No. Telepon</p>
-                        <p>Dll</p>
+                    <div class="flex gap-3 lg:text-2xl text-md text-white font-bold">
+                        <span class="mdi mdi-email"></span>
+                        <span class="mdi mdi-phone"></span>
+                        <span class="mdi mdi-fax"></span>
                     </div>
                 </div>
                 <div class="md:flex flex-col gap-3 hidden">

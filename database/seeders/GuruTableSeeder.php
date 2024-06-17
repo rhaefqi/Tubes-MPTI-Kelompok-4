@@ -42,7 +42,7 @@ class GuruTableSeeder extends Seeder
             'nama' => 'Muhammad Irvi Hafizi',
             'tingkat' => 'MTs',
             'jenis_kelamin' => 'L',
-            'user_id' => '1'
+            'user_id' => '8'
         ]);
     }
 }

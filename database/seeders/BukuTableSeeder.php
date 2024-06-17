@@ -22,7 +22,7 @@ class BukuTableSeeder extends Seeder
             'deskripsi' => 'Nisi quis cillum tempor sit qui Lorem. Ad dolore enim do amet cillum ipsum excepteur mollit. Minim tempor tempor in officia reprehenderit ea aliquip quis excepteur.',
             'tahun_terbit' => '2022',
             'kelas' => 'Lainnya',
-            'sampul_buku' => 'lorem.jpg',
+            'sampul_buku' => 'assets/img/lorem.jpg',
             'kategori' => 'Motivasi',
             'subjek' => 'Lainnya',
             'jumlah_tersedia' => '4'
@@ -37,7 +37,7 @@ class BukuTableSeeder extends Seeder
             'deskripsi' => 'Nisi quis cillum tempor sit qui Lorem. Ad dolore enim do amet cillum ipsum excepteur mollit. Minim tempor tempor in officia reprehenderit ea aliquip quis excepteur.',
             'tahun_terbit' => '2021',
             'kelas' => 'Lainnya',
-            'sampul_buku' => 'bermimpi.jpg',
+            'sampul_buku' => 'assets/img/bermimpi.jpg',
             'kategori' => 'Motivasi',
             'subjek' => 'Lainnya',
             'jumlah_tersedia' => '8'
@@ -52,7 +52,7 @@ class BukuTableSeeder extends Seeder
             'deskripsi' => 'Nisi quis cillum tempor sit qui Lorem. Ad dolore enim do amet cillum ipsum excepteur mollit. Minim tempor tempor in officia reprehenderit ea aliquip quis excepteur.',
             'tahun_terbit' => '2005',
             'kelas' => 'Lainnya',
-            'sampul_buku' => 'novel.jpg',
+            'sampul_buku' => 'assets/img/novel.jpg',
             'kategori' => 'Novel',
             'subjek' => 'Lainnya',
             'jumlah_tersedia' => '5'

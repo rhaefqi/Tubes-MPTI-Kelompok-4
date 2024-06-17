@@ -33,22 +33,21 @@
           </div>
           <div class="px-4 flex flex-col gap-3 text-[#245237]">
             <p class="text-sm text-gray-300 font-bold">Menu</p>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
-                <p class="font-bold">Home</p>
+            <a href="/home" class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold"><span class="mdi mdi-home"></span> Beranda</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
-                <p class="font-bold">Layanan</p>
+            <a href="{{ route('perpus') }}" class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold"><span class="mdi mdi-library"></span> Buku</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
-                <p class="font-bold">Tentang Kami</p>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
-                <p class="font-bold">Kontak</p>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href=" {{ route('profile') }}" class="flex w-full justify-between items-center text-sm h-8">
+              <p class="font-bold"><span class="mdi mdi-account"></span> Profile</p>
+              <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="{{ route('logout') }}" class="flex w-full justify-between items-center text-sm h-8">
+            <p class="font-bold"><span class="mdi mdi-logout"></span> Logout</p>
+        </a>
           </div>
         </div>
     </div>
