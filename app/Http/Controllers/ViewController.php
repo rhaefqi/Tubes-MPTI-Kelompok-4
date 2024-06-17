@@ -9,10 +9,25 @@ use App\Models\Siswa;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PDO;
 
 class ViewController extends Controller
-{
+{   
+    public function showLanding(){
+        $bukus = Buku::orderBy('created_at')->limit(5)->get();
+
+        $results = DB::table('view_absensi')
+            ->select('nama', 'photo_profile', DB::raw('COUNT(nisn_nip) as jumlah'))
+            ->whereMonth('tanggal', Carbon::now()->month)
+            ->whereYear('tanggal', Carbon::now()->year)
+            ->groupBy('nama', 'photo_profile', 'nisn_nip')
+            ->orderBy('jumlah', 'desc')
+            ->limit(3)
+            ->get();
+
+        return view('landingpage', compact('bukus', 'results'));
+    }
     public function showHome(){
 
         if(auth()->user()->status == 'siswa'){
@@ -21,9 +36,15 @@ class ViewController extends Controller
             $pinjam = PeminjamanGuru::where('nip', auth()->user()->guru->nip)->count();
         }
 
-        $barus = Buku::orderBy('created_at')->get(); 
+        $barus = Buku::orderBy('created_at')->get();
+        
+        if(auth()->user()->status == 'siswa'){
+            $kunjung = DB::table('view_absensi')->where('nisn_nip', auth()->user()->siswa->nisn)->count();
+        } else {
+            $kunjung = DB::table('view_absensi')->where('nisn_nip', auth()->user()->guru->nip)->count();
+        }
 
-        return view('siswa.home', compact('pinjam', 'barus'));
+        return view('siswa.home', compact('pinjam', 'barus', 'kunjung'));
     }
 
     public function showBuku(){

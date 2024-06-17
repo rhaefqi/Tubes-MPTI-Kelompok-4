@@ -23,9 +23,9 @@
                 $sekarang = \Carbon\Carbon::now();
                 $sisaHari = $sekarang->diffInDays($tanggalJatuhTempo, false);
             @endphp
-            <div class="flex gap-2"> 
+            <div class="flex gap-2 my-2"> 
                 <div class="flex w-2/5 md:w-28">
-                    <img src="{{ asset('assets/img/'. $daftarPinjam->sampul_buku ) }}" class="w-24 h-36 rounded-md">
+                    <img src="{{ asset($daftarPinjam->sampul_buku) }}" class="w-24 h-36 rounded-md">
                 </div>
                 <div class="flex flex-col w-3/5 md:2/3">
                     <div class="flex">
@@ -43,19 +43,23 @@
                         </p>
                     </div>
 
-                    <div class="flex flex-col">
+                    <div class="flex flex-col mb-3">
                         <p class="lg:text-[20px] text-[15px] font-medium">{{ $daftarPinjam->judul }}</p>
                         <p class="lg:text-[15px] text-[12px] font-normal">
                             {{ $daftarPinjam->deskripsi }}                                
                         </p>
                     </div>
 
-                    <div class="flex flex-col gap-1">
+                    <div class="flex flex-col gap-1 font-semibold">
                         <div class="flex">
-                            <p class="bg-[#F0C001] lg:text-[15px] text-[12px] px-2 rounded-md text-left">Dipinjam : {{ $tanggalPinjam->translatedFormat('d F Y') }}</p>
+                            <p class="bg-[#F0C001] lg:text-[15px] text-[12px] px-2 rounded-md text-left">
+                                <span class="mdi mdi-calendar-text"></span>
+                                Dipinjam : {{ $tanggalPinjam->translatedFormat('d F Y') }}</p>
                         </div>
                         <div class="flex">
-                            <p class="bg-[#F7D914] lg:text-[15px] text-[12px] px-2 rounded-md text-left">Jatuh Tempo : {{ $tanggalJatuhTempo->translatedFormat('d F Y') }}</p>
+                            <p class="bg-[#F7D914] lg:text-[15px] text-[12px] px-2 rounded-md text-left">
+                                <span class="mdi mdi-bell"></span>
+                                Jatuh Tempo : {{ $tanggalJatuhTempo->translatedFormat('d F Y') }}</p>
                         </div>
                     </div>
                 </div>

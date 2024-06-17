@@ -25,7 +25,7 @@
                     <div class="flex flex-col w-full justify-start gap-3">
                         <div class="flex flex-col">
                             <div class="flex">
-                                <div class="text-white font-semibold text-[12px] lg:text-[15px] bg-[#245237] px-2 rounded-xl">Data Akun</div>
+                                <div class="text-white font-semibold text-[12px] lg:text-[15px] bg-[#245237] px-2 rounded-xl"><span class="mdi mdi-account"></span> Data Akun</div>
                             </div>
                             <div class="text-[7.5px] lg:text-[10px] font-normal italic">*Data yang dapat anda rubah untuk tampilan di website</div>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="flex flex-col w-full justify-start gap-3">
                         <div class="flex flex-col">
                             <div class="flex">
-                                <div class="text-white font-semibold text-[12px] lg:text-[15px]  bg-[#245237] px-2 rounded-xl">Data Akun</div>
+                                <div class="text-white font-semibold text-[12px] lg:text-[15px]  bg-[#245237] px-2 rounded-xl"><span class="mdi mdi-account-circle"></span> Data Diri</div>
                             </div>
                             <div class="text-[7.5px] lg:text-[10px]  font-normal italic">*Data dari sekolah tidak dapat anda rubah</div>
                         </div>

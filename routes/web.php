@@ -18,9 +18,8 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage');
-});
+Route::get('/', [ViewController::class, 'showLanding'])
+        ->name('landing.page');
 
 Route::get('/index', function () {
     return view('index');

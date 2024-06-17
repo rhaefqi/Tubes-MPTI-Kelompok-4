@@ -19,20 +19,24 @@ return new class extends Migration
                 a.nisn AS nisn_nip,
                 s.nama,
                 "siswa" AS status,
+                u.photo_profile,
                 a.tanggal,
                 a.jam
             FROM absensi_siswas a 
             JOIN siswas s ON s.nisn = a.nisn
+            JOIN users u ON u.id = s.user_id
             UNION
             SELECT
                 b.nip AS nisn_nip,
                 g.nama,
                 "guru" AS status,
+                u.photo_profile,
                 b.tanggal,
                 b.jam
             FROM absensi_gurus b
             JOIN gurus g ON g.nip = b.nip
-            ORDER BY tanggal
+            JOIN users u ON u.id = g.user_id
+            ORDER BY tanggal;
         ');
 
         DB::unprepared('

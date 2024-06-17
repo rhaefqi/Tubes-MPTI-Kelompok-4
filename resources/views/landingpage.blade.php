@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/resources/css/output.css">
     <script src="https://kit.fontawesome.com/bc3cf86588.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite('resources/css/app.css')
     <title>Perpustakaan Yayasan Amaliyah</title>
     <link rel="shortcut icon" href="{{asset('assets/img/logo.png')}}" type="image/x-icon">
@@ -20,17 +22,17 @@
             <p class="text-sm"><img class="w-18 h-16" src="{{ asset("assets/img/Logo.png") }}" alt="" srcset=""></p>
 
             <div class="lg:flex gap-24 hidden">
-                <ul class="flex gap-5 place-items-center">
-                <li><a href="#home" class="text-lg font-bold text-[#006316]">Perpustakaan</a></li>
+                <ul class="menu menu-horizontal flex gap-5 place-items-center justify-between">
+                <li><a href="{{ route('perpus') }}" class="text-lg font-bold text-[#006316]">Perpustakaan</a></li>
                     <li><a href="#layanan" class="text-lg font-bold text-[#006316]">Layanan</a></li>
                     <li><a href="#tentang"  class="text-lg font-bold text-[#006316]">Tentang </a></li>
                     <!-- <li><a href="#kontak" class="text-lg font-bold text-[#006316]">Kontak</a></li> -->
+                    <div class="flex gap-2 ml-16">
+                        <a href="/login" class="bg-[#245237] px-5 py-3 rounded-md font-bold text-white border-2 border-[#245237]  hover:text-[#245237] hover:bg-white ">Login</a>
+                        <a href="/register" class="border-2 border-[#006316] px-5 py-3 rounded-md font-bold text-[#006316] hover:text-white hover:bg-[#245237]">Register</a>
+                    </div>
                 </ul>
                     
-                <div class="flex gap-2">
-                    <a href="/login" class="bg-[#245237] px-5 py-3 rounded-md font-bold text-white ">Login</a>
-                    <a href="/register" class="border-2 border-[#006316] px-5 py-3 rounded-md font-bold text-[#006316]">Register</a>
-                </div>
             </div> 
 
             <button type="button" onclick="hamburgerMerdeka()" class="lg:hidden">
@@ -51,7 +53,7 @@
                     <span class="text-[#00A218] mb-7">Perpustakaan Sekolah,</span>
                     <span class="text-[#245237]"> Jendela Menuju Dunia.</span>
                 </h2>
-                <button type="button" class="bg-[#245237] px-5 py-3 rounded-md font-bold text-white">Telusuri</button>
+                <a href="/login" class="bg-[#245237] px-5 mt-4 py-3 border-2 border-[#245237] rounded-md font-bold text-white hover:text-[#245237] hover:bg-white">Ayo Bergabung</a>
             </div>
             <div class="p-6">
                 <img class="shadow-md rounded-lg w-full h-72 object-cover" src="{{ asset("assets/img/gambar1.jpg") }}" alt="">
@@ -71,50 +73,16 @@
 <div class="container mx-auto p-4">
     <div class="flex flex-wrap justify-center">
         <!-- Frame 1 -->
-        <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+        @foreach ($bukus as $buku)
+        <div class="flex flex-col transform hover:scale-110 items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
             <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
+                <img src="{{ asset($buku->sampul_buku) }}" alt="image" class="w-full h-full object-cover">
             </div>
-            <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
-                Buku x
+            <div class="mt-4  font-bold rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg truncate">
+                {{$buku->judul}}
             </div>
         </div>
-        <!-- Frame 2 -->
-        <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-            <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
-                Buku x
-            </div>
-        </div>
-        <!-- Frame 3 -->
-        <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-            <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="{{ asset("assets/img/gambar1.jpg") }} " alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
-                Buku x
-            </div>
-        </div>
-        <!-- Frame 4 -->
-        <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-            <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
-                Buku x
-            </div>
-        </div>
-        <!-- Frame 5 -->
-        <div class="flex flex-col items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-            <div class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="mt-4  font-bold  rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg">
-                Buku x
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 
@@ -127,50 +95,19 @@
 <div class="container mx-auto p-4 ">
     <div class="flex flex-wrap justify-center space-y-4 lg:space-y-0 lg:space-x-28">
         <!-- Pengunjung 1 -->
-        <div class="relative p-4 w-40">
-            <div class="box-border h-40 w-40 border-2 border-[#245237] rounded-full overflow-hidden">
-                <img src="https://st5.depositphotos.com/5934840/64966/v/450/depositphotos_649667750-stock-illustration-happy-young-woman-profile-character.jpg" alt="image" class="w-full h-full object-cover">
+        @php
+            $i = 1;
+        @endphp
+        @foreach ($results as $result)
+        <div class="flex justify-center transform relative p-4 hover:scale-110">
+            <div class="box-border border-2 border-[#245237] rounded-full overflow-hidden">
+                <img src="{{asset($result->photo_profile)}}" alt="image" class="h-40 w-40 object-cover">
             </div>
-            <div class="absolute bottom-0 right-0 w-20 bg-[#245237] text-white text-center p-1 rounded-lg">
-                Bambang
-            </div>
-        </div>
-        <!-- Pengunjung 2 -->
-        <div class="relative p-4 w-40">
-            <div class="box-border h-40 w-40 border-2 border-[#245237] rounded-full overflow-hidden">
-                <img src="{{ asset("assets/img/gambar1.jpg") }}" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute bottom-0 right-0 w-20 bg-[#245237] text-white text-center p-1 rounded-lg">
-                Bambang
+            <div class="flex absolute -bottom-2 bg-[#245237] text-white text-center p-2 font-semibold rounded-lg truncate">
+                #{{ $i++ }} {{ $result->nama }}
             </div>
         </div>
-        <!-- Pengunjung 3 -->
-        <div class="relative p-4 w-40">
-            <div class="box-border h-40 w-40 border-2 border-[#245237] rounded-full overflow-hidden">
-                <img src="your-image-url-3.jpg" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute bottom-0 right-0 w-20 bg-[#245237] text-white text-center p-1 rounded-lg">
-                Bambang
-            </div>
-        </div>
-        <!-- Pengunjung 4 -->
-        <div class="relative p-4 w-40">
-            <div class="box-border h-40 w-40 border-2 border-[#245237] rounded-full overflow-hidden">
-                <img src="your-image-url-4.jpg" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute bottom-0 right-0 w-20 bg-[#245237] text-white text-center p-1 rounded-lg">
-                Bambang
-            </div>
-        </div>
-        <!-- Pengunjung 5 -->
-        <div class="relative p-4 w-40">
-            <div class="box-border h-40 w-40 border-2 border-[#245237] rounded-full overflow-hidden">
-                <img src="your-image-url-5.jpg" alt="image" class="w-full h-full object-cover">
-            </div>
-            <div class="absolute bottom-0 right-0 w-20 bg-[#245237] text-white text-center p-1 rounded-lg">
-                Bambang
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 </div>
@@ -188,21 +125,21 @@
     <div class="container mx-auto">
         <div class="flex flex-wrap justify-center">
             <!-- Column 1 -->
-            <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
+            <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4 transform hover:scale-110">
                 <div class="box-border h-56 w-48 rounded-lg overflow-hidden">
                     <img src="{{ asset("assets/img/Kembali2.png") }}" alt="image" class="w-full h-full object-cover">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Pengembalian Buku </p>
             </div>
             <!-- Column 2 -->
-            <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
+            <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4 transform hover:scale-110">
                 <div class="box-border  h-56 w-48   rounded-lg overflow-hidden">
                     <img src="{{ asset("assets/img/Pinjam.png") }}" alt="image" class="w-full h-full object-cover">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Peminjaman Buku </p>
             </div>
             <!-- Column 3 -->
-            <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4">
+            <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4 transform hover:scale-110">
                 <div class="box-border  h-56 w-48  rounded-lg overflow-hidden">
                     <img src="{{ asset("assets/img/Ruang.png") }}" alt="image" class="w-full h-full object-cover">
                 </div>
@@ -236,50 +173,7 @@
     <!-- CONTENT END -->
 
     <!-- FOOTER -->
-    <footer class="bg-[#245237] p-10 justify center w-full bottom-0 ">
-        <div class="flex w-full h-full md:max-w-screen-lg mx-auto px-5 gap-40">
-            <div class="lg:flex lg:gap-28 lg:w-1/2 hidden">
-                <div class="flex flex-col gap-3">
-                    <div class="flex flex-col text-white font-bold gap-0 items-center">
-                    <p><img class="h-40 w-44" src="{{ asset("assets/img/Logo.png") }}" alt="" srcset=""></p>
-                        <p>Perpustakaan</p>
-                        <p>Yayasan Amaliyah</p>
-                    </div>
-                </div>
-                <div class="lg:flex lg:flex-col gap-3">
-                    <p class="text-white font-bold text-lg">Menu</p>
-                    <div class="flex flex-col font-semibold text-white gap-1">
-                        <a href="">Home</a>
-                        <a href="">Layanan</a>
-                        <a href="">Tentang Kami</a>
-                        <a href="">Kontak</a>
-                    </div>
-                </div>
-            </div>
-            <div class="flex lg:w-1/2 w-full lg:gap-20 gap-10 justify-between">
-                <div class="flex flex-col items-start">
-                    <p class="text-white font-bold text-lg">Hubungi Kami</p>
-                    <div class="flex gap-6">
-                        <p class="text-white font-bold text-lg"><i class="fa-solid fa-envelope"></i></p>
-                        <p class="text-white font-bold text-lg"><i class="fa-solid fa-phone"></i></p>
-                        <p class="text-white font-bold text-lg"><i class="fa-solid fa-fax"></i></p>
-                    </div>
-                    
-                </div>
-                <div class="flex flex-col gap-3">
-                    <h1 class="text-white font-bold text-center">Maps</h1>
-                    <p><iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.903072491436!2d98.60247!3d3.6096505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312e9057850d01%3A0x352c7cab535be127!2sYP%20Amaliyah%20Sunggal%20Deli%20Serdang!5e0!3m2!1sid!2sid!4v1716456699236!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
-                    <div class="flex flex-col text-white font-bold gap-0">
-                        <p>Kampung Lalang, Sunggal</p>
-                        <p>Kabupaten Deli Serdang 20126</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flex w-full mt-10 h-full md:max-w-screen-lg mx-auto px-5 items-center justify-center">
-            <p class="text-white">©2024 Kelompok 4, All right reserved</p>
-        </div>
-    </footer>
+    @include('layouts.footer')
     <!-- FOOTER END -->
 
     <!-- MENU HAMBURGER MOBILE -->
@@ -292,20 +186,20 @@
           </div>
           <div class="px-4 flex flex-col gap-3 text-[#006316]">
             <p class="text-sm text-gray-300 font-bold">Menu</p>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
-                <p class="font-bold">Home</p>
+            <a href="{{ route('perpus') }}" class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold">Perpustakaan</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
+            <a href="#layanan" class="flex w-full justify-between items-center text-sm h-8">
                 <p class="font-bold">Layanan</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
+            <a href="#tentang" class="flex w-full justify-between items-center text-sm h-8">
                 <p class="font-bold">Tentang Kami</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href class="flex w-full justify-between items-center text-sm h-8">
-                <p class="font-bold">Kontak</p>
+            <a href="/login" class="flex w-full justify-between items-center text-sm h-8">
+                <p class="font-bold">Login</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>

@@ -10,7 +10,7 @@
                 <div class="flex flex-col gap-5">
                     <div class="flex flex-col text-[#245237]">
                         <p class="lg:text-3xl text-xl font-semibold">Halo, {{ auth()->user()->status == 'siswa' ? auth()->user()->siswa->nama : auth()->user()->guru->nama }} !</p>
-                        <p class="font-normal">Selamat datang di Perpustakaan Amaliyah</p>
+                        <p class="font-semibold">Selamat datang di Perpustakaan Amaliyah</p>
                     </div>
                     <div class="flex lg:gap-32 gap-10">
                         <div class="flex flex-col text-[#328754]">
@@ -25,7 +25,7 @@
                             <p class="font-bold text-sm">Jumlah Kunjungan</p>
                             <div class="flex justify-center items-center gap-5">
                                 <span class="mdi mdi-library-outline lg:text-6xl text-3xl"></span>
-                                <p class="font-bold text-2xl">23</p>
+                                <p class="font-bold text-2xl">{{ $kunjung }}</p>
                             </div>
                         </div>
                     </div>
@@ -66,12 +66,8 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <div class="flex-grow border-t border-gray-400"></div>
-                    <div class="text-white underline">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-
-                            <button type="submit">Log out</button>
-                        </form>
+                    <div class="text-white hover:underline">
+                        <a href="{{route('profile')}}"><span class="mdi mdi-book-open-blank-variant-outline"></span> Lihat Riwayat Peminjaman</a>
                     </div>
                 </div>
             </div>
@@ -84,7 +80,7 @@
                @foreach ($barus as $baru)
                <div class="flex gap-2">
                 <div class="flex w-2/5 md:w-28">
-                    <img src="{{ asset('assets/img/'.$baru->sampul_buku) }}" class="w-24 h-36 rounded-md">
+                    <img src="{{ asset($baru->sampul_buku) }}" class="w-24 h-36 rounded-md">
                 </div>
                 <div class="flex flex-col w-3/5">
                         {{-- Baru ditambahkan  --}}

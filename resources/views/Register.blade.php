@@ -13,15 +13,15 @@
 </head>
 <body class="bg-[#F2F2F2] open-sans ">
 
-    <div class="flex h-screen p-10 rounded-lg">
+    <div class="flex h-full md:p-10 p-5  rounded-lg">
         <!-- Kolom Kiri: Gambar -->
-        <div class="w-1/2 h-full bg-cover bg-center rounded-lg">
+        <div class="w-1/2 hidden md:flex h-[672px] bg-cover bg-center rounded-lg">
             <img src="{{ asset('assets/img/Gambar2.jpg') }}" alt="Deskripsi gambar" class="w-full h-full object-cover   bg-green-800 opacity-70 rounded-lg">
         </div>
     
         <!-- Kolom Kanan: Form Login -->
 
-        <div class="w-1/2 flex items-center justify-center bg-white p-4 rounded-lg">            
+        <div class="md:w-1/2 w-full flex items-center justify-center bg-white p-4 rounded-lg">            
             <form method="POST" action="{{ route("register") }}" class="w-full max-w-sm p-8 rounded-lg ">
                 @csrf
                 <h2 class="text-2xl font-bold mb-3 text-[#245237] text-center">Daftarkan Akun Anda !</h2>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="flex flex-col items-center justify-center">
                     <div class="mb-1">
-                        <p class="text-sm mb-0">Sudah memiliki akun? <a  class="text-[#245237]" href="{{ route('login') }}">Login ?</a></p>
+                        <p class="text-sm mb-0">Sudah memiliki akun? <a  class="text-[#245237] font-bold" href="{{ route('login') }}">Login</a></p>
                     </div>
                     <button class="bg-[#245237] w-40 hover:bg-black text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline" type="submit">
                         Daftar

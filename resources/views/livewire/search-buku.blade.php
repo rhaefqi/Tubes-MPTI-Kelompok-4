@@ -9,8 +9,8 @@
             <p>Perpustakaan</p>
             <p>Cari Buku yang Diinginkan</p>
         </div>
-        <div class="flex absolute -bottom-2 w-full justify-center gap-2">
-            <input type="text" wire:model="search" wire:keydown.debounce="searchBuku" class="w-1/2 h-7 rounded-lg border border-1 border-[#245237] px-3 placeholder:text-sm placeholder:font-semibold" placeholder="Cari Buku">
+        <div class="flex absolute -bottom-5 w-full justify-center gap-2">
+            <input type="text" wire:model="search" wire:keydown.debounce="searchBuku" class="w-1/2 h-10 rounded-lg border border-1 border-[#245237] px-3 placeholder:text-md placeholder:font-semibold" placeholder="Cari Buku">
             {{-- <button class="w-7 h-7 rounded-lg border border-1 border-[#245237] bg-white">
                 <span class="mdi mdi-magnify text-[#245237]"></span>
             </button> --}}
@@ -33,7 +33,7 @@
         @else
             @foreach ($bukus as $buku)    
                 <a href="{{ route('detail.buku', $buku->id) }}" class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-28 md:w-32 items-center py-2">
-                    <img src="{{ asset('assets/img/'.$buku->sampul_buku) }}" alt="" class="w-24 md:w-28 h-36 md:h-40 rounded-md">
+                    <img src="{{ asset($buku->sampul_buku) }}" alt="" class="w-24 md:w-28 h-36 md:h-40 rounded-md">
                     <div class="flex flex-col justify-start w-full px-2 gap-1">
                         <div class="flex flex-col text-[10px] md:text-[14px] truncate overflow-hidden">
                             <p class="font-semibold">{{ $buku->judul }}</p>

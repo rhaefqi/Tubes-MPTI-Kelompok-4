@@ -18,9 +18,9 @@
             </div>
         </div>
 
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2 p-2">
             <div class="flex">
-                <p class="bg-[#245237] font-semibold text-white rounded-lg px-2 text-[13px]">Data Diri</p>
+                <p class="bg-[#245237] font-semibold text-white rounded-lg px-2 text-[13px]"><span class="mdi mdi-account"></span> Data Diri</p>
             </div>
 
             <div class="flex px-2 gap-2 font-normal text-[12px] md:text-[14px]">

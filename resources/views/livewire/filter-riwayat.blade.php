@@ -6,9 +6,12 @@
             $sekarang = \Carbon\Carbon::now()->format('Y-m-d');
         @endphp
         <div class="flex flex-col gap-4 ">
-            <div class="flex flex-col md:flex-row items-start gap-4 justify-between">
+            <div class="flex flex-col md:flex-row md:items-start gap-4 md:justify-between">
                 <div class="flex items-start">
-                    <p class="bg-[#245237] font-semibold text-white rounded-lg px-2 md:text-xl text-[13px]">Riwayat Peminjaman</p>
+                    <p class="bg-[#245237] font-semibold text-white rounded-lg px-2 md:text-xl text-[13px]">
+                        <span class="mdi mdi-book-open-blank-variant-outline"></span>
+                        Riwayat Peminjaman
+                    </p>
                 </div>
                 <div class="flex gap-3 items-center justify-center">
                     <input type="date" wire:model.lazy="from" class="input input-bordered input-xs w-full max-w-xs" />
@@ -45,7 +48,7 @@
                                     <span class="mdi mdi-bell"></span>
                                     Jatuh Tempo : {{ $tanggalJatuhTempo->translatedFormat('d F Y') }}
                                 </div>
-                                <div class="bg-[#F7D914] font-semibold rounded-md px-2">
+                                <div class="font-semibold rounded-md px-2 {{ $tanggalKembali == NULL ? 'bg-red-400' : 'bg-[#F7D914]' }}">
                                     <span class="mdi mdi-checkbox-marked"></span>
                                     @if ($tanggalKembali == NULL)
                                         Belum dikembalikan
