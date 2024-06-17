@@ -52,6 +52,11 @@
     {{-- </div> --}}
 
     @livewireScripts
+    <script>
+        document.addEventListener('buku-updated', event => {
+            Livewire.emit('bukuUpdated', event.detail);
+        });
+    </script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>

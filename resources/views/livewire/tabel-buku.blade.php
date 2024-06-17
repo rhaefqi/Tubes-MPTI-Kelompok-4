@@ -45,10 +45,10 @@
                         <td class="py-3 px-3 text-left">{{ $buku->subjek }}</td>
                         <td class="py-3 px-6 text-left">
                             <div class="flex item-center">
-                                <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                <a href="{{ route('buku.edit', $buku->id) }}" wire:click="updateBuku('{{ $buku->id }}')" class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                     <i class="fa-solid fa-pen-to-square text-[#69BE28] fa-lg"></i>
-                                </button>
-                                <button class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                                </a>
+                                <button wire:click="konfirDelete('{{ $buku->id }}')" type="submit" class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                                     <i class="fa-solid fa-trash-can text-red-500 fa-lg"></i>
                                 </button>
                                 
@@ -64,6 +64,8 @@
             @if ($this->tampilDetail != false)    
                 @include('livewire.detail-buku')
             @endif
+            <x-konfirmasi-hapus jenis="Buku">
+            </x-konfirmasi-hapus>
         </div>
     </div>
 </div>
