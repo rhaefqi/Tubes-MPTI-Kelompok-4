@@ -85,16 +85,14 @@
                         </div>
                     </a>
                 </div>
-                <div
-                    class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary
-                    flex menu">
-                    <div class=" relative transition duration-200 ease-in-out">
-                        <a href="{{ route('siswa.kelola') }}" class="font-semibold ">
-                            <i class="fa-solid fa-circle-user w-5 scale-125"></i>
-                            <span class="menu-text">Akun</span>
-                        </a>
+                <a href="{{ route('logout') }}" class="font-semibold ">
+                    <div class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="menu-text">Logout</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </aside>
     @else
