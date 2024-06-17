@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -18,11 +19,31 @@ return new class extends Migration
             $table->unsignedInteger('buku_id');
             $table->foreign('buku_id')->references('id')->on('bukus')->onDelete('restrict')->onUpdate('cascade');
             $table->integer('jumlah_dipinjam');
-            $table->enum('status', ['masa pinjam', 'dikembalikan', 'lewat tenggat']);
+            $table->enum('status', ['dipinjam', 'dikembalikan', 'lewat_tenggat']);
             $table->date('tanggal_pinjam')->nullable();
             $table->date('tanggal_kembali')->nullable();
             $table->timestamps();
         });
+        DB::unprepared('
+            CREATE TRIGGER log_peminjaman_gurus_insert AFTER INSERT ON `peminjaman_gurus` FOR EACH ROW
+            BEGIN
+                INSERT INTO log_peminjaman VALUES (NEW.nip, NEW.buku_id, NEW.jumlah_dipinjam, NEW.status, "INSERT", CURRENT_TIMESTAMP());
+            END
+        ');
+        
+        DB::unprepared('
+            CREATE TRIGGER log_peminjaman_gurus_update AFTER UPDATE ON `peminjaman_gurus` FOR EACH ROW
+            BEGIN
+                INSERT INTO log_peminjaman VALUES (NEW.nip, NEW.buku_id, NEW.jumlah_dipinjam, NEW.status, "UPDATE", CURRENT_TIMESTAMP());
+            END
+        ');
+        
+        DB::unprepared('
+            CREATE TRIGGER log_peminjaman_gurus_delete AFTER DELETE ON `peminjaman_gurus` FOR EACH ROW
+            BEGIN
+                INSERT INTO log_peminjaman VALUES (OLD.nip, OLD.buku_id, OLD.jumlah_dipinjam, OLD.status, "DELETE", CURRENT_TIMESTAMP());
+            END
+        ');
     }
 
     /**

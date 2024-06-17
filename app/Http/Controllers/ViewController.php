@@ -32,8 +32,10 @@ class ViewController extends Controller
 
         if(auth()->user()->status == 'siswa'){
             $pinjam = PeminjamanSiswa::where('nisn', auth()->user()->siswa->nisn)->count();
-        } else {
+        }elseif(auth()->user()->status == 'guru'){ 
             $pinjam = PeminjamanGuru::where('nip', auth()->user()->guru->nip)->count();
+        }else{
+            $pinjam = 0;
         }
 
         $barus = Buku::orderBy('created_at')->get();

@@ -1,7 +1,14 @@
 @extends('layouts.main-pegawai')
 
 @section('container')
-<div class="flex-1 flex items-start justify-center p-6">
+<h1 class="text-primary font-open font-bold text-4xl mt-5 ml-8 text-center">
+    <span>Daftar buku</span>
+</h1>
+
+<livewire:alert-success />
+<livewire:peminjaman-buku />
+@endsection
+{{-- <div class="flex-1 flex items-start justify-center p-6">
     <div class="container mx-auto py-8">
         <h1 class="text-green-900 text-4xl font-extrabold font-['open sans']">Manajemen Peminjaman Guru</h1>
         <div class="max-w-lg ml-auto flex justify-end">
@@ -38,5 +45,4 @@
             </table>
         </div>
     </div>
-</div>
-@endsection
+</div> --}}

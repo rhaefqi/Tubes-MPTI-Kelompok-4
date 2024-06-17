@@ -62,7 +62,7 @@ class CreateAbsensi extends Component
                         ->get();
             }
             if ($hasil->isEmpty()) {
-                $this->nama = '';
+                // $this->nama = '';
                 $this->nisn_nip = '';
             }else{
                 return $hasil;
@@ -177,6 +177,7 @@ class CreateAbsensi extends Component
             $this->konfirmasi = false;
         }
     }
+
 
     public function render()
     {

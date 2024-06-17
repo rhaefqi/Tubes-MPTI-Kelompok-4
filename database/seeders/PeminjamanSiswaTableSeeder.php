@@ -42,7 +42,7 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'nisn' => '0042123456',
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
-            'status' => 'lewat tenggat',
+            'status' => 'lewat_tenggat',
             'tanggal_pinjam' => '2024-05-05',
             'tanggal_kembali' => '2024-05-12'
         ]);
