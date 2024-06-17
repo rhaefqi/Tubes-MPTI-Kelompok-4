@@ -3,6 +3,13 @@
 {{-- </div> --}}
 
 <div class="container mx-auto p-4">
+    @if (session()->has('success'))
+    {{-- @dd('ahh') --}}
+        @php
+            $this->sukses = true;
+        @endphp
+    @endif
+    {{-- <livewire:alert-success /> --}}
     <div class="bg-white shadow-md rounded-lg p-4">
         {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
         <div class="mb-4">

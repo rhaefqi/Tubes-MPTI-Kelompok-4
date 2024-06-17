@@ -14,6 +14,7 @@ class TabelBuku extends Component
     public $bukuId;
     public $bukus;
     public $detail;
+    public $sukses = false;
     public $tampilDetail = false;
 
     #[Computed()]
@@ -26,6 +27,14 @@ class TabelBuku extends Component
         $this->bukus = Buku::all();
     }
 
+    public function updatedSukses(){
+        // dd($this->sukses);
+        // if($this->sukses){
+        //     $this->dispatch('success', ['pesan' => 'Buku Berhasil!']);
+        //     $this->sukses = false;
+        // }
+    }
+
     public function tutupDetail(){
         $this->tampilDetail = false;
     }
@@ -33,6 +42,12 @@ class TabelBuku extends Component
     public function mount()
     {
         $this->bukus = Buku::all();
+        if (session()->has('success')) {
+            $this->sukses = true;
+            $this->dispatch('success', ['pesan' => session('success')]);
+            // sleep(2);
+            $this->sukses = false;
+        }
         // $this->detail = Buku::all();
     }
 

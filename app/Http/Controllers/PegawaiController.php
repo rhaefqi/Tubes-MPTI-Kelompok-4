@@ -13,6 +13,9 @@ class PegawaiController extends Controller
     public function peminjaman (){
         return view('pegawai.kelola-peminjaman');   
     }
+    public function pengembalian (){
+        return view('pegawai.kelola-pengembalian');   
+    }
     public function absensi (){
         return view('pegawai.absensi');   
     }

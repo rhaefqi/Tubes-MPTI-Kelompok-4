@@ -16,7 +16,7 @@
                                 <th class="px-3 rounded-t-md">Action</th>
                             </tr>
                         </thead>
-                        @dump($this->number)
+                        {{-- @dump($this->number) --}}
                         <tbody class="border rounded-b-md">
                             @php
                                 $i = 1;

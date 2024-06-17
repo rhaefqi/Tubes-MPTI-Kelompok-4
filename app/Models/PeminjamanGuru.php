@@ -9,6 +9,7 @@ class PeminjamanGuru extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nip','buku_id','jumlah_dipinjam','status','tanggal_pinjam','tanggal_kembali'];
     public function buku()
     {
         return $this->belongsTo(Buku::class);

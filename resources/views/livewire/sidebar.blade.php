@@ -39,6 +39,14 @@
                         </div>
                     </a>
                 </div>
+                <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                    <a href="{{ route('pengembalian') }}" class="font-semibold">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-user-pen w-5"></i>
+                            <span class="menu-text">Pengembalian</span>
+                        </div>
+                    </a>
+                </div>
                 <div id="menu-hover"
                     class="mb-2 flex menu font-semibold hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
                     <div class=" relative transition duration-200 ease-in-out">
