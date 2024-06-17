@@ -16,6 +16,7 @@
                                 <th class="px-3 rounded-t-md">Action</th>
                             </tr>
                         </thead>
+                        @dump($this->number)
                         <tbody class="border rounded-b-md">
                             @php
                                 $i = 1;
@@ -48,6 +49,11 @@
                         </tbody>
                     </table>
                 </div>
+                {{-- <x-input-modal title="Masukan data peminjam">
+                    <x-slot:body>
+                        <livewire:modal-peminjam/>
+                    </x-slot>
+                </x-input-modal> --}}
                 <div class="flex justify-end">
                     <button wire:click="pinjamBuku" class="px-3 py-1 mb-2 mx-2 bg-primary text-white rounded-md font-open text-base font-normal">Pinjam</button>
                 </div>
@@ -105,6 +111,8 @@
                 @include('livewire.detail-buku')
             @endif
             @include('livewire.buku-ada')
+            @include('livewire.modal-peminjam')
+            <livewire:alert-success />
         </div>
     </div>
 </div>

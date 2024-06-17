@@ -1,4 +1,4 @@
-<div>
+{{-- <div> --}}
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
     <div id="" class="{{ $this->bukuAda == true ? '' : 'hidden' }}">
         <!-- The only way to do great work is to love what you do. - Steve Jobs -->
@@ -28,4 +28,4 @@
     
         </div>
     </div>
-</div>
+{{-- </div> --}}

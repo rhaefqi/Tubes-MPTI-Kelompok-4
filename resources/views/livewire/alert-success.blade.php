@@ -50,7 +50,7 @@
     </div>
 </div>
 <script>
-    setTimeout(() => {
-        Livewire.dispatch('close-alert')
-    }, 1000);
+    // setTimeout(() => {
+    //     Livewire.dispatch('close-alert')
+    // }, 1000);
 </script>

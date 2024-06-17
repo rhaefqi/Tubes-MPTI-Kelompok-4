@@ -4,26 +4,189 @@ namespace App\Livewire;
 
 use App\Models\Buku;
 use Livewire\Component;
+use Livewire\Attributes\On;
+use App\Models\PeminjamanSiswa;
+use Livewire\Attributes\Computed;
+use Illuminate\Support\Facades\DB;
 
 class PeminjamanBuku extends Component
 {
+
+    // modal pinjam start
+    public $nisn_nip;
+    public $status;
+    public $nama;
+    public $absens;
+    public $konfirmasi;
+    public $sudahAbsen = false;
+    public $notFound = false;
+    public $fix = true;
+    // modal pinjam end
+
+    public $alertGagal = false;
+    public $pesanAlert;
     public $bukuId;
     public $bukus;
     public $detail;
     public $tampilDetail = false;
     public $bukuAda = false;
     public $namaBuku = false;
-
-
+    public $peminjam = false;
     public $bukuPinjam;
     public $number = [];
+    public $pinjam = false;
 
+    
+    //modal peminjam start
+        public function updatedNama($value)
+        {
+            $this->fix = true;
+            $this->absens = $this->getAbsens();
+            $this->nisn_nip = '';
+        }
+        public function updatedStatus($value)
+        {
+            $this->fix = true;
+            $this->absens = $this->getAbsens();
+        }
+
+        #[Computed()]
+        public function getAbsens()
+        {
+            if ($this->fix) {
+                if($this->status == 'siswa'){
+                    $hasil = DB::table('view_guru_siswa')
+                            ->where('nama', 'like', '%' . $this->nama . '%')
+                            ->where('status', '=', 'siswa')
+                            ->get();
+                }elseif($this->status == 'guru'){
+                    // dd("ahh");
+                    $hasil = DB::table('view_guru_siswa')
+                        ->where('nama', 'like', '%' . $this->nama . '%')
+                        ->where('status', '=', 'guru')
+                        ->get();
+                    
+                }else{
+                    $hasil = DB::table('view_guru_siswa')
+                            ->where('nama', 'like', '%' . $this->nama . '%')
+                            ->get();
+                }
+                if ($hasil->isEmpty()) {
+                    // $this->nama = '';
+                    $this->nisn_nip = '';
+                }else{
+                    return $hasil;
+                }    
+            }
+
+            return collect([]);
+        }
+
+        public function pilih($nisn_nip, $nama, $status){
+            // dd($status);
+            $this->fix = false;
+            $this->absens = $this->getAbsens();
+            $this->nama = $nama;
+            $this->nisn_nip = $nisn_nip;
+            $this->status = $status;
+            // dd($nisn_nip);
+        }
+
+        public function batalCreate(){
+            if ($this->status != null || 
+            $this->nama != null || 
+            $this->nisn_nip != null) {
+                $this->konfirmasi = true;
+            }else{
+                // dd("ahh");
+                $this->pinjam = false;
+                $this->dispatch('close-input');
+                $this->reset('nisn_nip', 'nama', 'status');
+                $this->resetValidation();
+            }   
+        }
+        public function afterConfirm($temp){
+            // dd($temp);
+            if ($temp == 'hapus') {
+                $this->dispatch('close-input');
+                $this->reset('nisn_nip', 'nama', 'status');
+                $this->resetValidation();
+                $this->konfirmasi = false;
+                $this->pinjam = false;
+            }else{
+                $this->konfirmasi = false;
+            }
+        }
+
+        public function createPinjaman(){
+            if ($this->status == 'siswa') {
+                $buku_ids = array_keys($this->number);
+                $pesan = [];
+                $dataPinjaman = PeminjamanSiswa::where('nisn', $this->nisn_nip)->where('status', 'dipinjam')->whereIn('buku_id', $buku_ids)->get();
+                foreach($dataPinjaman as $pinjam){
+                    $buku = Buku::where('id', $pinjam->buku_id)->first();
+                    // $buku->decrement('jumlah_tersedia', 1);
+                    // $buku->decrement('jumlah_tersedia', $this->number[$pinjam->buku_id]);
+                    $pesan[] = $buku->judul;
+                }
+                $pesanString = implode(', ', $pesan);
+                
+                if($dataPinjaman->count() > 0){
+                    $this->alertGagal = true;
+                    $this->pesanAlert = "Buku " . $pesanString . " sudah dipinjam oleh peminjam";
+                    return;
+                }
+                DB::beginTransaction();
+                try {
+                    foreach($this->number as $buku_ids => $value){
+                        // dd($buku_ids, $value);
+                        PeminjamanSiswa::create([
+                            'nisn' => $this->nisn_nip,
+                            'buku_id' => $buku_ids,
+                            'jumlah_dipinjam' => $value,
+                            'status' => 'dipinjam',
+                            'tanggal_pinjam' => date('Y-m-d')
+                        ]);
+                        $buku = Buku::where('id', $buku_ids)->first();
+                        $buku->decrement('jumlah_tersedia', $value);
+                    }
+                    DB::commit();
+                    $this->reset( 'pinjam', 'nisn_nip', 'nama', 'status');
+                    $this->bukuPinjam = [];
+                    $this->number = [];
+                    $this->pinjam = false;
+                    $this->dispatch('berhasil-pinjam');
+
+                }catch (\Throwable $e) {
+                    DB::rollBack();
+                }
+                
+
+                // $this->emit('createPinjaman', $this->nisn_nip, $this->nama, $this->status);
+            }elseif($this->status == 'guru'){
+                // $this->emit('createPinjaman', $this->nisn_nip, $this->nama, $this->status);
+            }
+        }
+    //modal peminjam end
+
+    public function tutupAlert(){
+        $this->alertGagal = false;
+    }
+    
     public function tutupDetail(){
         $this->tampilDetail = false;
     }
 
+    #[On('berhasil-pinjam')]
+    public function berhasilPinjam(){
+        $this->dispatch('success', ['pesan' => 'Buku berhasil dipinjam!']);
+        $this->bukus = Buku::all();
+    }
+
+
     public function mount()
     {
+        $this->absens = $this->getAbsens();
         $this->bukuPinjam = [];
         $this->bukus = Buku::all();
         // $this->detail = Buku::all();
@@ -75,7 +238,7 @@ class PeminjamanBuku extends Component
             if ($bukup->id == $id) {
                 // dump($key);
                 unset($this->bukuPinjam[$key]);
-                $this->number[$bukup->id] = 0;
+                unset($this->number[$bukup->id]);
                 break;
             }
             // $i++;
@@ -85,15 +248,24 @@ class PeminjamanBuku extends Component
     public function pinjamBuku(){
         $kosong = true;
         foreach ($this->number as $value) {
-            if ($value !== 0) {
+            if ($value == 0) {
+                // dd("kosong");
+                // dd("ahh");
                 $kosong = false;
                 break;
             }
         }
-        if (count($this->bukuPinjam) == 0 || $kosong) {
+        
+        if (count($this->bukuPinjam) == 0) {
             return;
         }
-        dd($this->bukuPinjam);
+        if (!$kosong) {
+            return;
+        }
+        // dd('masuk');
+        $this->pinjam = true;
+
+        // dd($this->bukuPinjam);
     }
 
     public function counter($status, $buku_id){
