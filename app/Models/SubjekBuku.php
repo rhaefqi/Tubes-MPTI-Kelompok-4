@@ -11,4 +11,7 @@ class SubjekBuku extends Model
 
     protected $primaryKey = 'subjek';
     protected $keyType = 'string';
+
+    protected $fillable = ['subjek'];
+
 }
