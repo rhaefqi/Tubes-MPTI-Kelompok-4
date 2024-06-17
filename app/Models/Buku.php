@@ -12,7 +12,7 @@ class Buku extends Model
 
     // protected $table = 'bukus';
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id', 'no_seri', 'isbn', 'judul', 'jumlah_tersedia', 'deskripsi', 'penulis', 'penerbit', 'tahun_terbit', 'kategori', 'subjek', 'kelas', 'sampul_buku'];
 
     public function pinjam_siswa()
     {

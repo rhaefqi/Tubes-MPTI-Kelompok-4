@@ -11,5 +11,7 @@ class KategoriBuku extends Model
 
     protected $primaryKey = 'kategori';
     protected $keyType = 'string';
+  
     protected $fillable = ['kategori'];
 }
+
