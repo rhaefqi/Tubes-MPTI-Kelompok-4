@@ -45,28 +45,31 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
 });
 
 Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
-        Route::get('/pegawai-home', [PegawaiController::class, 'index'])
-                ->name('pegawai.home');
-        Route::get('/absensi', [PegawaiController::class, 'absensi'])
-                ->name('absensi');
-        Route::get('/peminjaman', [PegawaiController::class, 'peminjaman'])
-                ->name('peminjaman');
-        Route::get('/kelola-buku', [PegawaiController::class, 'showBuku'])
-                ->name('buku.kelola');
-        Route::get('/kelola-subjek', [PegawaiController::class, 'showsubjek'])
-                ->name('subjek.kelola');
-        Route::get('/kategori', [PegawaiController::class, 'showkategori'])
-                ->name('kategori.kelola');
-        Route::get('/kelola-kategori', [PegawaiController::class, 'showKategori'])
-                ->name('kategori.kelola');
-        Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
-                ->name('riwayat.kelola');
-        Route::get('/manajemen-peminjaman', [PegawaiController::class, 'showPeminjaman'])
-                ->name('peminjaman.manajemen');
-        Route::get('/kelola-buku-tambah', [PegawaiController::class, 'showTambahbuku'])
-                ->name('buku.tambah');
-        Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTambahdata'])
-                ->name('buku.tambahdata');
+    Route::get('/pegawai-home', [PegawaiController::class, 'index'])
+            ->name('pegawai.home');
+    Route::get('/absensi', [PegawaiController::class, 'absensi'])
+            ->name('absensi');
+    Route::get('/peminjaman', [PegawaiController::class, 'peminjaman'])
+            ->name('peminjaman');
+    Route::get('/kelola-buku', [PegawaiController::class, 'showBuku'])
+            ->name('buku.kelola');
+    Route::get('/edit-buku/{id}', [PegawaiController::class, 'showEditBuku'])
+            ->name('buku.edit');
+    Route::get('/kelola-subjek', [PegawaiController::class, 'showsubjek'])
+            ->name('subjek.kelola');
+     Route::get('/kategori', [PegawaiController::class, 'showkategori'])
+            ->name('kategori.kelola');
+    Route::get('/kelola-kategori', [PegawaiController::class, 'showKategori'])
+            ->name('kategori.kelola');
+    Route::get('/kelola-riwayat', [PegawaiController::class, 'showRiwayat'])
+            ->name('riwayat.kelola');
+    Route::get('/manajemen-peminjaman', [PegawaiController::class, 'showPeminjaman'])
+            ->name('peminjaman.manajemen');
+ Route::get('/kelola-buku-tambah', [PegawaiController::class, 'showTambahbuku'])
+            ->name('buku.tambah');
+Route::get('/manajemen-peminjaman(tambah)', [PegawaiController::class, 'showTambahdata'])
+            ->name('buku.tambahdata');
+
 });
 
 Route::get('/dashboard', function () {
