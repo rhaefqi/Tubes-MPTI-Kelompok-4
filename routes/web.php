@@ -51,6 +51,8 @@ Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
             ->name('absensi');
     Route::get('/peminjaman', [PegawaiController::class, 'peminjaman'])
             ->name('peminjaman');
+    Route::get('/pengembalian', [PegawaiController::class, 'pengembalian'])
+            ->name('pengembalian');
     Route::get('/kelola-buku', [PegawaiController::class, 'showBuku'])
             ->name('buku.kelola');
     Route::get('/edit-buku/{id}', [PegawaiController::class, 'showEditBuku'])

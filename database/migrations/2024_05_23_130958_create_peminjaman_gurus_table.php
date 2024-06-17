@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('buku_id');
             $table->foreign('buku_id')->references('id')->on('bukus')->onDelete('restrict')->onUpdate('cascade');
             $table->integer('jumlah_dipinjam');
-            $table->enum('status', ['masa pinjam', 'dikembalikan', 'lewat tenggat']);
+            $table->enum('status', ['dipinjam', 'dikembalikan', 'lewat_tenggat']);
             $table->date('tanggal_pinjam')->nullable();
             $table->date('tanggal_kembali')->nullable();
             $table->timestamps();

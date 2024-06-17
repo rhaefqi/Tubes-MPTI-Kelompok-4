@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Buku;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use App\Models\PeminjamanGuru;
 use App\Models\PeminjamanSiswa;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
@@ -158,13 +159,59 @@ class PeminjamanBuku extends Component
                     $this->dispatch('berhasil-pinjam');
 
                 }catch (\Throwable $e) {
+                    dd($e);
                     DB::rollBack();
                 }
                 
 
                 // $this->emit('createPinjaman', $this->nisn_nip, $this->nama, $this->status);
-            }elseif($this->status == 'guru'){
                 // $this->emit('createPinjaman', $this->nisn_nip, $this->nama, $this->status);
+            }elseif($this->status == 'guru'){
+                $buku_ids = array_keys($this->number);
+                $pesan = [];
+                $dataPinjaman = PeminjamanGuru::where('nip', $this->nisn_nip)->where('status', 'dipinjam')->whereIn('buku_id', $buku_ids)->get();
+                foreach($dataPinjaman as $pinjam){
+                    $buku = Buku::where('id', $pinjam->buku_id)->first();
+                    // $buku->decrement('jumlah_tersedia', $this->number[$pinjam->buku_id]);
+                    $pesan[] = $buku->judul;
+                }
+                $pesanString = implode(', ', $pesan);
+                
+                if($dataPinjaman->count() > 0){
+                    $this->alertGagal = true;
+                    $this->pesanAlert = "Buku " . $pesanString . " sudah dipinjam oleh peminjam";
+                    return;
+                }
+
+                DB::beginTransaction();
+                try {
+                    foreach($this->number as $buku_ids => $value){
+                        // dd($buku_ids, $value);
+                        PeminjamanGuru::create([
+                            'nip' => $this->nisn_nip,
+                            'buku_id' => $buku_ids,
+                            'jumlah_dipinjam' => $value,
+                            'status' => 'dipinjam',
+                            'tanggal_pinjam' => date('Y-m-d')
+                        ]);
+                        $buku = Buku::where('id', $buku_ids)->first();
+                        $buku->decrement('jumlah_tersedia', $value);
+                    }
+                    DB::commit();
+                    $this->reset( 'pinjam', 'nisn_nip', 'nama', 'status');
+                    $this->bukuPinjam = [];
+                    $this->number = [];
+                    $this->pinjam = false;
+                    $this->dispatch('berhasil-pinjam');
+                }catch (\Throwable $e) {
+                    dd($e);
+                    DB::rollBack();
+                }
+                // $this->reset( 'pinjam', 'nisn_nip', 'nama', 'status');
+                // $this->bukuPinjam = [];
+                // $this->number = [];
+                // $this->pinjam = false;
+                // $this->dispatch('berhasil-pinjam');
             }
         }
     //modal peminjam end
@@ -201,7 +248,7 @@ class PeminjamanBuku extends Component
 
     public function detailBuku(Buku $buku)
     {
-        dd($this->bukuPinjam);
+        // dd($this->bukuPinjam);
         $this->detail = Buku::where('id',$buku->id)->first();
         $this->tampilDetail = true;
         // $this->dispatch('tutup-detail');
@@ -213,6 +260,10 @@ class PeminjamanBuku extends Component
 
     public function tambahBuku($id){
         $buku = Buku::where('id', $id)->first();
+        
+        if (count($this->number) >= 5) {
+            return;
+        }
 
         if (!$buku) {
             return;
@@ -229,7 +280,8 @@ class PeminjamanBuku extends Component
             $this->bukuPinjam[] = $buku;
             $this->number[$buku->id] = 0;
         }
-    
+        
+        // dump();
     }
 
     public function hapusBuku($id){
@@ -262,6 +314,7 @@ class PeminjamanBuku extends Component
         if (!$kosong) {
             return;
         }
+
         // dd('masuk');
         $this->pinjam = true;
 

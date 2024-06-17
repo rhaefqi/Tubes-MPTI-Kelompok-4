@@ -125,11 +125,12 @@ class EditBuku extends Component
     public function editBuku()
     {
         $validated = $this->validate();
-
+        
+        DB::beginTransaction();
         try {
-            DB::beginTransaction();
-            $buku = Buku::findOrFail($this->id);
-
+            $buku = Buku::find($this->id);
+            // dd($buku);
+            
             // Update the book fields
             $buku->update($validated);
 
@@ -139,15 +140,17 @@ class EditBuku extends Component
                 $buku->sampul_buku = 'storage/assets/img/' . basename($path);
                 $buku->save();
             }
-
+            
             DB::commit();
-
+            // $this->dispatch('buku-created');
+            session()->flash('success', 'Data Buku berhasil diedit');
+            return redirect()->route('buku.kelola');
             // $this->dispatchBrowserEvent('success', ['message' => 'Data buku berhasil diperbarui!']);
         } catch (\Throwable $th) {
             DB::rollBack();
-            dd($th);
             // $this->dispatchBrowserEvent('error', ['message' => 'Terjadi kesalahan saat memperbarui data buku.']);
         }
+        // dd("ahh");
     }
 
     public function render()

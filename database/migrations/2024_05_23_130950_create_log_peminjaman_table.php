@@ -15,7 +15,7 @@ return new class extends Migration
             $table->char('nisn_nip', 18);
             $table->unsignedInteger('buku_id');
             $table->integer('jumlah_dipinjam');
-            $table->enum('status', ['dipinjam', 'dikembalikan', 'lewat tenggat']);
+            $table->enum('status', ['dipinjam', 'dikembalikan', 'lewat_tenggat']);
             $table->enum('action', ['INSERT','UPDATE', 'DELETE']);
             $table->timestamp('waktu');
         });
