@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LogPeminjaman extends Model
 {
     use HasFactory;
-
+    protected $table = 'log_peminjaman';
     public $timestamps = false;
 }

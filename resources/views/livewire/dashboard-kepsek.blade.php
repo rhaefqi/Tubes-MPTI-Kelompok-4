@@ -1,15 +1,11 @@
-@extends('layouts.main-admin')
-
-@section('container')
-    <main class="">
-
-
-        <div class="text-left text-primary font-open font-bold text-4xl mb-1 mt-3 mx-5">Dashboard Administrator</div>
-        <div class="flex space-x-3 mx-5">
+<div>
+    {{-- Stop trying to control. --}}
+    <div class=" mx-5 justify-center">
+        <div class="flex space-x-20">
             <div
                 class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-lg my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
                 <div class="text-[#245237] text-left text-5xl font-bold ml-3 mt-9">
-                    <p>67</p>
+                    <p>{{ $total_buku }}</p>
                     <p class="text-2xl font-bold mt-4">Jumlah Total Buku</p>
                 </div>
                 <div class="absolute top-7 right-3">
@@ -19,19 +15,19 @@
                     </svg>
                 </div>
                 <div class="pl-3 mt-auto h-9 bg-[#245237] border-[#245237] flex items-center ml-0 rounded-b-sm">
-                    <a href="#" class="flex text-lg font-bold text-white relative overflow-hidden group">
+                    <a href="{{ route('buku.kelola') }}"
+                        class="flex text-lg font-bold text-white relative overflow-hidden group">
                         More Info
                         <span
                             class="absolute w-full h-0.5 bg-[#245237] bottom-0 left-0 transition-all duration-300 ease-in-out group-hover:bg-white"></span>
                     </a>
                 </div>
             </div>
-
             <div
                 class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-md my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
                 <div class="text-[#245237] text-left text-5xl font-bold ml-3 mt-9">
-                    <p>2500</p>
-                    <p class="text-2xl font-bold mt-4">Jumlah Siswa</p>
+                    <p>{{ $total_user }}</p>
+                    <p class="text-2xl font-bold mt-4">Jumlah User</p>
                 </div>
                 <div class="absolute top-7 right-3  ">
                     <svg width="117" height="135" fill="#245237" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -44,32 +40,8 @@
                     </svg>
                 </div>
                 <div class="pl-3 mt-auto h-9 bg-[#245237] border-[#245237] flex items-center ml-0 rounded-b-sm">
-                    <a href="#" class="flex text-lg font-bold text-white relative overflow-hidden group">
-                        More Info
-                        <span
-                            class="absolute w-full h-0.5 bg-[#245237] bottom-0 left-0 transition-all duration-300 ease-in-out group-hover:bg-white"></span>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-md my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
-                <div class="text-[#245237] text-left text-5xl font-bold ml-3 mt-9">
-                    <p>75</p>
-                    <p class="text-2xl font-bold mt-4">Jumlah Guru</p>
-                </div>
-                <div class="absolute top-7 right-3  ">
-                    <svg width="117" height="135" fill="#245237" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                        id="people">
-                        <g>
-                            <path
-                                d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm8 2a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm4 7a1 1 0 0 0 1-1 5 5 0 0 0-8.06-3.95A7 7 0 0 0 2 20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1">
-                            </path>
-                        </g>
-                    </svg>
-                </div>
-                <div class="pl-3 mt-auto h-9 bg-[#245237] border-[#245237] flex items-center ml-0 rounded-b-sm">
-                    <a href="#" class="flex text-lg font-bold text-white relative overflow-hidden group">
+                    <a href="{{ route('user.kelola') }}"
+                        class="flex text-lg font-bold text-white relative overflow-hidden group">
                         More Info
                         <span
                             class="absolute w-full h-0.5 bg-[#245237] bottom-0 left-0 transition-all duration-300 ease-in-out group-hover:bg-white"></span>
@@ -77,5 +49,111 @@
                 </div>
             </div>
         </div>
-    </main>
-@endsection
+
+        <div class="flex justify-end space-x-20">
+            <div
+                class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-md my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
+                <div class="text-[#245237] text-left text-5xl font-bold ml-3 mt-9">
+                    <p>{{ $total_petugas }}</p>
+                    <p class="text-2xl font-bold mt-4">Jumlah Petugas</p>
+                </div>
+                <div class="absolute top-7 right-3  ">
+                    <svg width="117" height="135" fill="#245237" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        id="people">
+                        <g>
+                            <path
+                                d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm8 2a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm4 7a1 1 0 0 0 1-1 5 5 0 0 0-8.06-3.95A7 7 0 0 0 2 20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="pl-3 mt-auto h-9 bg-[#245237] border-[#245237] flex items-center ml-0 rounded-b-sm">
+                    <a href="{{ route('petugas.kelola') }}"
+                        class="flex text-lg font-bold text-white relative overflow-hidden group">
+                        More Info
+                        <span
+                            class="absolute w-full h-0.5 bg-[#245237] bottom-0 left-0 transition-all duration-300 ease-in-out group-hover:bg-white"></span>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-md my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
+                <div class="text-[#245237] text-left text-5xl font-bold ml-3 mt-9">
+                    <p>{{ $total_staff }}</p>
+                    <p class="text-2xl font-bold mt-4">Jumlah staff</p>
+                </div>
+                <div class="absolute top-7 right-3  ">
+                    <svg width="117" height="135" fill="#245237" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        id="people">
+                        <g>
+                            <path
+                                d="M9 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm8 2a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm4 7a1 1 0 0 0 1-1 5 5 0 0 0-8.06-3.95A7 7 0 0 0 2 20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="pl-3 mt-auto h-9 bg-[#245237] border-[#245237] flex items-center ml-0 rounded-b-sm">
+                    <a href="{{ route('staff.kelola') }}"
+                        class="flex text-lg font-bold text-white relative overflow-hidden group">
+                        More Info
+                        <span
+                            class="absolute w-full h-0.5 bg-[#245237] bottom-0 left-0 transition-all duration-300 ease-in-out group-hover:bg-white"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-12">
+        <div class="container mx-auto p-4">
+            <h1 class="text-[#245237] font-bold text-2xl px-4 mt-5">Buku dengan view terbanyak bulan ini</h1>
+        </div>
+
+        <div class="container mx-auto p-4 ">
+            <div class="flex flex-wrap justify-center space-y-4 lg:space-y-0 lg:space-x-28">
+                <!-- Pengunjung 1 -->
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($buku_best as $buku)
+                    <div class="flex justify-center transform relative p-4 hover:scale-110">
+                        <div class="box-border border-2 border-[#245237] rounded-md overflow-hidden">
+                            <img src="{{ asset($buku->sampul_buku) }}" alt="image" class="h-40 w-40 object-cover">
+                        </div>
+                        <div
+                            class="flex absolute -bottom-6 bg-[#245237] text-white text-center p-2 font-semibold rounded-lg truncate">
+                            #{{ $i++ }} {{ $buku->judul }}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="py-12">
+            <div class="container mx-auto p-4">
+                <h1 class="text-[#245237] font-bold text-2xl px-4 mt-5">Pengunjung Terbaik Bulan Ini</h1>
+            </div>
+
+            <div class="container mx-auto p-4 ">
+                <div class="flex flex-wrap justify-center space-y-4 lg:space-y-0 lg:space-x-28">
+                    <!-- Pengunjung 1 -->
+                    @php
+                        $i = 1;
+                    @endphp
+                    @foreach ($pengunjung_best as $kunjung)
+                        <div class="flex justify-center transform relative p-4 hover:scale-110">
+                            <div class="box-border border-2 border-[#245237] rounded-full overflow-hidden">
+                                <img src="{{ asset($kunjung->photo_profile) }}" alt="image"
+                                    class="h-40 w-40 object-cover">
+                            </div>
+                            <div
+                                class="flex absolute -bottom-2 bg-[#245237] text-white text-center p-2 font-semibold rounded-lg truncate">
+                                #{{ $i++ }} {{ $kunjung->nama }}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

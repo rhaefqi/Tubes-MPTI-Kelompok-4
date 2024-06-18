@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\kepsekController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
@@ -28,7 +29,7 @@ Route::get('/index', function () {
 Route::get('/test-email', [RegisterController::class, 'sendTestEmail']);
 
 
-Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:staff,kepala_sekolah'])->group(function () {
         Route::get('/admin-home', [AdminController::class, 'index'])
                 ->name('admin.home');
         Route::get('/kelola-user', [AdminController::class, 'showUser'])
@@ -43,7 +44,14 @@ Route::middleware(['auth', 'verified', 'role:staff'])->group(function () {
                 ->name('kelas-siswa.kelola');
 });
 
-Route::middleware(['auth', 'verified', 'role:pegawai'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:kepala_sekolah'])->group(function () {
+        Route::get('/kepsek-home', [kepsekController::class, 'index'])
+                ->name('kepsek.home');
+        Route::get('/kelola-staff', [kepsekController::class, 'showStaff'])
+                ->name('staff.kelola');
+});
+
+Route::middleware(['auth', 'verified', 'role:pegawai,kepala_sekolah'])->group(function () {
     Route::get('/pegawai-home', [PegawaiController::class, 'index'])
             ->name('pegawai.home');
     Route::get('/absensi', [PegawaiController::class, 'absensi'])
@@ -83,7 +91,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified', 'role:siswa,guru,staff,pegawai'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:siswa,guru,staff,pegawai,kepala_sekolah'])->group(function () {
         Route::get('/home', [ViewController::class, 'showHome']);
         Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
                 ->name('perpus');

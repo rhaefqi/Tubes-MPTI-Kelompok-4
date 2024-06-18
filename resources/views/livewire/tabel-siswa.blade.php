@@ -1,6 +1,6 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
-    @include('livewire.berhasil-tambah')
+    {{-- @include('livewire.berhasil-tambah') --}}
     <div class="flex justify-center mt-10">
         <div class="mx-10 w-full border-secondary border-[3px] rounded-lg overflow-hidden">
         <table class="w-full">

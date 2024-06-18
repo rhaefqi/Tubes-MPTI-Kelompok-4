@@ -19,7 +19,8 @@
                 <div class="p-3 pt-0 text-center">
                     <div class="flex flex-col lg:flex-row px-11 gap-2 md:gap-4">
                         <div class="flex w-full justify-center items-start">
-                            <img src="{{ asset('assets/img/'.$detail->sampul_buku) }}" alt="" class="w-36 lg:w-64 border border-1 border-primary rounded-md">
+                            {{-- @dump(strlen($detail->sampul_buku) > 40) --}}
+                            <img src="{{ asset($detail->sampul_buku) }}" alt="" class="w-36 lg:w-64 border border-1 border-primary rounded-md">
                         </div>
                         <div class="flex flex-col gap-4 text-start">
                             <div class="flex flex-col gap-0">

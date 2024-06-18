@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('peminjaman_gurus', function (Blueprint $table) {
             $table->increments('id');
             $table->char('nip', 18);
-            $table->foreign('nip')->references('nip')->on('gurus')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreign('nip')->references('nip')->on('gurus')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedInteger('buku_id');
             $table->foreign('buku_id')->references('id')->on('bukus')->onDelete('restrict')->onUpdate('cascade');
             $table->integer('jumlah_dipinjam');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('absensi_gurus', function (Blueprint $table) {
             $table->char('nip', 18);
-            $table->foreign('nip')->references('nip')->on('gurus')->onDelete('restrict')->onUpdate('cascade');
+            $table->foreign('nip')->references('nip')->on('gurus')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tanggal')->nullable();
             $table->time('jam')->nullable();
         });

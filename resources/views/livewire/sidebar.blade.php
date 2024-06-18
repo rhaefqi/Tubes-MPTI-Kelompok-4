@@ -85,19 +85,17 @@
                         </div>
                     </a>
                 </div>
-                <div
-                    class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary
-                    flex menu">
-                    <div class=" relative transition duration-200 ease-in-out">
-                        <a href="{{ route('siswa.kelola') }}" class="font-semibold ">
-                            <i class="fa-solid fa-circle-user w-5 scale-125"></i>
-                            <span class="menu-text">Akun</span>
-                        </a>
+                <a href="{{ route('logout') }}" class="font-semibold ">
+                    <div class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="menu-text">Logout</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </aside>
-    @else
+    @elseif (Auth::user()->status == 'staff')
         <aside id="sidebar"
             class="transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
             <img src="" alt="">
@@ -171,6 +169,92 @@
                         </div>
                     </div>
                 </a>
+            </div>
+        </aside>
+    @else
+        <aside id="sidebar"
+            class="transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
+            <img src="" alt="">
+            <div class="">
+                <div class="relative mb-14">
+                    <img src="{{ asset('assets/img/logo.png') }}" alt=""
+                        class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
+                    <a id="head" href="#home"
+                        class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Dashboard
+                        <br>
+                        Kepala Sekolah</a>
+                </div>
+                <div class="" id="list">
+                    <a href="{{ route('kepsek.home') }}"
+                        class="mb-6 font-semibold flex hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
+                        <div class=" flex menu ">
+                            <div class="relative transition duration-200 ease-in-out">
+                                <i class="fa-solid fa-house"></i>
+                                <span class="ml-2 menu-text">Dashboard</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <a href="{{ route('user.kelola') }}" class="font-semibold">
+                    <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-user w-5"></i>
+                            <span class="menu-text">User</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ route('petugas.kelola') }}" class="font-semibold">
+                    <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-user-pen w-5"></i>
+                            <span class="menu-text">Petugas</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ route('staff.kelola') }}" class="font-semibold">
+                    <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-user-gear w-5"></i>
+                            <span class="menu-text">Staff</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ route('guru.kelola') }}">
+                    <div id="menu-hover"
+                        class="mb-2 flex menu font-semibold hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
+                        <div class="relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-chalkboard-user w-5"></i>
+                            <span class="menu-text">Guru</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ route('siswa.kelola') }}" class="font-semibold ">
+                    <div class="mb-2 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-user-graduate w-5"></i>
+                            <span class="menu-text">Siswa</span>
+                        </div>
+                    </div>
+                </a>
+                <div id="menu-hover"
+                    class="mb-2 flex menu font-semibold hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
+                    <a href="{{ route('buku.kelola') }}" id="sub-menu-buku" class="">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-chalkboard-user w-5"></i>
+                            <span class="menu-text">Buku</span>
+                            <div class="hidden rotate-90"></div>
+                        </div>
+                    </a>
+                </div>
+                <a href="{{ route('logout') }}" class="font-semibold ">
+                    <div class="mt-10 hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary flex menu">
+                        <div class=" relative transition duration-200 ease-in-out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="menu-text">Logout</span>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </aside>
     @endif

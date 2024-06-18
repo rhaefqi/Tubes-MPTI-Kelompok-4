@@ -31,6 +31,9 @@ class AuthenticatedSessionController extends Controller
 
         $role = auth()->user()->status;
         switch($role){
+            case "kepala_sekolah":
+                return redirect()->intended('/kepsek-home');
+                break;
             case "pegawai":
                 return redirect()->intended('/pegawai-home');
                 break;

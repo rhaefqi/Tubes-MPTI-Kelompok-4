@@ -23,7 +23,7 @@
 
                 @foreach ($riwayats as $riwayat)    
                     <a href="{{ route('detail.buku', $riwayat->buku_id ) }}" class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-48 h-[18.5rem] items-center py-2 gap-1">
-                        <img src="{{ asset('assets/img/'.$riwayat->buku->sampul_buku) }}" alt="" class="w-32 h-44 rounded-md">
+                        <img src="{{ asset($riwayat->buku->sampul_buku) }}" alt="" class="w-32 h-44 rounded-md">
         
                         <div class="flex flex-col items-start w-full px-2">
                             <div class="flex flex-col">

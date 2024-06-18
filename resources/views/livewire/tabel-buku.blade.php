@@ -34,7 +34,7 @@
                         <th class="py-3 px-6 text-left">Kelola</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
+                <tbody class="text-gray-600 text-sm font-open">
                     @php
                         $i = 1;
                     @endphp
