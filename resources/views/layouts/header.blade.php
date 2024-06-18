@@ -13,7 +13,7 @@
             <details class="dropdown">
                 <summary class="m-1 btn w-full h-full">
                     <div class="relative flex justify-center">
-                        <img src="{{ asset(auth()->user()->photo_profile) }}" class="w-16 h-16 rounded-full">
+                        <img src="{{ auth()->user()->photo_profile == null ? asset('assets/img/fadillah.jpg') : asset(auth()->user()->photo_profile) }}" class="w-16 h-16 rounded-full">
                         <span class="absolute -bottom-2 bg-[#245237] rounded-xl px-3 text-white text-xs font-medium">
                             {{ auth()->user()->status == 'guru' ? 'Guru' : 'Siswa' }}
                         </span>
@@ -28,7 +28,7 @@
 
         <button type="button" onclick="toggleNavbar()" class="lg:hidden">
             <div class="relative flex justify-center">
-                <img src="{{ asset(auth()->user()->photo_profile) }}" class="w-12 h-12 rounded-full">
+                <img src="{{ auth()->user()->photo_profile == null ? asset('assets/img/fadillah.jpg') : asset(auth()->user()->photo_profile) }}" class="w-12 h-12 rounded-full">
                 <span class="absolute -bottom-2 bg-[#245237] rounded-xl px-3 text-white text-xs font-medium">Siswa</span>
             </div>
         </button>

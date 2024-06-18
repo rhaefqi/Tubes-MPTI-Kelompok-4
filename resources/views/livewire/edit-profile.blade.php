@@ -12,7 +12,7 @@
         
                 <div class="flex relative">
                     <img id="profile-image" 
-                         src="{{ $photo ? $photo->temporaryUrl() : asset(auth()->user()->photo_profile) }}" 
+                         src="{{ $photo ? $photo->temporaryUrl() : (auth()->user()->photo_profile == null ? asset('assets/img/fadillah.jpg') : asset(auth()->user()->photo_profile)) }}" 
                          class="w-20 lg:w-28 h-20 lg:h-28 rounded-full" 
                          alt="Profile Image">
                     <button class="flex absolute -bottom-2 -right-2 drop-shadow-lg p-1 rounded-full w-8 h-8 bg-white items-center justify-center">

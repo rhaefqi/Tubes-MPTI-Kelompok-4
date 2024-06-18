@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <a href="{{ route('profile') }}" class="flex py-3 px-2">
-                        <img class="rounded-full w-[100px] h-[100px]" src="{{ asset(auth()->user()->photo_profile) }}">
+                        <img class="rounded-full w-[100px] h-[100px]" src="{{ auth()->user()->photo_profile == null ? asset('assets/img/fadillah.jpg') : asset(auth()->user()->photo_profile) }}">
                     </a>
                 </div>
                 <div class="flex flex-col gap-2">

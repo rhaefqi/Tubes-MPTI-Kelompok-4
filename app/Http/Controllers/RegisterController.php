@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\User;
+use App\Models\Siswa;
 use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -37,6 +39,14 @@ class RegisterController extends Controller
         // $password = Hash::make($validated['password']);
         $validated['password'] = Hash::make($validated['password']);
         $user = User::create($validated);
+        
+        if($validated['status'] = 'siswa'){
+            $siswa = Siswa::find($validated['nisn_nip']);
+            $siswa->update(['user_id' => $user->id]);
+        }else{
+            $guru = Guru::find($validated['nisn_nip']);
+            $guru->update(['user_id' => $user->id]);
+        }
 
         try {
             event(new Registered($user));

@@ -6,7 +6,7 @@
 <div class="flex flex-col md:flex-row-reverse w-full md:max-w-screen-lg mx-auto gap-1 my-10">
     <div class="flex flex-col w-full md:w-1/4 gap-5">
         <div class="flex flex-col items-center">
-            <img src="{{ asset(auth()->user()->photo_profile) }}" class="w-20 h-20 rounded-full" alt="">
+            <img src="{{ auth()->user()->photo_profile == null ? asset('assets/img/fadillah.jpg') : asset(auth()->user()->photo_profile) }}" class="w-20 h-20 rounded-full" alt="">
 
             <div class="flex flex-col text-center">
                 <p class="font-semibold">{{auth()->user()->username}}</p>

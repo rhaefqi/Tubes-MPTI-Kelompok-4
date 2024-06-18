@@ -54,7 +54,7 @@ class TabelGuru extends Component
 
     #[Computed()]
     public function gurus(){
-        return Guru::latest()->paginate(20);
+        return Guru::latest()->where('nip', '!=', '111111111111111111')->paginate(20);
     }
 
     public function editGuru(Guru $guru){

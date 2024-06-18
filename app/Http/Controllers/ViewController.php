@@ -32,6 +32,7 @@ class ViewController extends Controller
     public function showHome(){
 
         if(auth()->user()->status == 'siswa'){
+            // dd(auth()->user());
             $pinjam = PeminjamanSiswa::where('nisn', auth()->user()->siswa->nisn)->count();
         }elseif(auth()->user()->status == 'guru'){ 
             $pinjam = PeminjamanGuru::where('nip', auth()->user()->guru->nip)->count();
