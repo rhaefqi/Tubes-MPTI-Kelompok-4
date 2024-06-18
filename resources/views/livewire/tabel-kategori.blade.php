@@ -20,7 +20,7 @@
                             <th class="py-3 px-6 text-left">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-600 text-sm font-light">
+                    <tbody class="text-gray-600 text-sm font-open">
                         @foreach ($this->kategoris as $kategori)
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-left">{{ $kategori->kategori }}</td>
