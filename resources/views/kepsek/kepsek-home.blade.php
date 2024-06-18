@@ -4,7 +4,7 @@
     <main class="">
 
 
-        <div class="text-left text-primary font-open font-bold text-4xl mb-1 mt-3 mx-5">Dashboard Administrator</div>
+        <div class="text-left text-primary font-open font-bold text-4xl mb-1 mt-3 mx-5">Dashboard Kepala Sekolah</div>
         <div class="flex space-x-3 mx-5">
             <div
                 class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-lg my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
