@@ -15,10 +15,10 @@
                          src="{{ $photo ? $photo->temporaryUrl() : (auth()->user()->photo_profile == null ? asset('assets/img/fadillah.jpg') : asset(auth()->user()->photo_profile)) }}" 
                          class="w-20 lg:w-28 h-20 lg:h-28 rounded-full" 
                          alt="Profile Image">
-                    <button class="flex absolute -bottom-2 -right-2 drop-shadow-lg p-1 rounded-full w-8 h-8 bg-white items-center justify-center">
+                    <div class="flex absolute -bottom-2 -right-2 drop-shadow-lg p-1 rounded-full w-8 h-8 bg-white items-center justify-center">
                         <input type="file" name="photo" wire:model.live="photo" id="file-input" class="hidden" />
                         <span class="text-xl mdi mdi-image-edit text-[#245237] hover:text-[#F7D914]" onclick="document.getElementById('file-input').click();"></span>
-                    </button>
+                    </div>
                 </div>
         
                 <div class="flex flex-col md:flex-row md:gap-5 gap-4">
