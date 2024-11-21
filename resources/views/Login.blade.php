@@ -16,20 +16,20 @@
     <div class="flex h-full md:h-screen md:p-10 p-3 rounded-lg">
         <!-- Kolom Kiri: Form Login -->
         <div class="w-full md:w-1/2 flex items-center justify-center bg-white p-4 rounded-lg">
-            <form class="w-full max-w-sm bg-white p-8 rounded-lg " action="{{ route('user.login') }}" method="POST">
+            <form class="w-full max-w-sm bg-white p-8 rounded-lg " action="{{ route('login') }}" method="POST">
                 @csrf
                 <h2 class="text-2xl md:text-3xl font-bold mb-3 text-[#245237] text-center">Selamat Datang</h2>
-                <h5 class="text-sm">Silahkan isi menggunakan NISN atau NIP untuk masuk ke aplikasi.</h5>
+                <h5 class="text-sm">Silahkan isi menggunakan username atau email untuk masuk ke aplikasi.</h5>
                 <div class="mb-4 mt-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nsin_nip">
-                        NISN / NIP <span style="color: red;">*</span>
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email  <span style="color: red;">*</span>
                     </label>
-                    <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="nsin_nip" id="nsin_nip" type="text" placeholder="Masukkan nsin_nip">
-                    @error('nsin_nip')
+                    <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" id="email" type="email" placeholder="Masukkan Email">
+                    @error('email')
                         <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
                     @enderror
                 </div>
-                {{-- <div class="mb-6">
+                <div class="mb-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2 " for="password">
                         Password <span style="color: red;">*</span>
                     </label>
@@ -43,11 +43,11 @@
                         @enderror
                     </div>
                     <p class="text-sm text-black hover:text-[#245237] font-semibold text-right">Lupa Password?</p>
-                </div> --}}
+                </div>
                 <div class="flex flex-col items-center justify-center">
-                    {{-- <div class="mb-4">
+                    <div class="mb-4">
                         <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237] font-bold" href="{{ route("register") }}">Daftar</a></p>
-                    </div> --}}
+                    </div>
                     <button type="submit" class="bg-[#245237] w-40 text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline border-2 border-[#245237]  hover:text-[#245237] hover:bg-white">
                         Masuk
                     </button>

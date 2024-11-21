@@ -25,11 +25,6 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
 
-     public function userStore(Request $request): RedirectResponse
-     {
-        $input = $request->email;
-         dd($input);
-     }
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
