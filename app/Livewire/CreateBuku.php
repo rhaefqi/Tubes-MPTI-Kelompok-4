@@ -159,6 +159,9 @@ class CreateBuku extends Component
         }
     }
 
+    public function back(){
+        return redirect()->route('buku.kelola');
+    }
     public function render()
     {
         return view('livewire.create-buku');

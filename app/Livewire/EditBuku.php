@@ -153,6 +153,10 @@ class EditBuku extends Component
         // dd("ahh");
     }
 
+    public function back(){
+        return redirect()->route('buku.kelola');
+    }
+
     public function render()
     {
         return view('livewire.edit-buku');

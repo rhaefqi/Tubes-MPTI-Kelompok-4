@@ -9,7 +9,6 @@
                         <th class="border-r-[3px] border-secondary">Nama</th>
                         <th class="border-r-[3px] border-secondary">L/P</th>
                         <th class="border-r-[3px] border-secondary">Tingkat</th>
-                        <th class="border-r-[3px] border-secondary">Username</th>
                         <th class="border-secondary">Action</th>
                     </tr>
                 </thead>
@@ -23,14 +22,6 @@
                             <td class="border-r-[3px] border-secondary">
                                 {{ $guru->jenis_kelamin == 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
                             <td class="border-r-[3px] border-secondary">{{ $guru->tingkat }}</td>
-                            <td class="border-r-[3px] border-secondary">
-                                {{-- @dd($guru->user) --}}
-                                @if ($guru->user->id == 1)
-                                    Belum punya akun
-                                @else
-                                    {{ $guru->user->username }}
-                                @endif
-                            </td>
                             <td class="">
                                 {{-- @dump($guru->nip) --}}
                                 <button wire:click="editGuru('{{ $guru->nip }}')">  

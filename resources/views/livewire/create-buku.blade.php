@@ -91,7 +91,7 @@
             <button type="submit" class="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Simpan
             </button>
-            <button type="button" wire:click="resetForm" class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button type="button" wire:click="back" class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Batal
             </button>
         </div>
