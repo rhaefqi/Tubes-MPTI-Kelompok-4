@@ -5,14 +5,22 @@
             class="transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
             <img src="" alt="">
             <div class="">
-                <div class="relative mb-14">
+                <div class="relative mb-6 text-center">
+                    <!-- Logo kecil di atas -->
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
-                    <a id="head" href="#home"
+                    <!-- Kontainer untuk SVG dan teks -->
+                    <div class="flex flex-col items-center gap-2 mt-3">
+                        <!-- SVG Gambar -->
+                        <img id="svg-img" src="{{ asset('assets/img/staff-adm.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
+                        <!-- Teks -->
+                        <a id="head" href="#home"
                         class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Pegawai
                         <br>
                         Perpustakaan</a>
+                    </div>
                 </div>
+                <hr class="mb-6">
                 <div class="" id="list">
                     <div class="mb-6 flex menu hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
                         <a href="{{ route('pegawai.home') }}" class="font-semibold flex">
@@ -100,14 +108,21 @@
             class="transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
             <img src="" alt="">
             <div class="">
-                <div class="relative mb-14">
+                 <div class="relative mb-6 text-center">
+                    <!-- Logo kecil di atas -->
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
-                    <a id="head" href="#home"
-                        class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Staff
-                        <br>
-                        Administrasi</a>
+                    <!-- Kontainer untuk SVG dan teks -->
+                    <div class="flex flex-col items-center gap-2 mt-3">
+                        <!-- SVG Gambar -->
+                        <img id="svg-img" src="{{ asset('assets/img/staff-adm.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
+                        <!-- Teks -->
+                        <a id="head" href="#home" class="transition-all duration-500 text-2xl font-semibold leading-tight">
+                            Staff<br>Administrasi
+                        </a>
+                    </div>
                 </div>
+                <hr class="mb-6">
                 <div class="" id="list">
                     <a href="{{ route('admin.home') }}"
                         class="mb-6 font-semibold flex hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">
@@ -176,14 +191,22 @@
             class="transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
             <img src="" alt="">
             <div class="">
-                <div class="relative mb-14">
+                <div class="relative mb-6 text-center">
+                    <!-- Logo kecil di atas -->
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
-                    <a id="head" href="#home"
+                    <!-- Kontainer untuk SVG dan teks -->
+                    <div class="flex flex-col items-center gap-2 mt-3">
+                        <!-- SVG Gambar -->
+                        <img id="svg-img" src="{{ asset('assets/img/staff-adm.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
+                        <!-- Teks -->
+                        <a id="head" href="#home"
                         class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Dashboard
                         <br>
                         Kepala Sekolah</a>
+                    </div>
                 </div>
+                <hr class="mb-6">
                 <div class="" id="list">
                     <a href="{{ route('kepsek.home') }}"
                         class="mb-6 font-semibold flex hover:text-black hover:cursor-pointer rounded-md hover:bg-secondary">

@@ -29,7 +29,7 @@
         
         <div class="flex space-x-3">
         <div class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-lg my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
-            <div class="text-[#245237] text-left text-5xl font-extrabold ml-3 mt-9">
+            <div class="text-[#245237] text-left text-4xl font-extrabold ml-3 mt-9">
                 <p>67</p>
                 <p class="text-2xl font-bold mt-4">Jumlah Total Buku</p>
             </div>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-md my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
-            <div class="text-[#245237] text-left text-5xl font-extrabold ml-3 mt-9">
+            <div class="text-[#245237] text-left text-4xl font-extrabold ml-3 mt-9">
                 <p>2500</p>
                 <p class="text-2xl font-bold mt-4">Jumlah Siswa</p>
             </div>
@@ -65,7 +65,7 @@
         </div>
 
         <div class="grid-cols-2 flex flex-col justify-between w-1/3 h-52 rounded-md my-7 shadow-2xl border-[#245237] border-2 bg-white relative">
-            <div class="text-[#245237] text-left text-5xl font-extrabold ml-3 mt-9">
+            <div class="text-[#245237] text-left text-4xl font-extrabold ml-3 mt-9">
                 <p>75</p>
                 <p class="text-2xl font-bold mt-4">Jumlah Guru</p>
             </div>

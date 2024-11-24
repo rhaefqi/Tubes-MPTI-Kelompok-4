@@ -1,49 +1,45 @@
-
-<div class="flex flex-col w-full md:max-w-screen-lg mx-auto gap-7 my-10">
-    
-    <div class="flex relative px-3 justify-center">
-        <div class="brightness-[25%] h-24 overflow-hidden rounded-lg">
-            <img src="{{ asset('assets/img/cari.jpg') }}" class="w-full">
+<div class="container mx-auto px-4 my-10">
+    <!-- Bagian Header Pencarian -->
+    <div class="relative bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('{{ asset('assets/img/cari.jpg') }}'); height: 230px;">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+            <h1 class="text-2xl font-bold">Perpustakaan</h1>
+            <p class="text-lg">Cari Buku yang Diinginkan</p>
         </div>
-        <div class="flex flex-col absolute text-center text-xl md:text-2xl md:top-2 font-semibold top-4 text-white">
-            <p>Perpustakaan</p>
-            <p>Cari Buku yang Diinginkan</p>
-        </div>
-        <div class="flex absolute -bottom-5 w-full justify-center gap-2">
-            <input type="text" wire:model="search" wire:keydown.debounce="searchBuku" class="w-1/2 h-10 rounded-lg border border-1 border-[#245237] px-3 placeholder:text-md placeholder:font-semibold" placeholder="Cari Buku">
-            {{-- <button class="w-7 h-7 rounded-lg border border-1 border-[#245237] bg-white">
-                <span class="mdi mdi-magnify text-[#245237]"></span>
-            </button> --}}
+        <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-2/3 flex py-12">
+            <input type="text" wire:model="search" wire:keydown.debounce="searchBuku" class="flex-1 h-12 px-4 text-md rounded-l-lg border-t border-l border-b border-[#245237]" placeholder="Cari Buku">
+            <button class="bg-[#245237] text-white px-4 rounded-r-lg hover:bg-[#1e472c]">
+                <span class="mdi mdi-magnify text-lg"></span>
+            </button>
         </div>
     </div>
 
-    <div class="flex justify-end items-center gap-3 px-3">
+    <!-- Filter -->
+    <div class="flex justify-end items-center gap-4 mt-10">
         <p class="font-bold italic text-[#245237] hidden md:flex">Filter</p>
-        <form class="">
-            <select id="urutkan" wire:model="sortOrder" wire:click="filterBuku" class="border-1 border-[#245237] border rounded-full font-bold italic lg:text-[12px] text-[10px] text-[#245237] py-0 h-[30px] w-[100px]">
-                <option value="asc" class="font-bold italic text-[#245237]">A-Z</option>
-                <option value="desc" class="font-bold italic text-[#245237]">Z-A</option>
-            </select>
-        </form>
+        <select id="urutkan" wire:model="sortOrder" wire:click="filterBuku" class="border border-[#245237] rounded-full px-6 py-1 text-sm font-bold text-[#245237]">
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
     </div>
-    <div class="flex flex-wrap px-11 gap-4 justify-center md:justify-start">
-        
+
+    <!-- Daftar Buku -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mt-6 px-4">
         @if ($bukus->isEmpty())
-            <p class="text-center font-bold w-full text-red-500">Tidak ada hasil yang ditemukan untuk pencarian "{{ $search }}"</p>
+            <p class="col-span-full text-center font-bold text-red-500">Tidak ada hasil yang ditemukan untuk pencarian "{{ $search }}"</p>
         @else
-            @foreach ($bukus as $buku)    
-                <a href="{{ route('detail.buku', $buku->id) }}" class="flex flex-col border border-1 border-opacity-50 border-[#245237] rounded-lg w-28 md:w-32 items-center py-2">
-                    <img src="{{ asset($buku->sampul_buku) }}" alt="" class="w-24 md:w-28 h-36 md:h-40 rounded-md">
-                    <div class="flex flex-col justify-start w-full px-2 gap-1">
-                        <div class="flex flex-col text-[10px] md:text-[14px] truncate overflow-hidden">
-                            <p class="font-semibold">{{ $buku->judul }}</p>
-                            <p>{{ $buku->penulis }}</p>
-                        </div>
-                        <div class="font-bold text-[10px] md:text-[14px] text-center rounded-md {{ $buku->jumlah_tersedia == 0 ? 'bg-red-500' : 'bg-[#F0C001]' }}">{{ $buku->jumlah_tersedia == 0 ? 'Tidak Tersedia' : 'Tersedia' }}</div>
+            @foreach ($bukus as $buku)
+                <a href="{{ route('detail.buku', $buku->id) }}" class="flex flex-col border border-opacity-50 border-[#245237] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                    <img src="{{ asset($buku->sampul_buku) }}" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col gap-2">
+                        <h3 class="text-sm font-bold truncate">{{ $buku->judul }}</h3>
+                        <p class="text-xs text-gray-600 truncate">{{ $buku->penulis }}</p>
+                        <span class="text-center py-1 text-xs font-bold rounded-md {{ $buku->jumlah_tersedia == 0 ? 'bg-red-500 text-white' : 'bg-[#F0C001] text-black' }}">
+                            {{ $buku->jumlah_tersedia == 0 ? 'Tidak Tersedia' : 'Tersedia' }}
+                        </span>
                     </div>
                 </a>
             @endforeach
         @endif
-        
     </div>
 </div>

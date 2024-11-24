@@ -5,7 +5,7 @@
 @section('container')
 <main class="mb-10">
     <div class="flex justify-between mt-8">
-        <h1 class="text-primary font-open font-bold text-5xl mt-5 ml-8">
+        <h1 class="text-primary font-open font-bold text-4xl mt-5 ml-8">
             <i class="fa-solid fa-chalkboard-user"></i>
             <span>Guru</span>
         </h1>

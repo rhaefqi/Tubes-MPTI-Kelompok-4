@@ -3,7 +3,7 @@
     <aside id="sidebar"
         class="transition-all duration-500 sm:flex bg-primary w-56 h-screen sticky left-0 top-0 justify-center text-white font-open">
         <img src="" alt="">
-        <ul class="">
+        <ul class="">   
             <li class="relative mb-14">
                 <img src="{{ asset('assets/img/logo.png') }}" alt=""
                     class="w-16 absolute pt-6 scale-0

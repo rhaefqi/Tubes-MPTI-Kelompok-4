@@ -63,24 +63,30 @@
 
     <!-- CONTENT -->
     <!-- Atas -->
-    <div class="container mx-auto p-4 px-5">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-6">
-                <h2 class="text-3xl font-bold mb-4 text-[#245237]">Tumbuhkan Wawasan, Temukan Petualangan</h2>
-                <h2 class="text-3xl font-bold mb-4">
-                    <span class="text-[#00A218] mb-7">Perpustakaan Sekolah,</span>
-                    <span class="text-[#245237]"> Jendela Menuju Dunia.</span>
-                </h2>
-                <a href="/login"
-                    class="bg-[#245237] px-5 mt-4 py-3 border-2 border-[#245237] rounded-md font-bold text-white hover:text-[#245237] hover:bg-white">Ayo
-                    Bergabung</a>
-            </div>
-            <div class="p-6">
-                <img class="shadow-md rounded-lg w-full h-72 object-cover" src="{{ asset('assets/img/gambar1.jpg') }}"
-                    alt="">
+    <div class="bg-[#F2F2F2]">
+        <div class="container mx-auto p-8 md:p-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+                <!-- Text Section -->
+                <div>
+                    <h1 class="text-4xl font-extrabold text-[#245237] leading-snug">
+                        Tumbuhkan Wawasan, <br> 
+                        <span class="text-[#00A218]">Temukan Petualangan.</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-[#4D4D4D]">
+                        Perpustakaan Sekolah adalah jendela dunia yang menghadirkan petualangan tanpa batas melalui buku-buku dan ilmu pengetahuan.
+                    </p>
+                    <a href="/login" class="mt-6 inline-block bg-[#245237] hover:bg-white hover:text-[#245237] text-white px-6 py-3 rounded-md text-lg font-semibold shadow-lg hover:shadow-xl transition">
+                        Ayo Bergabung
+                    </a>
+                </div>
+                <!-- Image Section -->
+                <div>
+                    <img class="rounded-lg shadow-md w-full max-w-md mx-auto md:max-w-full h-auto object-cover" src="{{ asset('assets/img/dashboard.svg') }}" alt="Perpustakaan Sekolah">
+                </div>
             </div>
         </div>
     </div>
+    
 
     <div class="container mx-auto p-4 px-5">
         <hr class=" border-[#006316]">
@@ -88,27 +94,25 @@
 
     <!-- New Added -->
     <div class="container mx-auto p-4">
-        <h1 class="text-[#245237] font-bold text-2xl px-4 mt-5">Baru Saja Ditambahkan</h1>
-    </div>
-
-    <div class="container mx-auto p-4">
-        <div class="flex flex-wrap justify-center">
-            <!-- Frame 1 -->
+        <h1 class="text-[#245237] font-bold text-2xl px-4 mt-5 mb-4">Baru Saja Ditambahkan</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Loop Buku -->
             @foreach ($bukus as $buku)
-                <div
-                    class="flex flex-col transform hover:scale-110 items-center p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-                    <div
-                        class="box-border relative h-52 w-44 bg-[#D9D9D9] border-2 border-[#245237] rounded-lg overflow-hidden">
-                        <img src="{{ asset($buku->sampul_buku) }}" alt="image" class="w-full h-full object-cover">
-                    </div>
-                    <div
-                        class="mt-4  font-bold rounded-lg w-44 bg-[#245237] text-white text-center p-2 rounded-b-lg truncate">
-                        {{ $buku->judul }}
-                    </div>
+            <div class="group flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-xl transform transition-transform duration-300 hover:scale-105">
+                <div class="relative h-52 w-full bg-[#D9D9D9] rounded-lg overflow-hidden">
+                    <img src="{{ asset($buku->sampul_buku) }}" alt="{{ $buku->judul }}" class="w-full h-full object-cover">
                 </div>
+                <div class="mt-4 font-bold text-center text-[#245237] text-md truncate w-full">
+                    {{ $buku->judul }}
+                </div>
+                <button class="mt-2 bg-[#245237] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#1d4d2d] hover:text-slate-900 transition-colors">
+                    Detail Buku
+                </button>
+            </div>
             @endforeach
         </div>
     </div>
+    
 
     <!-- Pengunjung Terbaik Bulan Ini -->
     <div class="py-12">
@@ -145,7 +149,7 @@
 
     <!-- Layanan -->
     <div class="container mx-auto" id="layanan">
-        <h1 class="text-[#245237] font-bold text-3xl text-center mt-5 mb-8">Layanan</h1>
+        <h1 class="text-[#245237] font-bold text-3xl text-center mt-5 mb-8">Layanan Yang Kami Sediakan</h1>
     </div>
 
     <div class="container mx-auto">
@@ -153,24 +157,24 @@
             <!-- Column 1 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4 transform hover:scale-110">
                 <div class="box-border h-56 w-48 rounded-lg overflow-hidden">
-                    <img src="{{ asset('assets/img/Kembali2.png') }}" alt="image"
-                        class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/img/pengembalian.svg') }}" alt="image"
+                        class="w-full h-full">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Pengembalian Buku </p>
             </div>
             <!-- Column 2 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4 transform hover:scale-110">
                 <div class="box-border  h-56 w-48   rounded-lg overflow-hidden">
-                    <img src="{{ asset('assets/img/Pinjam.png') }}" alt="image"
-                        class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/img/peminjaman.svg') }}" alt="image"
+                        class="w-full h-full">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Peminjaman Buku </p>
             </div>
             <!-- Column 3 -->
             <div class="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 p-4 transform hover:scale-110">
-                <div class="box-border  h-56 w-48  rounded-lg overflow-hidden">
-                    <img src="{{ asset('assets/img/Ruang.png') }}" alt="image"
-                        class="w-full h-full object-cover">
+                <div class="box-border  h-56 w-48  rounded-lg overflow-hidden bg-transparent">
+                    <img src="{{ asset('assets/img/ruang-baca.svg') }}" alt="image"
+                        class="w-full h-full">
                 </div>
                 <p class="mt-2 text-center  text-2xl justify-center font-bold  text-[#245237]">Ruang Baca </p>
             </div>
@@ -183,23 +187,23 @@
     </div>
     <!-- Tentang -->
 
-    <div class="container mx-auto p-4" id="tentang">
+    <div class="container mx-auto p-4 mb-8" id="tentang">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Kolom Kanan (Gambar) -->
             <div class="p-4">
-                <img class="shadow-md rounded-lg w-full h-72 object-cover"
-                    src="{{ asset('assets/img/Gambar2.jpg') }}" alt="Perpustakaan Sekolah">
+                <img class="shadow-md rounded-lg w-full h-96 object-cover"
+                    src="{{ asset('assets/img/about-us.svg') }}" alt="Perpustakaan Sekolah">
             </div>
             <!-- Kolom Kiri (Tulisan) -->
             <div class="flex flex-col text-justify p-4">
                 <h2 class="text-2xl font-bold mb-4 text-[#245237]">Tentang Kami</h2>
-                <p class="text-sm text-[#245237] mb-4">Yayasan Perguruan Amaliyah, dengan Nomor Pokok Yayasan Nasional
+                <p class="text-md text-[#245237] mb-4">Yayasan Perguruan Amaliyah, dengan Nomor Pokok Yayasan Nasional
                     (NPYN) AL9639, adalah lembaga pendidikan yang didirikan pada tanggal 29 Agustus 1985. Terletak di
                     Jl. Tani Asli Gg. Asal, Tanjung Gusta, Kec. Sunggal, Kab. Deli Serdang, Prov. Sumatera Utara,
                     yayasan ini berkomitmen untuk menyediakan pendidikan berkualitas bagi masyarakat. Dipimpin oleh Drs.
                     H. Abdul Malik MR dan dioperasikan oleh Safrijal Efendi, Yayasan Perguruan Amaliyah berdedikasi
                     untuk menciptakan lingkungan belajar yang kondusif dan inovatif. .</p>
-                <p class="text-sm text-[#245237]">Di bawah naungan Yayasan Perguruan Amaliyah, terdapat berbagai
+                <p class="text-md text-[#245237]">Di bawah naungan Yayasan Perguruan Amaliyah, terdapat berbagai
                     lembaga pendidikan, salah satunya adalah SD Amaliyah yang terletak di Kec. Sunggal, Kab. Deli
                     Serdang, Prov. Sumatera Utara. Dengan NPSN 10213587, SD Amaliyah berkomitmen untuk memberikan
                     pendidikan dasar yang komprehensif dan berintegritas. Yayasan ini tidak hanya berfokus pada aspek
