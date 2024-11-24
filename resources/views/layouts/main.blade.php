@@ -12,7 +12,7 @@
 </head>
 <body class="bg-[#F2F2F2] open-sans">
     <!-- HEADER START -->
-    @include('layouts.header')
+    @include('layouts.header-main')
     <!-- HEADER END -->
 
     <!-- CONTENT -->

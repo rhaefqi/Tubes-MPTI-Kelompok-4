@@ -27,15 +27,6 @@ class AuthenticatedSessionController extends Controller
 
     public function store(LoginRequest $request): RedirectResponse
     {
-        // dd(ctype_digit($request->email));
-        // if (ctype_digit($request->email) && strlen($request->email) > 10) {
-        //     $user = 
-        //     // dd('guru');
-        // }elseif (ctype_digit($request->email) && strlen($request->email) <= 10) {
-        //     // dd('siswa');
-        // }else{
-
-        // }
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -47,7 +38,7 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->intended('/kepsek-home');
                 break;
             case "pegawai":
-                return redirect()->intended('/pegawai-home');
+                return redirect('/pegawai-home');
                 break;
             case "staff":
                 return redirect()->intended('/admin-home');

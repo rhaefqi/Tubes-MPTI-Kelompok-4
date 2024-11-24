@@ -11,7 +11,6 @@
                     <th class="border-r-[3px] border-secondary">L/P</th>
                     <th class="border-r-[3px] border-secondary">Tingkat</th>
                     <th class="border-r-[3px] border-secondary">Kelas</th>
-                    <th class="border-r-[3px] border-secondary">Username</th>
                     <th class="border-secondary">Action</th>
                 </tr>
             </thead>
@@ -24,13 +23,7 @@
                         <td class="border-r-[3px] border-secondary">{{ $siswa->jenis_kelamin == 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
                         <td class="border-r-[3px] border-secondary">{{ $siswa->tingkat }}</td>
                         <td class="border-r-[3px] border-secondary">{{ $siswa->kelas }}</td>
-                        <td class="border-r-[3px] border-secondary">
-                            @if ($siswa->user->id == 1)
-                                Belum punya akun
-                            @else
-                                {{ $siswa->user->username }}
-                            @endif
-                        </td>
+                       
                         <td class="">
                             <button wire:click="editSiswa('{{ $siswa->nisn }}')">  
                                 <i class="fa-solid fa-pen-to-square scale-125 text-green-500 mr-3"></i>

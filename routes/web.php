@@ -94,11 +94,11 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/detail-buku/{id}', [ViewController::class, 'detailBuku'])
         ->name('detail.buku');
+Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
+        ->name('perpus');
 
 Route::middleware(['auth', 'verified', 'role:siswa,guru'])->group(function () {
         Route::get('/home', [ViewController::class, 'showHome']);
-        Route::get('/perpustakaan', [ViewController::class, 'showBuku'])
-                ->name('perpus');
         Route::get('/profile', [ViewController::class, 'showProfile'])
                 ->name('profile');
         Route::get('/edit-profile', [ViewController::class, 'showEditProfile'])
