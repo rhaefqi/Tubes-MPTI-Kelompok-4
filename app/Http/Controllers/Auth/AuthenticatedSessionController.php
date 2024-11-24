@@ -32,6 +32,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $role = auth()->user()->status;
+        // dd($role);
         switch($role){
             case "kepala_sekolah":
                 return redirect()->intended('/kepsek-home');

@@ -117,7 +117,6 @@ class CreateSiswa extends Component
     }
     public function render()
     {
-        $this->kelas_siswa = Kelas::all();
         // $this->kelas_siswa = 'agah';
         // dd($kelas);
         return view('livewire.create-siswa');

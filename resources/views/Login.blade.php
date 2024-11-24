@@ -45,9 +45,6 @@
                     <p class="text-sm text-black hover:text-[#245237] font-semibold mt-1 mb-6 text-right">Lupa Password?</p>
                 </div>
                 <div class="flex flex-col items-center justify-center">
-                    <div class="mb-4">
-                        <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237] font-bold hover:text-black" href="{{ route("register") }}">Daftar</a></p>
-                    </div>
                     <button type="submit" class="bg-[#245237] w-40 text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline border-2 border-[#245237]  hover:text-[#245237] hover:bg-white">
                         Masuk
                     </button>

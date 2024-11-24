@@ -105,9 +105,9 @@
                 <div class="mt-4 font-bold text-center text-[#245237] text-md truncate w-full">
                     {{ $buku->judul }}
                 </div>
-                <button class="mt-2 bg-[#245237] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#1d4d2d] hover:text-slate-900 transition-colors">
+                <a href="{{ route('detail.buku', $buku->id) }}" class="mt-2 bg-[#245237] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#1d4d2d] hover:text-slate-900 transition-colors hover:cursor-pointer">
                     Detail Buku
-                </button>
+                </a>
             </div>
             @endforeach
         </div>

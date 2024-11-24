@@ -21,6 +21,6 @@ class ChekRole
             // DB::setDefaultConnection($request->user()->status);
             return $next($request);
         }
-        // abort(403);
+        abort(403);
     }
 }
