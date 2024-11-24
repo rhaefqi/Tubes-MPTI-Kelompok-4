@@ -64,6 +64,9 @@
                     </div>
                 </div>
             </div>
+            @if (!$loop->last)
+                <hr class="border-slate-400">
+            @endif
             @endforeach
         </div>
     </div>

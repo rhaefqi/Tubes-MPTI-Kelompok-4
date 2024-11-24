@@ -3,6 +3,7 @@ const sidebar = document.getElementById('sidebar');
 const title = document.getElementById('head');
 const menu = document.getElementById('list');
 const logoSide = document.getElementById('logo-side');
+const svgImg = document.getElementById('svg-img'); // Icon SVG (gambar orang)
 const text = document.getElementsByClassName('menu-text');
 const logo = document.getElementsByClassName('menu');
 const subBuku = document.getElementById('sub-menu-buku');
@@ -34,6 +35,10 @@ tombol.addEventListener("click", () => {
                 subMenu.classList.add('hidden');
             }
         }
+        // Hilangkan SVG (icon orang) dan tampilkan logo
+        svgImg.style.display = "none";
+        logoSide.style.display = "block";
+
         // subBuku.disabled = true;
         setTimeout(() => {
             logoSide.classList.remove('scale-0')
@@ -51,6 +56,9 @@ tombol.addEventListener("click", () => {
                 }
             }
         }, 320);
+         // Tampilkan kembali SVG (icon orang) dan sembunyikan logo
+         svgImg.style.display = "block";
+         logoSide.style.display = "none";
         logoSide.classList.add('scale-0')
         // subBuku.disabled = false;
     }

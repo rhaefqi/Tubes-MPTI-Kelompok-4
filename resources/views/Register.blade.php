@@ -16,17 +16,17 @@
     <div class="flex h-full md:p-10 p-5  rounded-lg">
         <!-- Kolom Kiri: Gambar -->
         <div class="w-1/2 hidden md:flex h-[672px] bg-cover bg-center rounded-lg">
-            <img src="{{ asset('assets/img/Gambar2.jpg') }}" alt="Deskripsi gambar" class="w-full h-full object-cover   bg-green-800 opacity-70 rounded-lg">
+            <img src="{{ asset('assets/img/register.jpg') }}" alt="Deskripsi gambar" class="w-full h-full object-cover   bg-green-800 opacity-70 rounded-lg">
         </div>
     
         <!-- Kolom Kanan: Form Login -->
 
         <div class="md:w-1/2 w-full flex items-center justify-center bg-white p-4 rounded-lg">            
-            <form method="POST" action="{{ route("register") }}" class="w-full max-w-sm p-8 rounded-lg ">
+            <form method="POST" action="{{ route("register") }}" class="w-full max-w-md p-8 rounded-lg ">
                 @csrf
                 <h2 class="text-2xl font-bold mb-3 text-[#245237] text-center">Daftarkan Akun Anda !</h2>
                 <div class="flex flex-col mb-2">
-                    <div class="space-x-4 flex">
+                    <div class="space-x-4 flex my-2">
                         <label class="flex items-center">
                             <input type="radio" class="form-radio" name="status" id="siswa" value="siswa">
                             <span class="ml-2">Siswa</span>
@@ -41,7 +41,7 @@
                     @enderror      
                 </div>
 
-                <div class="mb-1 mt-1">
+                <div class="mb-1 my-1 mt-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nisn_nip">
                         NISN/NIP  <span style="color: red;">*</span>
                     </label>
@@ -50,7 +50,7 @@
                         <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-1 mt-4">
+                <div class="mb-1 my-1 mt-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                         Username <span style="color: red;">*</span>
                     </label>
@@ -59,7 +59,7 @@
                         <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-1 mt-1">
+                <div class="mb-1 my-1 mt-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                          Email <span style="color: red;">*</span>
                     </label>
@@ -68,7 +68,7 @@
                         <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-1 mt-1">
+                <div class="mb-1 my-1 mt-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="no_hp">
                          Email <span style="color: red;">*</span>
                     </label>
@@ -77,7 +77,7 @@
                         <p class="text-xs text-red-600 font-semibold text-left">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-1">
+                <div class="mb-1 my-1 mt-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2 " for="password">
                         Password <span style="color: red;">*</span>
                     </label>
@@ -91,7 +91,7 @@
                         <p class="text-xs text-red-600 font-semibold text-left">Password harus minimal 8 kata dengan kombinasi angka, huruf, dan simbol</p>
                     @enderror
                 </div>
-                <div class="mb-1">
+                <div class="mb-1 my-1 mt-2">
                     <label class="block text-gray-700 text-sm font-bold mb-2 " for="konpassword">
                         Konfirmasi Password <span style="color: red;">*</span>
                     </label>
@@ -105,11 +105,11 @@
                         <p class="text-xs text-red-600 font-semibold text-left">Password harus minimal 8 kata dengan kombinasi angka, huruf, dan simbol</p>
                     @enderror
                 </div>
-                <div class="flex flex-col items-center justify-center">
+                <div class="flex flex-col items-center justify-center my-1 mt-2">
                     <div class="mb-1">
-                        <p class="text-sm mb-0">Sudah memiliki akun? <a  class="text-[#245237] font-bold" href="{{ route('login') }}">Login</a></p>
+                        <p class="text-sm mb-0">Sudah memiliki akun? <a  class="text-[#245237] font-bold hover:text-black" href="{{ route('login') }}">Login</a></p>
                     </div>
-                    <button class="bg-[#245237] w-40 hover:bg-black text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline" type="submit">
+                    <button class="bg-[#245237] w-40 hover:bg-black text-white font-bold mt-1 py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline" type="submit">
                         Daftar
                     </button>
                 </div>
