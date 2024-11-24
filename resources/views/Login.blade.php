@@ -19,7 +19,7 @@
             <form class="w-full max-w-sm bg-white p-8 rounded-lg " action="{{ route('login') }}" method="POST">
                 @csrf
                 <h2 class="text-2xl md:text-3xl font-bold mb-3 text-[#245237] text-center">Selamat Datang</h2>
-                <h5 class="text-sm text-center">Silahkan isi menggunakan username atau email untuk masuk ke aplikasi.</h5>
+                <h5 class="text-sm text-center">Silahkan isi menggunakan NIP atau NISN untuk masuk ke aplikasi.</h5>
                 <div class="mb-4 mt-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                         Email  <span style="color: red;">*</span>
