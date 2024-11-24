@@ -8,6 +8,7 @@ use Livewire\Attributes\On;
 use Livewire\WithPagination;
 use App\Models\PeminjamanGuru;
 use App\Models\PeminjamanSiswa;
+use Carbon\Carbon;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
 
@@ -22,6 +23,8 @@ class PengembalianBuku extends Component
     public $nis_nip_pinjam;
     public $buku_id_pinjam;
     public $tingkat_pinjam;
+
+    public $status_pinjam;
 
     public $modalKembalikan = false;
     // public $pinjamans;
@@ -126,6 +129,35 @@ class PengembalianBuku extends Component
     
     public function render()
     {
+        
+        
+        // Perbandingan
+        
+        //mengubah status
+        $counts = DB::table('view_peminjaman')->get();
+        $currentDate = Carbon::now()->toDateString();
+        foreach ($counts as $count) {
+            // dd(Carbon::now());
+            $dateRaw = $count->tanggal_pinjam;
+            $date = Carbon::parse($dateRaw)->toDateString();
+            
+            if ($date < $currentDate) {
+                // return "Tanggal $dateFromDatabase lebih lama dari tanggal sekarang.";
+                if($count->tingkat == 'guru'){
+                    PeminjamanGuru::where('nip', $count->nisn_nip)->where('buku_id', $count->buku_id)->where('tanggal_pinjam', $count->tanggal_pinjam)->update([
+                        'status' => 'lewat_tenggat'
+                    ]);
+                }else{
+                    PeminjamanSiswa::where('nisn', $count->nisn_nip)->where('buku_id', $count->buku_id)->where('tanggal_pinjam', $count->tanggal_pinjam)->update([
+                        'status' => 'lewat_tenggat'
+                    ]);
+                }
+                // dd('sebelum');
+            }
+
+        }
+        $this->status_pinjam = auth()->user()->status;
+
         if(isset(request()->components)){
             if(request()->components[0]['updates']){
                 $this->resetPage();

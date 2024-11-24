@@ -68,18 +68,22 @@
                         @else
                             <option value="">Pilih Kelas</option>
                         @endif
-                        @foreach ($kelas_siswa as $kelas) 
-                            @if ($this->tingkat == 'MA')
-                                @if ($kelas->tingkat == 'MA')
-                                    <option value="{{ $kelas->kelas }}" {{ ($this->kelas == $kelas->kelas) ? 'selected' : '' }}>{{ $kelas->kelas }}</option>
-                                @endif
-                            @elseif ($this->tingkat == 'MTs')
-                                @if ($kelas->tingkat == 'MTs')
-                                    <option value="{{ $kelas->kelas }}" {{ ($this->kelas == $kelas->kelas) ? 'selected' : '' }}>{{ $kelas->kelas }}</option>
-                                @endif
-                            @else 
-                            @endif
-                        @endforeach
+                        @if ($this->tingkat == 'SD')
+                            <option value="I">I (Satu)</option>
+                            <option value="II">II (Dua)</option>
+                            <option value="III">III (Tiga)</option>
+                            <option value="IV">IV (Empat)</option>
+                            <option value="V">V (Lima)</option>
+                            <option value="VI">VI (Enam)</option>
+                        @elseif ($this->tingkat == 'MTs')
+                            <option value="VII">VII (Tujuh)</option>
+                            <option value="VIII">VIII (Delapan)</option>
+                            <option value="IX">IX (Sembilan)</option>
+                        @elseif ($this->tingkat == 'MA')
+                            <option value="X">X (Sepuluh)</option>
+                            <option value="XI">XI (Sebelas)</option>
+                            <option value="XII">XII (Dua Belas)</option>
+                        @endif
                     </select>
                     @error('kelas')
                         <span class="text-red-500">{{ $message }}</span>

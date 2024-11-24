@@ -148,7 +148,6 @@ class TabelSiswa extends Component
     }
     public function render()
     {
-        $this->kelas_siswa = Kelas::all();
         return view('livewire.tabel-siswa');
     }
 }

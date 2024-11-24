@@ -27,11 +27,21 @@ class AuthenticatedSessionController extends Controller
 
     public function store(LoginRequest $request): RedirectResponse
     {
+        // dd(ctype_digit($request->email));
+        // if (ctype_digit($request->email) && strlen($request->email) > 10) {
+        //     $user = 
+        //     // dd('guru');
+        // }elseif (ctype_digit($request->email) && strlen($request->email) <= 10) {
+        //     // dd('siswa');
+        // }else{
+
+        // }
         $request->authenticate();
 
         $request->session()->regenerate();
 
         $role = auth()->user()->status;
+        // dd($role);
         switch($role){
             case "kepala_sekolah":
                 return redirect()->intended('/kepsek-home');

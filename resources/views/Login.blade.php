@@ -19,7 +19,7 @@
             <form class="w-full max-w-sm bg-white p-8 rounded-lg " action="{{ route('login') }}" method="POST">
                 @csrf
                 <h2 class="text-2xl md:text-3xl font-bold mb-3 text-[#245237] text-center">Selamat Datang</h2>
-                <h5 class="text-sm text-center">Silahkan isi menggunakan username atau email untuk masuk ke aplikasi.</h5>
+                <h5 class="text-sm text-center">Silahkan isi menggunakan NIP atau NISN untuk masuk ke aplikasi.</h5>
                 <div class="mb-4 mt-6">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                         Email  <span style="color: red;">*</span>
@@ -45,9 +45,6 @@
                     <p class="text-sm text-black hover:text-[#245237] font-semibold mt-1 mb-6 text-right">Lupa Password?</p>
                 </div>
                 <div class="flex flex-col items-center justify-center">
-                    <div class="mb-4">
-                        <p class="text-sm mb-0">Belum memiliki akun? <a  class="text-[#245237] font-bold hover:text-black" href="{{ route("register") }}">Daftar</a></p>
-                    </div>
                     <button type="submit" class="bg-[#245237] w-40 text-white font-bold py-2 px-4 rounded align-middle focus:outline-none focus:shadow-outline border-2 border-[#245237]  hover:text-[#245237] hover:bg-white">
                         Masuk
                     </button>

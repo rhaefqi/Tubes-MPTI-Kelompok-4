@@ -15,8 +15,7 @@ return new class extends Migration
             $table->char('nisn', 10)->primary();
             $table->string('nama');
             $table->enum('tingkat', ['MA', 'MTs', 'SD']);
-            $table->char('kelas', 10);
-            $table->foreign('kelas')->references('kelas')->on('kelas')->onDelete('restrict')->onUpdate('cascade');
+            $table->enum('kelas', ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII']);
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');

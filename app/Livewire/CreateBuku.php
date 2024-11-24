@@ -142,7 +142,7 @@ class CreateBuku extends Component
 
             if ($this->sampul) {
                 $path = $this->sampul->store('public/assets/img');
-                $buku['sampul_buku'] = 'storage/assets/img/' . basename($path);
+                $buku['sampul_buku'] = 'assets/img/' . basename($path);
             }
 
             Buku::create($buku);

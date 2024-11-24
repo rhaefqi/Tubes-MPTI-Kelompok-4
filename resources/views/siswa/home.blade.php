@@ -3,6 +3,7 @@
 @section('title', 'Perpustakaan Amaliyah | Beranda')
 
 @section('content')
+{{-- @dd(auth()) --}}
 <div class="flex flex-col lg:flex-row w-full md:max-w-screen-lg mx-auto gap-4 my-10">
     <div class="flex flex-col lg:w-3/5 w-full px-2 lg:px-0 gap-5">
        <div class="border border-[#245237] rounded-lg lg:p-10 p-5">
