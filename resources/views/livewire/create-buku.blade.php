@@ -1,100 +1,114 @@
-{{-- <div> --}}
-    {{-- In work, do what you enjoy. --}}
-{{-- </div> --}}
-
-<div>
-    <form wire:submit.prevent="createBuku">
-        <div class="flex w-full gap-3">
-            <div class="flex flex-col w-full mb-4">
-                <label for="no_seri" class="block text-gray-700 text-sm font-bold mb-2">No. Seri</label>
-                <input type="text" id="no_seri" wire:model.live="no_seri" aria-describedby="no_seriHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+<div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+    <h2 class="text-[28px] font-bold text-start text-green-700 mb-6">Tambah Buku</h2>
+    <form wire:submit.prevent="createBuku" class="space-y-4">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <label for="no_seri" class="block text-sm font-medium text-gray-700">No. Seri</label>
+                <input type="text" id="no_seri" wire:model.live="no_seri" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
                 @error('no_seri') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="flex flex-col w-full mb-4">
-                <label for="isbn" class="block text-gray-700 text-sm font-bold mb-2">ISBN</label>
-                <input type="text" id="isbn" wire:model.live="isbn" aria-describedby="isbnHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <div>
+                <label for="isbn" class="block text-sm font-medium text-gray-700">ISBN</label>
+                <input type="text" id="isbn" wire:model.live="isbn" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
                 @error('isbn') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="flex flex-col w-full mb-4">
-                <label for="stok" class="block text-gray-700 text-sm font-bold mb-2">Stok</label>
-                <input type="number" min="1" id="stok" wire:model.live="stok" aria-describedby="stokHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <div>
+                <label for="stok" class="block text-sm font-medium text-gray-700">Stok</label>
+                <input type="number" id="stok" min="1" wire:model.live="stok" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
                 @error('stok') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
         </div>
-        <div class="mb-4">
-            <label for="judul_buku" class="block text-gray-700 text-sm font-bold mb-2">Judul Buku</label>
-            <input type="text" id="judul_buku" wire:model.live="judul" aria-describedby="judulHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        
+        <!-- Row 2 -->
+        <div>
+            <label for="judul_buku" class="block text-sm font-medium text-gray-700">Judul Buku</label>
+            <input type="text" id="judul_buku" wire:model.live="judul" 
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
             @error('judul') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
         </div>
-        <div class="mb-4">
-            <label for="keterangan" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi</label>
-            <textarea id="keterangan" wire:model.live="deskripsi" aria-describedby="keteranganHelp" class="textarea border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-24"></textarea>
+        
+        <!-- Row 3 -->
+        <div>
+            <label for="deskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+            <textarea id="deskripsi" wire:model.live="deskripsi" 
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"></textarea>
             @error('deskripsi') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
         </div>
-        <div class="flex w-full gap-3">
-            <div class="mb-4">
-                <label for="penulis" class="block text-gray-700 text-sm font-bold mb-2">Penulis</label>
-                <input type="text" id="penulis" wire:model.live="penulis" aria-describedby="penulisHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        
+        <!-- Row 4 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <label for="penulis" class="block text-sm font-medium text-gray-700">Penulis</label>
+                <input type="text" id="penulis" wire:model.live="penulis" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
                 @error('penulis') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="mb-4">
-                <label for="penerbit" class="block text-gray-700 text-sm font-bold mb-2">Penerbit</label>
-                <input type="text" id="penerbit" wire:model.live="penerbit" aria-describedby="penerbitHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <div>
+                <label for="penerbit" class="block text-sm font-medium text-gray-700">Penerbit</label>
+                <input type="text" id="penerbit" wire:model.live="penerbit" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
                 @error('penerbit') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="mb-4">
-                <label for="tahun_terbit" class="block text-gray-700 text-sm font-bold mb-2">Tahun Terbit</label>
-                <input type="number" min="0" id="tahun_terbit" wire:model.live="tahun_terbit" aria-describedby="tahun_terbitHelp" class="input border-1 border-gray-700 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <div>
+                <label for="tahun_terbit" class="block text-sm font-medium text-gray-700">Tahun Terbit</label>
+                <input type="number" id="tahun_terbit" min="1900" wire:model.live="tahun_terbit" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm" />
                 @error('tahun_terbit') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
         </div>
-        <div class="flex w-full gap-3">
-            <div class="mb-4">
-                <label for="kategori" class="block text-gray-700 text-sm font-bold mb-2">Kategori</label>
-                <select wire:model.live="kategori" id="kategori" aria-describedby="kategoriHelp" class="select select-bordered w-full max-w-xs leading-tights">
-                    <option disabled selected>Silahkan pilih kategori</option>
+        
+        <!-- Row 5 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <label for="kategori" class="block text-sm font-medium text-gray-700">Kategori</label>
+                <select id="kategori" wire:model.live="kategori" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="">Pilih Kategori</option>
                     @foreach ($kategoris as $kategori)
                         <option>{{ $kategori->kategori }}</option>
                     @endforeach
                 </select>
                 @error('kategori') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="mb-4">
-                <label for="subjek" class="block text-gray-700 text-sm font-bold mb-2">Subjek</label>
-                <select wire:model.live="subjek" id="subjek" aria-describedby="subjekHelp" class="select select-bordered w-full py-0 max-w-xs leading-tight">
-                    <option disabled selected>Silahkan pilih subjek</option>
+            <div>
+                <label for="subjek" class="block text-sm font-medium text-gray-700">Subjek</label>
+                <select id="subjek" wire:model.live="subjek" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="">Pilih Subjek</option>
                     @foreach ($subjeks as $subjek)
                         <option>{{ $subjek->subjek }}</option>
                     @endforeach
                 </select>
                 @error('subjek') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
-            <div class="mb-4">
-                <label for="kelas" class="block text-gray-700 text-sm font-bold mb-2">Kelas</label>
-                <select wire:model.live="kelas" id="subjek" aria-describedby="subjekHelp" class="select select-bordered w-full py-0 max-w-xs leading-tight">
-                    <option disabled selected>Silahkan pilih subjek</option>
+            <div>
+                <label for="kelas" class="block text-sm font-medium text-gray-700">Kelas</label>
+                <select id="kelas" wire:model.live="kelas" 
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                    <option value="">Pilih Kelas</option>
                     <option>SD</option>
                     <option>MTs</option>
                     <option>MA</option>
-                    <option>Lainnya</option>        
+                    <option>Lainnya</option>
                 </select>
                 @error('kelas') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
             </div>
         </div>
-        <div class="mb-4">
-            <label for="sampul" class="block text-gray-700 text-sm font-bold mb-2">Sampul</label>
-            <input type="file" id="sampul" wire:model.live="sampul" aria-describedby="sampulHelp" class="file-input file-input-sm file-input-bordered file-input-gray-700 w-full max-w-xs my-3 text-gray-700 text-sm font-bold" />
-            <img id="profile-image" src="{{ $sampul ? $sampul->temporaryUrl() : asset('assets/img/lorem.jpg') }}" class="w-20 rounded-lg" alt="Profile Image">
-            @error('sampul') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
-        </div>
-        <div class="flex items-center justify-between">
-            <button type="submit" class="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        
+        <!-- Row 6 -->
+        <div class="flex justify-between items-center">
+            <button type="submit" 
+                class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
                 Simpan
             </button>
-            <button type="button" wire:click="back" class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button type="button" wire:click="back" 
+                class="bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
                 Batal
             </button>
         </div>
     </form>
 </div>
-

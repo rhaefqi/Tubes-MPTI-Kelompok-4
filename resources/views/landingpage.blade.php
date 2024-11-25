@@ -40,7 +40,7 @@
                     <p class="mt-4 text-lg text-[#4D4D4D]">
                         Perpustakaan Sekolah adalah jendela dunia yang menghadirkan petualangan tanpa batas melalui buku-buku dan ilmu pengetahuan.
                     </p>
-                    <a href="/login" class="mt-6 inline-block bg-[#245237] hover:bg-white hover:text-[#245237] text-white px-6 py-3 rounded-md text-lg font-semibold shadow-lg hover:shadow-xl transition">
+                    <a href="#" class="mt-6 inline-block bg-[#245237] hover:bg-white hover:text-[#245237] text-white px-6 py-3 rounded-md text-lg font-semibold shadow-lg hover:shadow-xl transition">
                         Ayo Bergabung
                     </a>
                 </div>

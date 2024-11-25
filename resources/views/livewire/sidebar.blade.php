@@ -10,9 +10,9 @@
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
                     <!-- Kontainer untuk SVG dan teks -->
-                    <div class="flex flex-col items-center gap-2 mt-3">
+                    <div class="flex flex-col items-center gap-2 mt-5">
                         <!-- SVG Gambar -->
-                        <img id="svg-img" src="{{ asset('assets/img/staff-adm.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
+                        <img id="svg-img" src="{{ asset('assets/img/staff.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
                         <!-- Teks -->
                         <a id="head" href="#home"
                         class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Pegawai
@@ -113,7 +113,7 @@
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
                     <!-- Kontainer untuk SVG dan teks -->
-                    <div class="flex flex-col items-center gap-2 mt-3">
+                    <div class="flex flex-col items-center gap-2 mt-5">
                         <!-- SVG Gambar -->
                         <img id="svg-img" src="{{ asset('assets/img/staff-adm.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
                         <!-- Teks -->
@@ -196,9 +196,9 @@
                     <img src="{{ asset('assets/img/logo.png') }}" alt=""
                         class="w-16 absolute pt-6 scale-0 transition duration-300 ease-in-out" id="logo-side">
                     <!-- Kontainer untuk SVG dan teks -->
-                    <div class="flex flex-col items-center gap-2 mt-3">
+                    <div class="flex flex-col items-center gap-2 mt-5">
                         <!-- SVG Gambar -->
-                        <img id="svg-img" src="{{ asset('assets/img/staff-adm.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
+                        <img id="svg-img" src="{{ asset('assets/img/kepsek.svg') }}" alt="jumlah total buku" class="w-16 h-16" />
                         <!-- Teks -->
                         <a id="head" href="#home"
                         class="transition-all duration-500 text-2xl font-semibold text-center pt-4 flex overflow-hidden">Dashboard
