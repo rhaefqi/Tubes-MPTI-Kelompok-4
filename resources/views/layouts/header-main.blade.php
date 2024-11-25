@@ -9,8 +9,8 @@
         <div class="lg:flex gap-24 hidden">
             <ul class="menu menu-horizontal flex gap-5 place-items-center justify-between">
                 <li><a href="{{ route('perpus') }}" class="text-lg font-bold text-[#006316]">Perpustakaan</a></li>
-                <li><a href="{{ route('landing.page') }}" class="text-lg font-bold text-[#006316]">Layanan</a></li>
-                <li><a href="{{ route('landing.page') }}" class="text-lg font-bold text-[#006316]">Tentang </a></li>
+                <li><a href="#layanan" class="text-lg font-bold text-[#006316]">Layanan</a></li>
+                <li><a href="#tentang" class="text-lg font-bold text-[#006316]">Tentang </a></li>
                 <!-- <li><a href="#kontak" class="text-lg font-bold text-[#006316]">Kontak</a></li> -->
                 {{-- <div class="flex gap-2 ml-16">
                     <a href="/login"
