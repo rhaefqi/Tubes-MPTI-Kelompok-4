@@ -4,7 +4,7 @@
         <div class="bg-white shadow-md rounded-lg p-4">
             <button x-data x-on:click="$dispatch('open-input')" class="mb-4 bg-primary text-white py-2 px-4 rounded"><i class="fa-solid fa-plus"></i>
                 Tambah Subjek
-            </button>
+            </button>   
             <x-input-modal title="Tambah Subjek">
                 <x-slot:body>
                     <livewire:create-subjek/>

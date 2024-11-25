@@ -10,9 +10,9 @@
         @endphp
     @endif
     {{-- <livewire:alert-success /> --}}
-    <div class="bg-white shadow-md rounded-lg p-4">
+    <div class="bg-white shadow-md rounded-lg px-4">
         {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
-        <div class="mb-4">
+        <div class="mb-6">
             <a href="{{ route('buku.tambah') }}" class=" bg-primary text-white py-2 px-4 rounded">
                 <i class="fa-solid fa-plus"></i> Tambah Buku
             </a>

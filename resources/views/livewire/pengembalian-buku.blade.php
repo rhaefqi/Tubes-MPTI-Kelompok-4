@@ -1,8 +1,8 @@
 <div>
     {{-- The whole world belongs to you. --}}
     {{-- <livewire:alert-success /> --}}
-    <div class="container mx-auto p-4 mt-5">
-        <div class="bg-white shadow-md rounded-lg p-4">
+    <div class="container mx-auto p-4 mt-2">
+        <div class="bg-white shadow-lg rounded-lg p-6">
             {{-- @dump($this->absens) --}}
             {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
             <div class="w-full flex flex-row justify-between">

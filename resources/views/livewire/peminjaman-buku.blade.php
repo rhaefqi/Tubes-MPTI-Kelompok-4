@@ -2,10 +2,10 @@
 {{-- Do your work, then step back. --}}
 {{-- </div> --}}
 <div class="container mx-auto p-4">
-    <div class="bg-white shadow-md rounded-lg p-4">
+    <div class="bg-white shadow-lg rounded-lg px-6 py-3">
         {{-- <h1 class="text-2xl font-bold mb-4 text-center">DATA BUKU</h1> --}}
         <div class="mb-4 h-fit">
-            <div class=" w-2/5 border-2 rounded-md border-primary h-fit">
+            <div class=" w-full border-2 rounded-md border-primary h-fit">
                 <h2 class="font-open text-primary font-semibold m-2 text-lg">Pinjaman Buku</h2>
                 <div class="mx-2 mb-2">
                     <table class="w-full">
