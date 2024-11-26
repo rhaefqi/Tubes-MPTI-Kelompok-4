@@ -3,7 +3,7 @@
 @section('title', 'Detail Buku | Perpustakaan Amaliyah')
 
 @section('content')
-<div class="flex flex-col w-full md:max-w-screen-lg mx-auto gap-10 my-10">
+<div class="flex flex-col w-full md:max-w-screen-lg mx-auto gap-10 mb-10 mt-4">
     <!-- Header Pencarian -->
     @include('layouts.search')
 
