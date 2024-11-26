@@ -14,15 +14,6 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([ // 1
-            'username' => 'andysaragih',
-            'status' => 'siswa',
-            'email' => 'andysaragih@gmail.com',
-            'no_hp' => '081234567890',
-            'photo_profile' => 'assets/img/andy.jpg',
-            'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('password')
-        ]);
 
         User::create([ // 2
             'username' => 'petugasperpus',
@@ -49,46 +40,6 @@ class UserTableSeeder extends Seeder
             'no_hp' => '081234567893',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('perpustakaan')
-        ]);
-
-        User::create([ // 5
-            'username' => 'rifqijabrah',
-            'status' => 'guru',
-            'email' => 'rifqijabrah@gmail.com',
-            'no_hp' => '081234567894',
-            'photo_profile' => 'assets/img/rifqi.jpg',
-            'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('password')
-        ]);
-        
-        User::create([ // 6
-            'username' => 'yohanamarbun',
-            'status' => 'siswa',
-            'email' => 'yohanamarbun@gmail.com',
-            'no_hp' => '081234567895',
-            'photo_profile' => 'assets/img/yohana.jpg',
-            'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('password')
-        ]);
-
-        User::create([ // 7
-            'username' => 'fadillahnst',
-            'status' => 'guru',
-            'email' => 'fadillahnst@gmail.com',
-            'no_hp' => '081234567896',
-            'photo_profile' => 'assets/img/fadillah.jpg',
-            'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('password')
-        ]);
-
-        User::create([ // 5
-            'username' => 'irvihavizi',
-            'status' => 'guru',
-            'email' => 'irvihavizi@gmail.com',
-            'no_hp' => '081234567800',
-            'photo_profile' => 'assets/img/irvi.jpg',
-            'email_verified_at' => Carbon::now(),
-            'password' => bcrypt('password')
         ]);
     }
 }

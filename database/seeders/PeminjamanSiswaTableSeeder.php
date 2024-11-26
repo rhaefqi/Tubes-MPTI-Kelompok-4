@@ -18,7 +18,7 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'buku_id' => 3,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-05-27'
+            'tanggal_pinjam' => '2024-11-22'
         ]);
 
         PeminjamanSiswa::create([
@@ -26,7 +26,7 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'buku_id' => 2,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-06-08'
+            'tanggal_pinjam' => '2024-11-21'
         ]);
 
         PeminjamanSiswa::create([
@@ -34,8 +34,8 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'buku_id' => 2,
             'jumlah_dipinjam' => 1,
             'status' => 'dikembalikan',
-            'tanggal_pinjam' => '2024-05-05',
-            'tanggal_kembali' => '2024-05-06'
+            'tanggal_pinjam' => '2024-11-11',
+            'tanggal_kembali' => '2024-11-13'
         ]);
 
         PeminjamanSiswa::create([
@@ -43,8 +43,8 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
             'status' => 'lewat_tenggat',
-            'tanggal_pinjam' => '2024-05-05',
-            'tanggal_kembali' => '2024-05-12'
+            'tanggal_pinjam' => '2024-11-11',
+            'tanggal_kembali' => '2024-11-17'
         ]);
 
         PeminjamanSiswa::create([
@@ -52,7 +52,7 @@ class PeminjamanSiswaTableSeeder extends Seeder
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_pinjam' => '2024-11-05',
         ]);
     }
 }

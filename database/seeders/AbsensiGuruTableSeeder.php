@@ -15,30 +15,30 @@ class AbsensiGuruTableSeeder extends Seeder
     {
         AbsensiGuru::create([
             'nip' => '123456789123456787',
-            'tanggal' => '2024-06-15',
+            'tanggal' => '2024-11-15',
             'jam' => '08:00:00'
         ]);
 
         AbsensiGuru::create([
             'nip' => '123456789123456787',
-            'tanggal' => '2024-06-14',
+            'tanggal' => '2024-11-14',
             'jam' => '08:00:00'
         ]);
 
         AbsensiGuru::create([
             'nip' => '123456789123456787',
-            'tanggal' => '2024-06-13',
+            'tanggal' => '2024-11-13',
             'jam' => '08:00:00'
         ]);
 
         AbsensiGuru::create([
             'nip' => '123456789123456788',
-            'tanggal' => '2024-06-14',
+            'tanggal' => '2024-11-14',
             'jam' => '08:00:00'
         ]);
         AbsensiGuru::create([
             'nip' => '123456789123456789',
-            'tanggal' => '2024-06-13',
+            'tanggal' => '2024-11-13',
             'jam' => '08:00:00'
         ]);
     }
