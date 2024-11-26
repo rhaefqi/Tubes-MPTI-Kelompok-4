@@ -64,7 +64,7 @@
             <!-- Loop Buku -->
             @foreach ($bukus as $buku)
             <div class="group flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-xl transform transition-transform duration-300 hover:scale-105">
-                <div class="relative h-52 w-full bg-[#D9D9D9] rounded-lg overflow-hidden">
+                <div class="relative h-80 w-full bg-[#D9D9D9] rounded-lg overflow-hidden">
                     <img src="{{ asset($buku->sampul_buku) }}" alt="{{ $buku->judul }}" class="w-full h-full object-cover">
                 </div>
                 <div class="mt-4 font-bold text-center text-[#245237] text-md truncate w-full">

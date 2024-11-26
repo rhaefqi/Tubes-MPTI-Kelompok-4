@@ -1,4 +1,4 @@
-<div class="container mx-auto px-4 my-10">
+<div class="container mx-auto px-4 mb-10 mt-4">
     <!-- Bagian Header Pencarian -->
     <div class="relative bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('{{ asset('assets/img/cari.jpg') }}'); height: 230px;">
         <div class="absolute inset-0 bg-black opacity-40"></div>
@@ -34,7 +34,7 @@
                     <div class="p-4 flex flex-col gap-2">
                         <h3 class="text-sm font-bold truncate">{{ $buku->judul }}</h3>
                         <p class="text-xs text-gray-600 truncate">{{ $buku->penulis }}</p>
-                        <span class="text-center py-1 text-xs font-bold rounded-md {{ $buku->jumlah_tersedia == 0 ? 'bg-red-500 text-white' : 'bg-[#F0C001] text-black' }}">
+                        <span class="text-center py-1 text-xs font-bold rounded-md {{ $buku->jumlah_tersedia == 0 ? 'bg-red-500 text-white' : 'bg-[#245237] text-white' }}">
                             {{ $buku->jumlah_tersedia == 0 ? 'Tidak Tersedia' : 'Tersedia' }}
                         </span>
                     </div>

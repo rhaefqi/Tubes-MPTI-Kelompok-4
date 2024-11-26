@@ -15,7 +15,7 @@ use PDO;
 class ViewController extends Controller
 {   
     public function showLanding(){
-        $bukus = Buku::orderBy('created_at')->limit(5)->get();
+        $bukus = Buku::orderBy('created_at')->limit(4)->get();
 
         $results = DB::table('view_absensi')
             ->select('nama', 'photo_profile', DB::raw('COUNT(nisn_nip) as jumlah'))
