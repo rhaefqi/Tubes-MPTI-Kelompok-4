@@ -15,73 +15,73 @@ class AbsensiSiswaTableSeeder extends Seeder
     {
         AbsensiSiswa::create([
             'nisn' => '0042123456',
-            'tanggal' => '2024-06-15',
+            'tanggal' => '2024-11-15',
             'jam' => '08:00:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123456',
-            'tanggal' => '2024-06-14',
+            'tanggal' => '2024-11-14',
             'jam' => '08:00:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123456',
-            'tanggal' => '2024-06-14',
+            'tanggal' => '2024-11-14',
             'jam' => '12:00:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123456',
-            'tanggal' => '2024-06-13',
+            'tanggal' => '2024-11-13',
             'jam' => '12:00:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123456',
-            'tanggal' => '2024-06-12',
+            'tanggal' => '2024-11-12',
             'jam' => '12:00:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123457',
-            'tanggal' => '2024-06-15',
+            'tanggal' => '2024-11-15',
             'jam' => '08:30:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123457',
-            'tanggal' => '2024-06-14',
+            'tanggal' => '2024-11-14',
             'jam' => '08:30:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123457',
-            'tanggal' => '2024-06-13',
+            'tanggal' => '2024-11-13',
             'jam' => '08:30:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123457',
-            'tanggal' => '2024-06-12',
+            'tanggal' => '2024-11-12',
             'jam' => '08:30:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123458',
-            'tanggal' => '2024-06-15',
+            'tanggal' => '2024-11-15',
             'jam' => '09:00:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123457',
-            'tanggal' => '2024-06-14',
+            'tanggal' => '2024-11-14',
             'jam' => '08:30:00'
         ]);
 
         AbsensiSiswa::create([
             'nisn' => '0042123458',
-            'tanggal' => '2024-06-13',
+            'tanggal' => '2024-11-13',
             'jam' => '09:00:00'
         ]);
     }

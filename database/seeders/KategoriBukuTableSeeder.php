@@ -24,5 +24,9 @@ class KategoriBukuTableSeeder extends Seeder
         KategoriBuku::create([
             'kategori' => 'Motivasi'
         ]);
+
+        KategoriBuku::create([
+            'kategori' => 'Bebas'
+        ]);
     }
 }

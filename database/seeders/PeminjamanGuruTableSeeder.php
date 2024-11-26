@@ -18,7 +18,7 @@ class PeminjamanGuruTableSeeder extends Seeder
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_pinjam' => '2024-11-05',
         ]);
 
         PeminjamanGuru::create([
@@ -26,7 +26,7 @@ class PeminjamanGuruTableSeeder extends Seeder
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_pinjam' => '2024-11-03',
         ]);
 
         PeminjamanGuru::create([
@@ -34,7 +34,7 @@ class PeminjamanGuruTableSeeder extends Seeder
             'buku_id' => 1,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_pinjam' => '2024-11-02',
         ]);
 
         PeminjamanGuru::create([
@@ -42,7 +42,7 @@ class PeminjamanGuruTableSeeder extends Seeder
             'buku_id' => 2,
             'jumlah_dipinjam' => 1,
             'status' => 'dipinjam',
-            'tanggal_pinjam' => '2024-05-05',
+            'tanggal_pinjam' => '2024-11-01',
         ]);
     }
 }

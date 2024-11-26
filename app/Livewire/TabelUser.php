@@ -47,8 +47,7 @@ class TabelUser extends Component
 
     #[Computed()]
     public function users(){
-        return User::where('id', '!=', 1)
-                    ->whereIn('status', ['siswa', 'pegawai', 'guru'])
+        return User::whereIn('status', ['siswa', 'pegawai', 'guru'])
                     ->latest()
                 ->paginate(20);
     }

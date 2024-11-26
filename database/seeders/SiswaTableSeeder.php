@@ -19,25 +19,62 @@ class SiswaTableSeeder extends Seeder
             'tingkat' => 'MA',
             'kelas' => 'XII',
             'jenis_kelamin' => 'L',
-            'user_id' => 1
         ]);
 
         Siswa::create([
             'nisn' => '0042123457',
-            'nama' => 'Yohana Marito Marbun',
+            'nama' => 'Ruth Grace Arlyana Manurung',
             'tingkat' => 'MTs',
             'kelas' => 'IX',
             'jenis_kelamin' => 'P',
-            'user_id' => 6
         ]);
 
         Siswa::create([
             'nisn' => '0042123458',
-            'nama' => 'Devandra Deal Fatahillah',
+            'nama' => 'Fadhil Muhammad Lubis',
             'tingkat' => 'MA',
             'kelas' => 'X',
             'jenis_kelamin' => 'L',
-            'user_id' => 1
+        ]);
+
+        Siswa::create([
+            'nisn' => '0042123459',
+            'nama' => 'Dinda Ayu Pratiwi',
+            'tingkat' => 'MA',
+            'kelas' => 'X',
+            'jenis_kelamin' => 'P',
+        ]);
+        
+        Siswa::create([
+            'nisn' => '0042123460',
+            'nama' => 'Rizky Ahmad Saputra',
+            'tingkat' => 'MA',
+            'kelas' => 'XI',
+            'jenis_kelamin' => 'L',
+        ]);
+        
+        Siswa::create([
+            'nisn' => '0042123461',
+            'nama' => 'Siti Nur Aisyah',
+            'tingkat' => 'MA',
+            'kelas' => 'XII',
+            'jenis_kelamin' => 'P',
+        ]);
+        
+        Siswa::create([
+            'nisn' => '0042123462',
+            'nama' => 'Bagus Tri Purnama',
+            'tingkat' => 'MA',
+            'kelas' => 'XI',
+            'jenis_kelamin' => 'L',
+        ]);
+        
+        Siswa::create([
+            'nisn' => '0042123463',
+            'nama' => 'Putri Ananda Salsabila',
+            'tingkat' => 'MA',
+            'kelas' => 'X',
+            'jenis_kelamin' => 'P',
         ]);
     }
 }

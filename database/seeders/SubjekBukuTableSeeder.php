@@ -22,6 +22,26 @@ class SubjekBukuTableSeeder extends Seeder
         ]);
 
         SubjekBuku::create([
+            'subjek' => 'Biologi'
+        ]);
+
+        SubjekBuku::create([
+            'subjek' => 'Ekonomi'
+        ]);
+
+        SubjekBuku::create([
+            'subjek' => 'Kewarganegaraan'
+        ]);
+
+        SubjekBuku::create([
+            'subjek' => 'Seni'
+        ]);
+
+        SubjekBuku::create([
+            'subjek' => 'Olahraga'
+        ]);
+
+        SubjekBuku::create([
             'subjek' => 'Matematika'
         ]);
 

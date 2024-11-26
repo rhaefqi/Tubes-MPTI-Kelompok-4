@@ -139,9 +139,10 @@ class PengembalianBuku extends Component
         foreach ($counts as $count) {
             // dd(Carbon::now());
             $dateRaw = $count->tanggal_pinjam;
-            $date = Carbon::parse($dateRaw)->toDateString();
+            $date = Carbon::parse($dateRaw);
+            $newDate = $date->addDays(5)->toDateString();
             
-            if ($date < $currentDate) {
+            if ($newDate < $currentDate) {
                 // return "Tanggal $dateFromDatabase lebih lama dari tanggal sekarang.";
                 if($count->tingkat == 'guru'){
                     PeminjamanGuru::where('nip', $count->nisn_nip)->where('buku_id', $count->buku_id)->where('tanggal_pinjam', $count->tanggal_pinjam)->update([

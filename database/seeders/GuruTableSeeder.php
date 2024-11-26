@@ -18,7 +18,6 @@ class GuruTableSeeder extends Seeder
             'nama' => 'Temp Guru',
             'tingkat' => 'MA',
             'jenis_kelamin' => 'L',
-            'user_id' => '1'
         ]);
 
         Guru::create([
@@ -26,7 +25,6 @@ class GuruTableSeeder extends Seeder
             'nama' => 'Rifqi Jabrah Rhae',
             'tingkat' => 'MA',
             'jenis_kelamin' => 'L',
-            'user_id' => '5'
         ]);
 
         Guru::create([
@@ -34,7 +32,6 @@ class GuruTableSeeder extends Seeder
             'nama' => 'Fadillah Emilia Nst',
             'tingkat' => 'MA',
             'jenis_kelamin' => 'P',
-            'user_id' => '7'
         ]);
 
         Guru::create([
@@ -42,7 +39,6 @@ class GuruTableSeeder extends Seeder
             'nama' => 'Muhammad Irvi Hafizi',
             'tingkat' => 'MTs',
             'jenis_kelamin' => 'L',
-            'user_id' => '8'
         ]);
     }
 }
